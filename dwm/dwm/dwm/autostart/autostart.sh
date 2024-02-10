@@ -15,11 +15,13 @@ cron&
 
 
 # start process
-# cfw & # clash for windows
 # crow & # translate
-# blueman-manager & # bluetooth manager
 # copyq & # copy software
+xfce4-power-manager&
+redshift&
+xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh"&
 dunst&
+fcitx5&
 
 picom --experimental-backends& 
 
