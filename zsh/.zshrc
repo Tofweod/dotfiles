@@ -35,8 +35,6 @@ export EDITOR=nvim
 
 export PATH="$PATH:/home/tofweod/pintos/src/utils:/home/tofweod/.local/bin"
 
-export LSCOLORS="exfxcxdxbxexexabagacad"
-
 
 # alias
 # color output
