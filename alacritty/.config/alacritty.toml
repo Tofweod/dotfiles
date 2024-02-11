@@ -80,7 +80,7 @@ family = "Monaco"
 style = "Italic"
 
 [font.normal]
-family = "Monaco"
+family = "Monaco Nerd Font"
 style = "Regular"
 
 [window.dimensions]

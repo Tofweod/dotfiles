@@ -134,7 +134,7 @@ static const char scratchpadname[] = "scratchpad";
 //            ﮸  ﭮ 切  ﬐ // 增补图标
 //            
 //=============================================================================
-static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "","", "󰎄","󰄨","󰽽" };
+static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "","", "󰎄","󰎼","󰽽" };
 
 
 //=============================================================================
@@ -367,6 +367,7 @@ static Key keys[] = {
     { MODKEY,              XK_e,        spawn,   SHCMD("alacritty -e ranger") }, // 打开资源管理器
     // { MODKEY,              XK_e,        spawn,   SHCMD("nautilus .") }, // 打开资源管理器
     { MODKEY,              XK_BackSpace,spawn,   SHCMD("playerctl play-pause") },// audio play/pause
+    { MODKEY,              XK_t,        spawn,   SHCMD("alacritty -t statusutil --class floatingTerminal -e btop")},
 //-----------------------------------------------------------------------------
     // TODO:
     { MODKEY,              XK_q,  ToggleShowHideWindows,    {.v="QQ"} },          
@@ -412,7 +413,7 @@ static Key keys[] = {
     TAGKEYS(XK_0, 5,  "alacritty")
     TAGKEYS(XK_c, 6,  "firefox") 
     TAGKEYS(XK_m, 7,  "/opt/YesPlayMusic/yesplaymusic")
-    TAGKEYS(XK_t, 8,  "alacritty -t statusutil -e btop")
+    // TAGKEYS(XK_t, 8,  "alacritty -t statusutil -e btop")
 //-----------------------------------------------------------------------------
     //TAGKEYS(XK_0, 8,  "linuxqq")
     //TAGKEYS(XK_w, 9,  "/opt/apps/com.qq.weixin.deepin/files/run.sh")
