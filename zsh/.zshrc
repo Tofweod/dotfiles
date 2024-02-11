@@ -24,10 +24,6 @@ export PATH="$PATH:/home/tofweod/pintos/src/utils:/home/tofweod/.local/bin"
 
 
 # alias
-# color output
-alias ls='ls --color=tty'
-alias grep='grep --color=auto'
-
 alias clc='clear -x'
 
 alias d='dirs -v'
@@ -97,6 +93,9 @@ zinit snippet OMZ::plugins/extract
 zinit ice lucid wait='1'
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
+zinit load 'zsh-users/zsh-history-substring-search'
+zinit ice wait atload'_history_substring_search_config'
+
 # 主题
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -110,12 +109,12 @@ zinit as="null" wait="1" lucid from="gh-r" for \
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh'
-zinit ice as="completion"
-zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/fd/_fd'
 
-# 不需要花里胡哨的 ls，我们有更花里胡哨的 eza
 DISABLE_LS_COLORS=true
 alias ls=eza
 # 配置 fzf 使用 fd
 export FZF_DEFAULT_COMMAND='fd --type f'
 # ---- 加载完了 ----
+
+bindkey -M vicmd '^P' history-substring-search-up
+bindkey -M vicmd '^N' history-substring-search-down
