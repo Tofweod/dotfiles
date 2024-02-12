@@ -36,6 +36,11 @@ alias te='trash-empty'
 
 alias trs='trash-restore'
 
+# default open with nvidia
+alias mpv='prime-run mpv'
+
+alias firefox='prime-run firefox'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

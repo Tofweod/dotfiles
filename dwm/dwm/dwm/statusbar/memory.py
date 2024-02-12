@@ -48,6 +48,7 @@ def click(string='') :
     case 'M':
       pass
     case 'R':
+      statusutil()
       pass
     case 'U':
       pass
@@ -57,6 +58,10 @@ def click(string='') :
 
 def notify(string='') :
   pass
+
+def statusutil(string=''):
+  cmd='alacritty -t statusutil --class floatingTerminal -e btop'
+  os.system(cmd)
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:

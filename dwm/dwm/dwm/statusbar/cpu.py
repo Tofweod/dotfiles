@@ -52,6 +52,10 @@ def notify(string='') :
   cmd="notify-send \"  CPU tops\"  \"$(ps axh -o cmd,%cpu --sort=-%cpu | head | grep -v -E 'dwm|ps' | awk '{printf \"%s %.1f\\n\",$1,$NF}' | sed 's/$/&%/g' )\""+" -r 1024"
   os.system(cmd)
 
+def statusutil(string=''):
+  cmd='alacritty -t statusutil --class floatingTerminal -e btop'
+  os.system(cmd)
+
 def click(string='') :
   match string:
     case 'L':
@@ -59,6 +63,7 @@ def click(string='') :
     case 'M':
       pass
     case 'R':
+      statusutil()
       pass
     case 'U':
       pass
