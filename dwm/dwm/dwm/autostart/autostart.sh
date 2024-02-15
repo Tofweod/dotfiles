@@ -22,6 +22,7 @@ redshift&
 xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh"&
 dunst&
 fcitx5&
+qbittorrent&
 
 picom --experimental-backends& 
 

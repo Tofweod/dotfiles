@@ -119,7 +119,7 @@ static const char *showhidewindows[] = {
 static const char *autostartscript = "~/dwm/dwm/autostart/autostart.sh";
 //-----------------------------------------------------------------------------
 //                     状态栏启动脚本
-static const char *statusbarscript = "~/dwm/dwm/statusbar/statusbar.py";//gxt_kt
+static const char *statusbarscript = "~/dwm/dwm/statusbar/statusbar.py";//
 
 
 

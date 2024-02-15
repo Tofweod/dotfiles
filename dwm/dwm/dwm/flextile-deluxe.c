@@ -747,7 +747,7 @@ flextile(Monitor *m)
 	}
 	#endif // VANITYGAPS_PATCH && !VANITYGAPS_MONOCLE_PATCH
 
-  // gxt_kt set the gap
+  //  set the gap
   ov=gappo;
   oh=gappo;
   ih=gappi;

@@ -39,7 +39,21 @@ alias trs='trash-restore'
 # default open with nvidia
 alias mpv='prime-run mpv'
 
-alias firefox='prime-run firefox'
+# alias firefox='prime-run firefox'
+
+
+# ranger settings
+ranger_cd() {
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
+
+
+alias rr='ranger_cd'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

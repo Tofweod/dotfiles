@@ -408,7 +408,7 @@ struct tag_switch{
 typedef struct tag_switch tag_switch;
 typedef struct Pertag Pertag;
 struct Monitor {
-  tag_switch tag_res; // gxt_kt
+  tag_switch tag_res; // 
 	char ltsymbol[16];
 	float mfact;
 	int nmaster;
@@ -660,7 +660,7 @@ buttonpress(XEvent *e)
     int status_w = drawstatusbar(selmon, bh, stext);
     int system_w = getsystraywidth();
     // if (ev->window == selmon->barwin || (!c && selmon->showbar && (topbar ? ev->y <= selmon->wy : ev->y >= selmon->wy + selmon->wh))) { // 点击在bar上
-															// // gxt_kt
+															// // 
     if (ev->window == selmon->barwin) { // 点击在bar上
         i = x = 0;
         blw = TEXTW(selmon->ltsymbol);
@@ -1005,7 +1005,7 @@ createmon(void)
         m->pertag->showbars[i] = m->showbar;
     }
 
-    // gxt_kt
+    // 
     m->tag_res.tag_restore[0]=1; // 2**0
     for(int i=1;i<RESTORE_TAG_MAXNUM;i++) {
       m->tag_res.tag_restore[i]=0;
@@ -1093,7 +1093,7 @@ drawbar(Monitor *m)
         if (ISVISIBLE(c))
             n++;
 
-        // gxt_kt resolve scratchpad and show vacant tag icon bug
+        //  resolve scratchpad and show vacant tag icon bug
         if (strcmp(c->name, scratchpadname) != 0) {
             occ |= c->tags == TAGMASK ? 0 : c->tags;
         }
@@ -1883,7 +1883,7 @@ hide(Client *c) {
     XSelectInput(dpy, w, ca.your_event_mask);
     XUngrabServer(dpy);
 
-    //gxt_kt resolve bug
+    // resolve bug
     if (c->is_showhidewindows==false ) { 
       hiddenWinStack[++hiddenWinStackTop] = c;
     } 
@@ -1958,7 +1958,7 @@ keypress(XEvent *e)
             keys[i].func(&(keys[i].arg));
 }
 
-// gxt_kt 维护一个变量，如果是从强制kill函数来的，就不去检索是否在禁止kill数组里面
+//  维护一个变量，如果是从强制kill函数来的，就不去检索是否在禁止kill数组里面
 // 换句话说，普通kill会检查，强制kill不会。
 unsigned char if_forcekill2kill =0;
 
@@ -1971,10 +1971,10 @@ killclient(const Arg *arg)
     if (!selmon->sel)
         return;
 
-    // gxt_kt
+    // 
     if (if_forcekill2kill == 0) { // from forcekill to kill
     
-        // gxt_kt 
+        //  
         if(ShowHideWindows(arg)) return;
 
         c = selmon->clients;
@@ -2018,7 +2018,7 @@ forcekillclient(const Arg *arg)
     if (!selmon->sel)
         return;
 
-    // gxt_kt
+    // 
     if_forcekill2kill = 1; 
     
     killclient(arg);
@@ -2107,7 +2107,7 @@ managefloating(Client *c)
             while (d2 == 0) d2 = rand()%7 - 3;
         }
     }
-  //gxt_kt 浮动窗口也要指定好tag
+  // 浮动窗口也要指定好tag
   c->tags=selmon->tagset[c->mon->seltags];
 }
 
@@ -2557,13 +2557,13 @@ restoreSession(void)
 	remove(SESSION_FILE);
 }
 
-//gxt_kt
+//
 void saveTagSession() {
 	FILE *fw = fopen(SESSION_TAG_FILE, "w");
   fprintf(fw, "%d\n", selmon->sel->tags);
 	fclose(fw);
 }
-//gxt_kt
+//
 void restoreTagSession() {
 	FILE *fr = fopen(SESSION_TAG_FILE, "r");
 	if (!fr)
@@ -3035,7 +3035,7 @@ setlayout(const Arg *arg)
     if (arg->v) 
         selmon->lt[selmon->sellt] = selmon->pertag->ltidxs[selmon->pertag->curtag][selmon->sellt] = (Layout *)arg->v;
 
-  // gxt_kt
+  // 
 	if (selmon->lt[selmon->sellt]->preset.nmaster && selmon->lt[selmon->sellt]->preset.nmaster != -1)
 		selmon->nmaster = selmon->lt[selmon->sellt]->preset.nmaster;
 	if (selmon->lt[selmon->sellt]->preset.nstack && selmon->lt[selmon->sellt]->preset.nstack != -1)
@@ -3212,7 +3212,7 @@ show(Client *c)
     XMapWindow(dpy, c->win);
     setclientstate(c, NormalState);
 
-    // gxt_kt resolve bug
+    //  resolve bug
     if (c->is_showhidewindows==false) {
       hiddenWinStackTop--;
     }
@@ -3907,7 +3907,7 @@ updatetitle(Client *c)
     if (c->name[0] == '\0') /* hack to mark broken clients */
         strcpy(c->name, broken);
 
-  // gxt_kt  解决打断隐藏窗口bug
+  //   解决打断隐藏窗口bug
   c->is_showhidewindows=false;
   int nums = LENGTH(showhidewindows);
   for (int i = 0; i < nums; i++) {
@@ -4607,7 +4607,7 @@ main(int argc, char *argv[])
     
     // gDebug("restoreSession");
 	  restoreSession();// restoreafterrestart
-    restoreTagSession();// gxt_kt
+    restoreTagSession();// 
     run();
     // if(restart) execvp(argv[0], argv);
     if(restart) execvp(argv[0], argv); // 重启不删除文件
