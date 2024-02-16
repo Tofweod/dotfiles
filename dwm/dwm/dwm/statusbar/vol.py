@@ -26,7 +26,6 @@ name=re.sub("\..*",'',filename)
 vol_text="--"
 vol_icon="ﱝ"
 mute=""
-sink=""
 
 
 # ref: https://github.com/TheWeirdDev/Bluetooth_Headset_Battery_Level
@@ -96,7 +95,6 @@ def get_vol_content():
   global vol_text
   global vol_icon
   global mute
-  global sink
 
   # cmd="echo $(pactl info | grep 'Default Sink' | awk '{print $3}')"
   # result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
@@ -106,18 +104,17 @@ def get_vol_content():
   # result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
   # volumuted=str(result.stdout.decode('utf-8').replace('\n',''))
 
-  cmd = "echo $(pactl info | grep 'Default Sink' | awk -F':' '{print $2}')"
-  result = subprocess.run(cmd,shell=True,timeout=3,stderr=subprocess.PIPE,stdout=subprocess.PIPE)
-  sink=str(result.stdout.decode('utf-8'))
+  # cmd = "echo $(pactl info | grep 'Default Sink' | awk -F':' '{print $2}')"
+  # result = subprocess.run(cmd,shell=True,timeout=3,stderr=subprocess.PIPE,stdout=subprocess.PIPE)
+  # sink=str(result.stdout.decode('utf-8'))
 
-  cmd = "echo $(pactl list sinks | grep -A 10 \"" + sink + "\" | grep 'Volume' | sed -n '1p' | awk -F '/' '{print int($2)}')"
+  cmd = "echo $(pactl get-sink-volume @DEFAULT_SINK@ | sed -n '1p' | awk -F '/' '{print int($2)}')"
   result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
   vol_text=str(result.stdout.decode('utf-8').replace('\n',''))
 
-  cmd = "echo $(pactl list sinks | grep -A 10 \"" + sink + "\" | grep 'Mute' | awk '{print $2}')"
+  cmd = "echo $(pactl get-sink-mute @DEFAULT_SINK@ | awk -F ':' '{print $2}')"
   result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
   mute=str(result.stdout.decode('utf-8').replace('\n',''))
-  mute=mute.split()[0]
 
 
   if False:
@@ -171,11 +168,11 @@ def click(string='') :
       notify()
       pass
     case 'M':
-      os.system("pactl set-sink-mute @DEFAULT_SINK@ toggle")
-      notify()
+      os.system("killall pavucontrol || pavucontrol --class floatingTerminal &")
       pass
     case 'R':
-      os.system("killall pavucontrol || pavucontrol --class floatingTerminal &")
+      os.system("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+      notify()
       pass
     case 'U':
       pass
