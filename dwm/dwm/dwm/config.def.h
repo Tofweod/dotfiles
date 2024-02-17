@@ -413,7 +413,7 @@ static Key keys[] = {
     TAGKEYS(XK_8, 7,  0)
     TAGKEYS(XK_9, 8,  0)
     TAGKEYS(XK_0, 5,  "alacritty")
-    TAGKEYS(XK_c, 6,  "firefox") 
+    TAGKEYS(XK_c, 6,  "/bin/zsh -c 'prime-run firefox'") 
     TAGKEYS(XK_m, 7,  "/opt/YesPlayMusic/yesplaymusic")
     // TAGKEYS(XK_t, 8,  "alacritty -t statusutil -e btop")
 //-----------------------------------------------------------------------------

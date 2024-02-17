@@ -39,7 +39,7 @@ alias trs='trash-restore'
 # default open with nvidia
 alias mpv='prime-run mpv'
 
-# alias firefox='prime-run firefox'
+alias firefox='prime-run firefox'
 
 
 # ranger settings
