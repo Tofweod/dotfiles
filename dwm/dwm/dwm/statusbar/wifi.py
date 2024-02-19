@@ -82,7 +82,7 @@ def notify(string='') :
       cmd="echo $(awk '/^\s*w/ { print int($3 * 100 / 70)}' /proc/net/wireless)"
       result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
       wifi_signal=int(result.stdout.decode('utf-8').replace('\n',''))
-      cmd="echo $(nmcli -t -f name,device connection show --active | grep wlan0 | cut -d\: -f1)"
+      cmd="echo $(nmcli -t -f name,device connection show --active | grep -E 'wlan0|wlo1' | cut -d\: -f1)"
       result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
       wifi_name=result.stdout.decode('utf-8').replace('\n','')
       cmd="notify-send 'Wifi connected' "+"'Wifi name : "+str(wifi_name)+"\nSignal strength : "+str(wifi_signal)+"'"+" -r 1025"

@@ -22,6 +22,8 @@ export EDITOR=nvim
 
 export PATH="$PATH:/home/tofweod/pintos/src/utils:/home/tofweod/.local/bin"
 
+export BAT_THEME="ansi"
+
 
 # alias
 alias clc='clear -x'
@@ -35,6 +37,10 @@ alias tl='trash-list'
 alias te='trash-empty'
 
 alias trs='trash-restore'
+
+alias ytdlp='yt-dlp --cookies-from-browser firefox'
+
+alias j='z'
 
 # default open with nvidia
 alias mpv='prime-run mpv'

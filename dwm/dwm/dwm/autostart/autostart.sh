@@ -17,14 +17,22 @@ cron&
 # start process
 # crow & # translate
 # copyq & # copy software
-xfce4-power-manager&
-redshift&
-xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh"&
-dunst&
-fcitx5&
-qbittorrent&
+xfce4-power-manager > /dev/null 2>&1 &
+redshift > /dev/null 2>&1 &
+xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh" > /dev/null 2>&1 &
+dunst > /dev/null 2>&1 &
+fcitx5 > /dev/null 2>&1 &
+qbittorrent > /dev/null 2>&1 &
 
-picom --experimental-backends& 
+picom --animations& 
+
+# start btop at secondary screen
+# 检测屏幕是否连接且不是主屏幕，此处指定为eDP
+output=$(xrandr | rg 'eDP.*connected' | rg -v 'primary')
+
+if ! [[ -z "$output" ]]; then
+	alacritty -t statusutil --class floatingTerminal -e btop > /dev/null 2>&1 &
+fi
 
 
 pkill -f statusbar.py

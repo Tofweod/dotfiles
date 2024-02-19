@@ -164,8 +164,8 @@ static const Rule rules[] = {
     {"Nitrogen",    NULL,       NULL,      TAGMASK,     1,         0,        0,        -1},
     {NULL,          NULL,     "图片查看",  TAGMASK,     1,         0,        0,        -1},  // qq image preview title
     {NULL,          NULL, "Image Preview", TAGMASK,     1,         0,        0,        -1},  // wechat image preview title
-    {NULL,          NULL,"Bluetooth Devices",TAGMASK,   1,         0,        0,        -1},  // bluetooth manager
-    {NULL,          NULL,"Clash for Windows",TAGMASK,   1,         0,        0,        -1},  // 
+    // {NULL,          NULL,"Bluetooth Devices",TAGMASK,   1,         0,        0,        -1},  // bluetooth manager
+    // {NULL,          NULL,"Clash for Windows",TAGMASK,   1,         0,        0,        -1},  // 
     {NULL,          NULL,       "QQ",      TAGMASK,     1,         0,        0,        -1},  // 
     {NULL,          NULL,       "钉钉",    TAGMASK,     1,         0,        0,        -1},  // 
     {NULL,          NULL,       "WeChat",  TAGMASK,     1,         0,        0,        -1},  // 
@@ -173,8 +173,8 @@ static const Rule rules[] = {
     // {"dingtalk",   NULL,    NULL,      TAGMASK, 1,          1,          0, -1 }, 
     // {"com.alibabainc.dingtalk",    NULL,  NULL, TAGMASK, 1,  1,  0,  -1 }, 
     // {"tblive",  NULL,     NULL,  TAGMASK, 1, 1,0,        -1 }, 
-    // { NULL, NULL, "broken", TAGMASK,   1, 0, 0,    -1 }, // qq upload file's win is broken 
-    // { NULL, NULL, "图片预览",  0,  1,   0,   0,  -1 },
+    { NULL, NULL, "broken", TAGMASK,   1, 0, 0,    -1 }, // qq upload file's win is broken 
+    { NULL, NULL, "图片预览",  0,  1,   0,   0,  -1 },
 
 //-----------------------------------------------------------------------------
     // 以下适用于无边框，浮动窗口，全局显示，请勿更改

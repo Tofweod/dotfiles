@@ -67,9 +67,9 @@ class fzf_select(Command):
         import subprocess
         import os.path
         if self.quantifier:
-            command='fd --type d --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build} | fzf +m'
+            command='fd --type d --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf +m'
         else:
-            command='fd --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build} | fzf +m'
+            command='fd --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf +m'
         fzf = self.fm.execute_command(command,universal_newlines=True,stdout=subprocess.PIPE)
         stdout,stderr = fzf.communicate()
         if fzf.returncode == 0:
