@@ -58,8 +58,18 @@ ranger_cd() {
     rm -f -- "$temp_file"
 }
 
-
 alias rr='ranger_cd'
+
+
+# fzf search
+fzf_select_dir() {
+  dir=$(fd --type d --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf)
+  if [[ -n $dir ]];then
+    cd $dir
+  fi
+}
+
+alias ff='fzf_select_dir'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
