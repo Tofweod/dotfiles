@@ -30,6 +30,8 @@ alias clc='clear -x'
 
 alias d='dirs -v'
 
+alias date='date +%Y-%m-%d\ %H:%M:%S'
+
 alias v='nvim'
 
 alias tl='trash-list'
