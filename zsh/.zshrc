@@ -62,16 +62,35 @@ ranger_cd() {
 
 alias rr='ranger_cd'
 
-
-# fzf search
-fzf_select_dir() {
-  dir=$(fd --type d --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf)
-  if [[ -n $dir ]];then
-    cd $dir
+open_file() {
+  res=$1
+  type=$(file -b $res)
+  if [[ $type =~ "text" ]];then
+    v $res
+  elif [[ $type =~ "PNG|JPEG|JPG" ]]; then
+    ristretto $res
+  elif [[ $type =~ "PDF" ]]; then
+    zathura --fork $res
+  elif [[ $type =~ "symbolic link" ]];then
+    res=$(readlink -f $res)
+    open_file $res
   fi
 }
 
-alias ff='fzf_select_dir'
+# fzf search
+fzf_select() {
+  res=$(fd --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf)
+
+  if [[ -z $res ]];then
+    return
+  elif [[ -d $res ]]; then
+    cd $res
+  fi
+
+  open_file $res
+}
+
+alias ff='fzf_select'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

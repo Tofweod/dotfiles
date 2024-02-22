@@ -13,6 +13,11 @@ cron() {
 }
 cron&
 
+# start autostart shells
+for file in ~/.config/autostart/*.sh; do
+  "$file" # execute
+done
+
 
 # start process
 # crow & # translate
