@@ -11,7 +11,7 @@ LAPTOP_DISPLAY="eDP"
 PRIMARY_DISPLAY="HDMI-A-0"
 
 xrandr --output "$PRIMARY_DISPLAY" --mode 1920x1080 --rate 120 --primary
-xrandr --output "$LAPTOP_DISPLAY" --right-of "$PRIMARY_DISPLAY"
+xrandr --output "$LAPTOP_DISPLAY" --right-of "$PRIMARY_DISPLAY" --auto
 
 #nitrogen
 nitrogen --restore &

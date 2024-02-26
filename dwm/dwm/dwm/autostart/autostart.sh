@@ -28,16 +28,24 @@ xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh" > /dev/null 2>&1 &
 dunst > /dev/null 2>&1 &
 fcitx5 > /dev/null 2>&1 &
 qbittorrent > /dev/null 2>&1 &
+onedrive --monitor > /dev/null 2>&1 &
 
 picom --animations& 
 
-# start btop at secondary screen
-# 检测屏幕是否连接且不是主屏幕，此处指定为eDP
-output=$(xrandr | rg 'eDP.*connected' | rg -v 'primary')
-
-if ! [[ -z "$output" ]]; then
-	alacritty -t statusutil --class floatingTerminal -e btop > /dev/null 2>&1 &
-fi
+# # start btop at secondary screen
+# # 检测屏幕是否连接且不是主屏幕，此处指定为eDP
+# output=$(xrandr | rg 'eDP.*connected' | rg -v 'primary')
+#
+# if ! [[ -z "$output" ]]; then
+#     p_info=$(xrandr | grep -w "connected" | awk 'NR==2')
+#     l_width=$(xrandr | grep -w "connected" | awk 'NR==1' | awk '{print $3}' | cut -d 'x' -f1)
+#     p_width=$(echo $p_info | awk '{print $4}' | cut -d 'x' -f1)
+#     p_height=$(echo $p_info | awk '{print $4}' | cut -d 'x' -f2)
+#     xdotool mousemove ${p_width}+${l_width}/2 ${p_height}
+# 	  alacritty -t statusutil --class floatingTerminal -e btop > /dev/null 2>&1 &
+#     sleep 0.3
+#     xdotool mousemove 0 0
+# fi
 
 
 pkill -f statusbar.py

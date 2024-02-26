@@ -92,6 +92,17 @@ fzf_select() {
 
 alias ff='fzf_select'
 
+get_md5() {
+  if [[ -z "$1" ]];then
+    # TODO:
+    return
+  fi
+  md5=$(echo $1 | md5sum | awk '{print $1}')
+  echo $md5
+}
+
+alias md5='get_md5'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
