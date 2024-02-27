@@ -94,8 +94,8 @@ alias ff='fzf_select'
 
 get_md5() {
   if [[ -z "$1" ]];then
-    # TODO:
-    return
+    echo "No arguments..."
+    return 2
   fi
   md5=$(echo $1 | md5sum | awk '{print $1}')
   echo $md5
