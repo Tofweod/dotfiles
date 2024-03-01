@@ -32,8 +32,8 @@ def get_music_title():
     cmd = "echo $(playerctl -p yesplaymusic metadata | grep -E 'title|artist' | awk  '{for(i=3;i<NF;i++){printf \"%s \",$i};printf \"%s/03\",$i}')" # /03 special asc2 code
     result = subprocess.run(cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     title=result.stdout.decode('utf-8').replace('/03','-')
-    # title=title.replace("'","") # 解决一些歌曲带'的问题
-    # title=title.replace("\"","")
+    title=title.replace("'","") # 解决一些歌曲带'的问题
+    title=title.replace("\"","")
     title=title[:-2]
     return (title)
 

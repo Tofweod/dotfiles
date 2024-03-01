@@ -296,7 +296,7 @@ static Key keys[] = {
 //=============================================================================
     { MODKEY,              XK_d,       hidewin,           {0} },          // 隐藏窗口
     { MODKEY|ShiftMask,    XK_d,       restorewin,        {0} },          // 取消隐藏窗口
-    { MODKEY|ControlMask,  XK_d,       view,              {.ui= 1 << 10}},// 跳转到桌面
+    { MODKEY|ControlMask,  XK_d,       ShowHideWindows,              {0}},// 跳转到桌面
 //-----------------------------------------------------------------------------
     { MODKEY,              XK_z,       showonlyorall,     {0} },          // 单窗口
     { MODKEY,              XK_F11,     fullscreen,        {0} },          // 开启/关闭 全屏

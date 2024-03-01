@@ -134,7 +134,7 @@ struct Client {
     int taskw;
 	unsigned int tags;
 	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isglobal, isnoborder, isscratchpad;
-  bool is_showhidewindows=false;
+    bool is_showhidewindows=false;
 	Client *next;
 	Client *snext;
 	Monitor *mon;

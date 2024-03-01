@@ -57,9 +57,9 @@ def write_to_file(string,package_name):
   with open(TEMP_FILE, 'w+') as f:
     find=False
     for line in lines :
-      if re.match("^\^s",line) == None :
+      if re.match("^\\^s",line) == None :
         continue
-      flag=re.match("^\^s"+package_name,line)
+      flag=re.match("^\\^s"+package_name,line)
       if flag==None :
         f.write(line)
       else :
