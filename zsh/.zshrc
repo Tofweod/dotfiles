@@ -44,6 +44,8 @@ alias ytdlp='yt-dlp --cookies-from-browser firefox'
 
 alias j='z'
 
+alias du='dust'
+
 # default open with nvidia
 alias mpv='prime-run mpv'
 
@@ -176,6 +178,10 @@ zinit as="null" wait="1" lucid from="gh-r" for \
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh'
+
+#mcfly
+zinit ice lucid wait"0a" from"gh-r" as"program" atload'eval "$(mcfly init zsh)"'
+zinit light cantino/mcfly
 
 DISABLE_LS_COLORS=true
 alias ls=eza
