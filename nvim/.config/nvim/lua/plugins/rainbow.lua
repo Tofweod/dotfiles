@@ -1,6 +1,6 @@
 return {
   "hiphish/rainbow-delimiters.nvim",
-  event = "VeryLazy",
+  event = "LazyFile",
   config = function()
     require("rainbow-delimiters.setup").setup({
       strategy = {

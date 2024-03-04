@@ -35,7 +35,6 @@ class SocketDataIterator:
 
 
 class RFCOMMSocket(bluetooth.BluetoothSocket):
-
     def __init__(self, proto=bluetooth.RFCOMM, _sock=None):
         super().__init__(proto, _sock)
 
@@ -57,7 +56,9 @@ class RFCOMMSocket(bluetooth.BluetoothSocket):
             if "protocol" in service.keys() and service["protocol"] == "RFCOMM":
                 return service["port"]
         # Raise Interface error when the required service is not offered my the end device
-        raise bluetooth.BluetoothError("Couldn't find the RFCOMM port number. Perhaps the device is offline?")
+        raise bluetooth.BluetoothError(
+            "Couldn't find the RFCOMM port number. Perhaps the device is offline?"
+        )
 
     def send(self, data):
         """
@@ -67,8 +68,9 @@ class RFCOMMSocket(bluetooth.BluetoothSocket):
 
 
 class BatteryStateQuerier:
-
-    def __init__(self, bluetooth_mac: str, bluetooth_port: Optional[Union[str, int]] = None):
+    def __init__(
+        self, bluetooth_mac: str, bluetooth_port: Optional[Union[str, int]] = None
+    ):
         """
         Prepare a query for the end devices' battery state
 
@@ -78,7 +80,9 @@ class BatteryStateQuerier:
 
         The actual query can be performed using the int() and str() method.
         """
-        self._bt_settings = bluetooth_mac, int(bluetooth_port or RFCOMMSocket.find_rfcomm_port(bluetooth_mac))
+        self._bt_settings = bluetooth_mac, int(
+            bluetooth_port or RFCOMMSocket.find_rfcomm_port(bluetooth_mac)
+        )
 
     def __int__(self):
         """
@@ -105,7 +109,9 @@ class BatteryStateQuerier:
                 sock.send(b"+BRSF: 1024")
                 sock.send(b"OK")
             elif b"CIND=" in line:
-                sock.send(b"+CIND:(\"service\",(0-1)),(\"call\",(0-1)),(\"callsetup\",(0-3)),(\"callheld\",(0-2)),(\"battchg\",(0-5))")
+                sock.send(
+                    b'+CIND:("service",(0-1)),("call",(0-1)),("callsetup",(0-3)),("callheld",(0-2)),("battchg",(0-5))'
+                )
                 sock.send(b"OK")
             elif b"CIND?" in line:
                 sock.send(b"+CIND: 0,0,0,0,3")
@@ -123,12 +129,12 @@ class BatteryStateQuerier:
                 sock.send(b"+XAPL=iPhone,7")
                 sock.send(b"OK")
             elif b"IPHONEACCEV" in line:
-                parts = line.strip().split(b',')[1:]
+                parts = line.strip().split(b",")[1:]
                 if len(parts) > 1 and (len(parts) % 2) == 0:
                     parts = iter(parts)
                     params = dict(zip(parts, parts))
-                    if b'1' in params:
-                        result = (int(params[b'1']) + 1) * 10
+                    if b"1" in params:
+                        result = (int(params[b"1"]) + 1) * 10
                         break
             elif b"BIEV=" in line:
                 params = line.strip().split(b"=")[1].split(b",")
@@ -159,13 +165,21 @@ def main():
     list a bluetooth socket will be opened and the battery level will be read
     and printed to stdout
     """
-    parser = argparse.ArgumentParser(description="Get battery level from Bluetooth headsets")
-    parser.add_argument("devices", metavar="DEVICE_MAC[.PORT]", type=str, nargs="+",
-                        help="(MAC address of target)[.SPP Port]")
+    parser = argparse.ArgumentParser(
+        description="Get battery level from Bluetooth headsets"
+    )
+    parser.add_argument(
+        "devices",
+        metavar="DEVICE_MAC[.PORT]",
+        type=str,
+        nargs="+",
+        help="(MAC address of target)[.SPP Port]",
+    )
     args = parser.parse_args()
     for device in args.devices:
         query = BatteryStateQuerier(*device.split("."))
         print("Battery level for {} is {}".format(device, str(query)))
+
 
 if __name__ == "__main__":
     main()
