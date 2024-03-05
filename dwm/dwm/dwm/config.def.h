@@ -481,3 +481,4 @@ static Button buttons[] = {
     { ClkStatusText,       0,          Button4,     clickstatusbar,{0} },   // 鼠标滚轮上  |  状态栏       |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal U
     { ClkStatusText,       0,          Button5,     clickstatusbar,{0} },   // 鼠标滚轮下  |  状态栏       |  根据状态栏的信号执行 ~/scripts/dwmstatusbar.sh $signal D
 };
+

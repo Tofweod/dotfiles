@@ -28,7 +28,7 @@ xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh" > /dev/null 2>&1 &
 dunst > /dev/null 2>&1 &
 fcitx5 > /dev/null 2>&1 &
 qbittorrent > /dev/null 2>&1 &
-onedrive --monitor > /dev/null 2>&1 &
+onedrive --synchronize > /dev/null 2>&1 &
 
 picom --animations& 
 
