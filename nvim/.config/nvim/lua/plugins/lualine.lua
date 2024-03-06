@@ -27,7 +27,7 @@ return {
 
     local vim_icons = {
       function()
-        return " "
+        return ""
       end,
       separator = { left = "", right = "" },
       color = { bg = "#313244", fg = "#80A7EA" },
@@ -44,11 +44,12 @@ return {
       "filename",
       file_status = true, -- Displays file status (readonly status, modified status)
       newfile_status = false, -- Display new file status (new file means no write after created)
-      path = 4, -- 0: Just the filename
+      -- 0: Just the filename
       -- 1: Relative path
       -- 2: Absolute path
       -- 3: Absolute path, with tilde as the home directory
       -- 4: Filename and parent dir, with tilde as the home directory
+      path = 1,
 
       shorting_target = 150, -- Shortens path to leave 40 spaces in the window
       -- for other components. (terrible name, any suggestions?)
@@ -113,10 +114,9 @@ return {
 
     local modes = {
       "mode",
-      fmt = function(str)
-        return str:sub(1, 1)
+      color = function(section)
+        return { fg = vim.bo.modified and "#f5f5f5" or "#1e1e2e", gui = "italic,bold" }
       end,
-      color = { bg = "#fab387		", fg = "#1e1e2e" },
       separator = { left = "", right = "" },
     }
 
