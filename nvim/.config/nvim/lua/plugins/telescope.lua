@@ -11,6 +11,20 @@ return {
       desc = "Find History",
     },
     {
+      "<leader>Ff",
+      function()
+        require("telescope.builtin").find_files({ hidden = true })
+      end,
+      desc = "Find Hidden Files(root dir)",
+    },
+    {
+      "<leader>FF",
+      function()
+        require("telescope.builtin").find_files({ cwd = false, hidden = true })
+      end,
+      desc = "Find Hidden Files(cwd)",
+    },
+    {
       "<leader>fg",
       function()
         require("telescope.builtin").live_grep()

@@ -147,7 +147,7 @@ return {
         return getLspName()
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#f38ba8", fg = "#1e1e2e" },
+      color = { bg = "#00ced1", fg = "#1e1e2e" },
     }
 
     return {
