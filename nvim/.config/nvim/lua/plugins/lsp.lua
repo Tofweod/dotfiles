@@ -12,6 +12,7 @@ return {
         "--background-index",
         "--clang-tidy",
         "--completion-style=detailed",
+        "--all-scopes-completion",
       }, -- 可以根据你的需求添加其他参数
       filetypes = { "c", "cpp" }, -- 支持的文件类型
       root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json"),

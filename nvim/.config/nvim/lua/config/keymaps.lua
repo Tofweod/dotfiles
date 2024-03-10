@@ -4,6 +4,7 @@
 --
 
 local keymap = vim.keymap
+local wk = require("which-key")
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -17,8 +18,15 @@ keymap.set("n", "<leader>q", ":q<CR>")
 keymap.set("n", "<leader>wq", ":wq<CR>")
 
 -- 窗口
-keymap.set("n", "<leader>sv", "<C-w>v")
-keymap.set("n", "<leader>sh", "<C-w>s")
+wk.register({
+  ["<leader>"] = {
+    w = {
+      name = "+windows",
+      v = { "<C-w>s", "split windows vertical" },
+      h = { "<C-w>v", "split windows horizontal" },
+    },
+  },
+})
 
 -- buffline
 keymap.set("n", "<leader><leader>h", ":bprevious<CR>")
@@ -39,34 +47,45 @@ keymap.set("n", "<A-0>", ":BufferLineGoToBuffer 10<CR>")
 -- nvim-tree
 -- keymap.set("n", "<leader>tr", ":NvimTreeToggle<CR>")
 
--- hop
-keymap.set("n", "<leader>hw", ":HopWord<CR>")
-keymap.set("n", "<leader>hc", ":HopChar1<CR>")
-keymap.set("n", "<leader>hl", ":HopLine<CR>")
-keymap.set("n", "<leader>ha", ":HopAnywhere<CR>")
-
 -- trouble
-keymap.set("n", "<leader>xx", function()
-  require("trouble").toggle()
-end)
-keymap.set("n", "<leader>xw", function()
-  require("trouble").toggle("workspace_diagnostics")
-end)
-keymap.set("n", "<leader>xd", function()
-  require("trouble").toggle("document_diagnostics")
-end)
-keymap.set("n", "<leader>xq", function()
-  require("trouble").toggle("quickfix")
-end)
-keymap.set("n", "<leader>xl", function()
-  require("trouble").toggle("loclist")
-end)
-keymap.set("n", "gr", function()
-  require("trouble").toggle("lsp_references")
-end)
+wk.register({
+  ["<leader>"] = {
+    x = {
+      name = "+diagnostics/quickfix",
+      x = {
+        function()
+          require("trouble").toggle()
+        end,
+        "Document Diagnostics(Troule)",
+      },
+      X = {
+        function()
+          require("trouble").toggle("workspace_diagnostics")
+        end,
+        "Workspace Diagnostics(Troule)",
+      },
+    },
+  },
+})
+-- keymap.set("n", "gr", function()
+--   require("trouble").toggle("lsp_references")
+-- end)
 
-vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+wk.register({
+  g = {
+    r = {
+      function()
+        require("trouble").toggle("lsp_references")
+      end,
+      "Go to references",
+    },
+    ["["] = { vim.diagnostic.goto_prev, "Go to prev" },
+    ["]"] = { vim.diagnostic.goto_next, "Go to next" },
+  },
+})
+
+-- vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
+-- vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -77,10 +96,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    wk.register({
+      g = {
+        D = { vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts), "Go to declaration" },
+        d = { vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts), "Go to definition" },
+        h = { vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts), "show hover" },
+        i = { vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts), "go to implementation" },
+        -- f = {
+        --   function()
+        --     vim.lsp.buf.format({ range = nil })
+        --   end,
+        --   "Lsp format all",
+        -- },
+        -- F = {
+        --   function()
+        --     vim.lsp.buf.format({ async = true })
+        --   end,
+        --   "Lsp format selected",
+        -- },
+      },
+    })
     vim.keymap.set("v", "gf", function()
       vim.lsp.buf.format({ range = nil })
     end, opts)

@@ -21,6 +21,9 @@ return {
         -- ["graphql"] = { "prettier" },
         -- ["handlebars"] = { "prettier" },
         ["python"] = { "black" },
+        ["cpp"] = { "clang_format" },
+        -- ["c"] = { "clang-format" },
+        -- ["h"] = { "clang-format" },
       },
       formatters = {
         black = {
@@ -29,6 +32,12 @@ return {
         prettier = {
           -- TODO:
           prepend_args = {},
+        },
+        clang_format = {
+          prepend_args = {
+            "--style",
+            "{BasedOnStyle: llvm,IndentWidth: 4}",
+          },
         },
       },
       notify_on_error = false,
