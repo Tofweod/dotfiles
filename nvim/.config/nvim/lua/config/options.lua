@@ -35,3 +35,14 @@ opt.smartcase = true
 -- 外观
 opt.termguicolors = true
 opt.signcolumn = "yes"
+
+-- vista
+vim.g.vista_default_executive = "ctags"
+vim.g.vista_icon_indent = { "▸ ", "" }
+vim.g.vista_update_on_text_changed = 1
+vim.g.vista_echo_cursor = 0
+vim.g.vista_executive_for = {
+  cpp = "nvim_lsp",
+  python = "nvim_lsp",
+  lua = "nvim_lsp",
+}

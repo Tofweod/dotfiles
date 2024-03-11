@@ -1,35 +1,74 @@
 return {
-  "stevearc/aerial.nvim",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-tree/nvim-web-devicons",
+  -- "stevearc/aerial.nvim",
+  -- dependencies = {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   "nvim-tree/nvim-web-devicons",
+  -- },
+  -- keys = {
+  --   { "<leader>a", "<cmd>AerialToggle!<cr>", desc = "AerialToggle" },
+  -- },
+  -- event = "VeryLazy",
+  -- config = function()
+  --   require("aerial").setup({
+  --     backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
+  --
+  --     layout = {
+  --       default_direction = "right",
+  --       placement = "window",
+  --       resize_to_cotent = true,
+  --     },
+  --
+  --     show_guides = false,
+  --     guides = {
+  --       -- When the child item has a sibling below it
+  --       mid_item = "├─",
+  --       -- When the child item is the last in the list
+  --       last_item = "└─",
+  --       -- When there are nested child guides to the right
+  --       nested_top = "│ ",
+  --       -- Raw indentation
+  --       whitespace = "  ",
+  --     },
+  --
+  --     filter_kind = {
+  --       "Array",
+  --       "Boolean",
+  --       "Class",
+  --       "Constant",
+  --       "Constructor",
+  --       "Enum",
+  --       "EnumMember",
+  --       "Event",
+  --       "Field",
+  --       "File",
+  --       "Function",
+  --       "Interface",
+  --       "Key",
+  --       "Method",
+  --       "Module",
+  --       "Namespace",
+  --       "Null",
+  --       "Number",
+  --       "Object",
+  --       "Operator",
+  --       "Package",
+  --       "Property",
+  --       "String",
+  --       "Struct",
+  --       "TypeParameter",
+  --       "Variable",
+  --     },
+  --
+  --     attach_mode = "window",
+  --
+  --     close_automatic_events = {
+  --       "unfocus",
+  --       "unsupported",
+  --     },
+  --   })
+  -- end,
+  "liuchengxu/vista.vim",
+  keys = {
+    { "<leader>a", "<cmd>Vista!!<cr>", desc = "VistaToggle" },
   },
-  event = "VeryLazy",
-  config = function()
-    require("aerial").setup({
-      layout = {
-        default_direction = "right",
-        placement = "window",
-        resize_to_cotent = true,
-      },
-
-      filter_kind = {
-        "Class",
-        "Constructor",
-        "Enum",
-        "Function",
-        "Interface",
-        "Module",
-        "Method",
-        "Struct",
-      },
-
-      attach_mode = "window",
-
-      close_automatic_events = {
-        "unfocus",
-        "unsupported",
-      },
-    })
-  end,
 }

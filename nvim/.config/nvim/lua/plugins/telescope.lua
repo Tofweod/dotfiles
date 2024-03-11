@@ -29,6 +29,20 @@ return {
       function()
         require("telescope.builtin").live_grep()
       end,
+      desc = "Find Content",
+    },
+    {
+      "<leader>/",
+      function()
+        require("telescope.builtin").current_buffer_fuzzy_find()
+      end,
+      desc = "Search Current Fuzzy",
+    },
+    {
+      "<leader>fw",
+      function()
+        require("telescope.builtin").grep_string({ word_match = "-w" })
+      end,
       desc = "Find Word",
     },
     {
