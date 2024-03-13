@@ -364,6 +364,7 @@ static Key keys[] = {
     { MODKEY|ControlMask,  XK_l,        spawn,   SHCMD("~/dwm/dwm/i3lock/lock.sh") },   
     { MODKEY,           XK_grave, togglescratch, SHCMD("alacritty -t scratchpad --class floatingTerminal")  }, // 打开/隐藏scrtachpad
     { MODKEY,              XK_Return,   spawn,   SHCMD("alacritty") }, // 新打开一个终端
+    { MODKEY|Mod1Mask,              XK_Return,   spawn,   SHCMD("alacritty -e tmux") }, // 新打开一个tmux终端
     { MODKEY|ShiftMask,    XK_n,        spawn,   SHCMD("alacritty -t term-global --class globalingTerminal") }, // 新打开一个浮动终端
     { MODKEY,              XK_n,        spawn,   SHCMD("alacritty -t term-float --class floatingTerminal") }, // 新打开一个全局浮动终端
     { MODKEY,              XK_e,        spawn,   SHCMD("alacritty -e ranger") }, // 打开资源管理器
@@ -412,7 +413,7 @@ static Key keys[] = {
     TAGKEYS(XK_7, 6,  0)
     TAGKEYS(XK_8, 7,  0)
     TAGKEYS(XK_9, 8,  0)
-    TAGKEYS(XK_0, 5,  "alacritty")
+    TAGKEYS(XK_0, 5,  "alacritty -t TerminalTag -e tmux new -A -s terminal-tag")
     TAGKEYS(XK_c, 6,  "/bin/zsh -c 'prime-run firefox'") 
     TAGKEYS(XK_m, 7,  "/opt/YesPlayMusic/yesplaymusic")
     // TAGKEYS(XK_t, 8,  "alacritty -t statusutil -e btop")
