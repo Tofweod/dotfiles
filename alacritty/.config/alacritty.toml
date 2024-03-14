@@ -65,7 +65,7 @@ text = "CellBackground"
 TERM = "xterm-256color"
 
 [font]
-size = 10.0
+size = 15.0
 
 [font.bold]
 family = "MonacoB"

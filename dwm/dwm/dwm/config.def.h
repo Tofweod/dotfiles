@@ -19,7 +19,7 @@ static const int sidepad                  = 3;         /* horizontal padding of 
 static const int overviewgappi            = 20;        /* overview时 窗口与窗口 缝隙大小 */
 static const int overviewgappo            = 30;        /* overview时 窗口与边缘 缝隙大小 */
 static const int showbar                  = 1;         /* 是否显示状态栏 */
-static const int topbar                   = 0;         /* 指定状态栏位置 0底部 1顶部 */
+static const int topbar                   = 1;         /* 指定状态栏位置 0底部 1顶部 */
 static const float mfact                  = 0.5;       /* 主工作区 大小比例 */
 static const int   nmaster                = 1;         /* 主工作区 窗口数量 */
 static const int nstack                   = 0;         /* number of clients in primary stack area */
@@ -39,7 +39,7 @@ static const unsigned int snap            = 10;        /* 边缘依附宽度 */
 //
 //=============================================================================
 static const char *fonts[]               = {
-			"Monaco:style=Regular:size=11",
+			"Monaco:style=Regular:size=9",
 			"Symbols Nerd Font:style=2048-em:size=17",
 		  "Microsoft YaHei:size=11:style=Regular:antialias=true:autohint:true",
 			"JoyPixels:size=13:antialia=true:autohint=true"
@@ -67,8 +67,8 @@ static const char *colors[][3]{
 /*SchemeOverView  overview  */   { red2, black, black },
 };
 //-----------------------------------------------------------------------------
-static int statusbar_h_bias=5;
-static int tag_line_h=7;
+static int statusbar_h_bias=0;
+static int tag_line_h=3;
 //-----------------------------------------------------------------------------
 static const unsigned char borderalpha = 0xdd;      /* 边框透明度 */
 // 透明度设置
