@@ -31,10 +31,16 @@ def get_update_packages_nums():
     os.system("notify-send 'Get Update info completed !' -r 1011")
     cmd = "echo $(pacman -Qu | grep -Fcv '[ignored]' )"
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     num = int(result.stdout.decode("utf-8").replace("\n", ""))
-    os.system("notify-send 'Totally " + str(num) + " packages can update' -r 1011")
+    os.system(
+        "notify-send 'Totally " + str(num) + " packages can update' -r 1011"
+    )
     return str(num)
 
 

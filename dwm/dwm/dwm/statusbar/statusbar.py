@@ -25,7 +25,11 @@ def ExecOtherFile():
     for string in sys.argv[2:]:
         cmd = cmd + string + " "
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
 
 

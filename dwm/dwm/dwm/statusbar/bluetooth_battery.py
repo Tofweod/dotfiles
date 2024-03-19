@@ -50,10 +50,15 @@ class RFCOMMSocket(bluetooth.BluetoothSocket):
         Find the RFCOMM port number for a given bluetooth device
         """
         uuid = "0000111e-0000-1000-8000-00805f9b34fb"
-        services: List[Dict] = bluetooth.find_service(address=device_mac, uuid=uuid)
+        services: List[Dict] = bluetooth.find_service(
+            address=device_mac, uuid=uuid
+        )
 
         for service in services:
-            if "protocol" in service.keys() and service["protocol"] == "RFCOMM":
+            if (
+                "protocol" in service.keys()
+                and service["protocol"] == "RFCOMM"
+            ):
                 return service["port"]
         # Raise Interface error when the required service is not offered my the end device
         raise bluetooth.BluetoothError(
@@ -69,7 +74,9 @@ class RFCOMMSocket(bluetooth.BluetoothSocket):
 
 class BatteryStateQuerier:
     def __init__(
-        self, bluetooth_mac: str, bluetooth_port: Optional[Union[str, int]] = None
+        self,
+        bluetooth_mac: str,
+        bluetooth_port: Optional[Union[str, int]] = None,
     ):
         """
         Prepare a query for the end devices' battery state

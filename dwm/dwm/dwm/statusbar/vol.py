@@ -83,7 +83,11 @@ def GetBluetoothBatteryByPactl():
     # cmd = 'pactl list cards | grep -E "bluetooth\.battery" '
     cmd = 'pactl list cards | grep -E "bluetooth\.battery" | grep -E "[0-9]*%" | grep -Eo "[0-9]*" '
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     battery = result.stdout.decode("utf-8").replace("\n", "")
     if battery != "":
@@ -134,13 +138,23 @@ def get_vol_content():
 
     cmd = "echo $(pactl get-sink-volume @DEFAULT_SINK@ | sed -n '1p' | awk -F '/' '{print int($2)}')"
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     vol_text = str(result.stdout.decode("utf-8").replace("\n", ""))
 
-    cmd = "echo $(pactl get-sink-mute @DEFAULT_SINK@ | awk -F ':' '{print $2}')"
+    cmd = (
+        "echo $(pactl get-sink-mute @DEFAULT_SINK@ | awk -F ':' '{print $2}')"
+    )
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     mute = str(result.stdout.decode("utf-8").replace("\n", ""))
 
@@ -216,7 +230,9 @@ def click(string=""):
             notify()
             pass
         case "M":
-            os.system("killall pavucontrol || pavucontrol --class floatingTerminal &")
+            os.system(
+                "killall pavucontrol || pavucontrol --class floatingTerminal &"
+            )
             pass
         case "R":
             os.system("pactl set-sink-mute @DEFAULT_SINK@ toggle")

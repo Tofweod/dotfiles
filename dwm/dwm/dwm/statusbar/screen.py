@@ -91,19 +91,31 @@ def get_all_screen_status():
 
     cmd = 'xrandr | rg "\\beDP.*? .*? " -o'
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     eDP = result.stdout.decode("utf-8")
 
     cmd = 'xrandr | rg "\\bHDMI.*? .*? " -o'
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     HDMI = result.stdout.decode("utf-8")
 
     cmd = 'xrandr | rg "\\bDP.*? .*? " -o'
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     DP = result.stdout.decode("utf-8")
 
@@ -217,7 +229,9 @@ def notify(string=""):
     send_string = ""
     for string_ in get_all_screen_status():
         send_string += string_
-    os.system("notify-send " + " '󰹑 Screen Info' " + "'" + send_string + "' -r 1212")
+    os.system(
+        "notify-send " + " '󰹑 Screen Info' " + "'" + send_string + "' -r 1212"
+    )
     pass
 
 

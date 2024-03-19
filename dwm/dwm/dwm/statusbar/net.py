@@ -41,7 +41,11 @@ def getnet() -> Tuple[str, str]:
     rx_bytes_cur = 0
     cmd = "cat /sys/class/net/[ew]*/statistics/rx_bytes"
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     rx_bytes_string = result.stdout.decode("utf-8")
     for rx in rx_bytes_string.splitlines():
@@ -51,7 +55,11 @@ def getnet() -> Tuple[str, str]:
         os.system("touch " + TX_POSITON)
     cmd = "cat " + TX_POSITON
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     rx_bytes_pre = result.stdout.decode("utf-8").replace("\n", "")
     rx_bytes = 0
@@ -64,7 +72,11 @@ def getnet() -> Tuple[str, str]:
     tx_bytes_cur = 0
     cmd = "cat /sys/class/net/[ew]*/statistics/tx_bytes"
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     tx_bytes_string = result.stdout.decode("utf-8")
     for tx in tx_bytes_string.splitlines():
@@ -74,7 +86,11 @@ def getnet() -> Tuple[str, str]:
         os.system("touch " + TX_POSITON)
     cmd = "cat " + TX_POSITON
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     tx_bytes_pre = result.stdout.decode("utf-8").replace("\n", "")
     tx_bytes = 0

@@ -42,7 +42,11 @@ def geticon():
     )
     # print(cmd)
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     play_status = result.stdout.decode("utf-8").replace("\n", "")
     # print(play_status)

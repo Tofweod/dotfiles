@@ -28,7 +28,11 @@ def connect_status():
     ret = -1
     cmd = "cat /sys/class/net/w*/operstate"
     result = subprocess.run(
-        cmd, shell=True, timeout=3, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+        cmd,
+        shell=True,
+        timeout=3,
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
     )
     connect = str(result.stdout.decode("utf-8").replace("\n", ""))
     match connect:
