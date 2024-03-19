@@ -182,6 +182,7 @@ zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zs
 #mcfly
 zinit ice lucid wait"0a" from"gh-r" as"program" atload'eval "$(mcfly init zsh)"'
 zinit light cantino/mcfly
+export MCFLY_KEY_SCHEME=vim
 
 DISABLE_LS_COLORS=true
 alias ls=eza

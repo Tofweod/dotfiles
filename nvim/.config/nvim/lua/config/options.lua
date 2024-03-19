@@ -46,3 +46,9 @@ vim.g.vista_executive_for = {
   python = "nvim_lsp",
   lua = "nvim_lsp",
 }
+
+-- spellcheck
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us", "cjk" }
+vim.opt.spelloptions = "camel"
+-- vim.opt.spellfile = "/usr/share/nvim/runtime/spell/en.utf-8.spl"

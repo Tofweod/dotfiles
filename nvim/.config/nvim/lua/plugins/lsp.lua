@@ -55,5 +55,16 @@ return {
     })
 
     lspconfig.lua_ls.setup({})
+
+    lspconfig.bsl_ls.setup({
+      cmd = { "bash-language-server", "start" },
+      filetypes = { "sh" },
+      settings = {
+        bashIde = {
+          globPattern = "*@(.sh|.inc|.bash|.command)",
+        },
+      },
+      single_file_support = true,
+    })
   end,
 }
