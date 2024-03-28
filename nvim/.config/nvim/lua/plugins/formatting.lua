@@ -22,7 +22,7 @@ return {
         -- ["handlebars"] = { "prettier" },
         ["python"] = { "black" },
         ["cpp"] = { "clang_format" },
-        -- ["c"] = { "clang-format" },
+        ["c"] = { "clang_format" },
         -- ["h"] = { "clang-format" },
       },
       formatters = {

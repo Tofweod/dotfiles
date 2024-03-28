@@ -238,11 +238,11 @@ def notify(string=""):
 def click(string=""):
     match string:
         case "L":
+            notify()
             pass
         case "M":
             pass
         case "R":
-            notify()
             pass
         case "U":
             pass

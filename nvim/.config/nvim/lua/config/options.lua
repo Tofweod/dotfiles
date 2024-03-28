@@ -48,7 +48,7 @@ vim.g.vista_executive_for = {
 }
 
 -- spellcheck
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us", "cjk" }
-vim.opt.spelloptions = "camel"
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us", "cjk" }
+-- vim.opt.spelloptions = "camel"
 -- vim.opt.spellfile = "/usr/share/nvim/runtime/spell/en.utf-8.spl"

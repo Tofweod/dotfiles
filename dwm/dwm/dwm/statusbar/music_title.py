@@ -38,11 +38,14 @@ def get_music_title():
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE,
     )
+    title_len = 35
     title = result.stdout.decode("utf-8").replace("/03", "-")
-    title = title.replace("\^", "")
+    title = title.replace("^", "")
     title = title.replace("'", "")  # 解决一些歌曲带'的问题
     title = title.replace('"', "")
     title = title[:-2]
+    if title.__len__() > title_len:
+        title = title[:title_len] + "..."
     return title
 
 
