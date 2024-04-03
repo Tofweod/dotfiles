@@ -50,7 +50,7 @@ def update_thread():
 
 
 def shutdown():
-    os.system("systemctl poweroff")
+    os.system("shutdown -h now")
 
 
 def reboot():

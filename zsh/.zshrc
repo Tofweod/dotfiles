@@ -46,11 +46,6 @@ alias j='z'
 
 alias du='dust'
 
-# default open with nvidia
-alias mpv='prime-run mpv'
-
-alias firefox='prime-run firefox'
-
 
 # ranger settings
 ranger_cd() {

@@ -4,14 +4,14 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
 # 125%
-xrandr --dpi 120
+# xrandr --dpi 120
 
 #display settings
-LAPTOP_DISPLAY="eDP"
-PRIMARY_DISPLAY="HDMI-A-0"
-
-xrandr --output "$PRIMARY_DISPLAY" --mode 1920x1080 --rate 120 --primary
-xrandr --output "$LAPTOP_DISPLAY" --right-of "$PRIMARY_DISPLAY" --auto
+# LAPTOP_DISPLAY="eDP"
+# PRIMARY_DISPLAY="HDMI-0"
+#
+# xrandr --output "$PRIMARY_DISPLAY" --mode 2560x1440 --rate 144 --primary
+# xrandr --output "$LAPTOP_DISPLAY" --right-of "$PRIMARY_DISPLAY" --auto
 
 #nitrogen
 nitrogen --restore &
