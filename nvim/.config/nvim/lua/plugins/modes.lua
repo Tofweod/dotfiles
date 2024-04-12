@@ -1,6 +1,6 @@
 return {
   "mvllow/modes.nvim",
-  event = "BufEnter",
+  event = "User IceLoad",
   config = function()
     require("modes").setup({
       colors = {

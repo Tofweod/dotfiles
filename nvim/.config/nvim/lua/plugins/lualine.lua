@@ -1,7 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-  opts = function(plugin)
+  event = "LazyFile",
+  opts = function()
     local colors = {
       red = "#cdd6f4",
       grey = "#181825",

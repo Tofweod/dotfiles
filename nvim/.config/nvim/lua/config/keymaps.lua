@@ -84,6 +84,12 @@ wk.register({
   },
 })
 
+wk.register({
+  [" "] = {
+    a = { "<cmd>Lspsaga outline<CR>", "Outline" },
+  },
+})
+
 -- vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
 -- vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 
@@ -102,6 +108,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         d = { vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts), "Go to definition" },
         h = { vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts), "show hover" },
         i = { vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts), "go to implementation" },
+        f = {
+          p = { "<cmd>Lspsaga peek_definition<CR>", "Peek definition" },
+          d = { "<cmd>Lspsaga goto_definition<CR>", "Goto definition" },
+          f = { "<cmd>Lspsaga finder<CR>", "Find ref and imp" },
+        },
         -- f = {
         --   function()
         --     vim.lsp.buf.format({ range = nil })
