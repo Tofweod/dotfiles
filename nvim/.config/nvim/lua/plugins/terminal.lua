@@ -1,7 +1,9 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "v2.*",
-  event = "VeryLazy",
+  keys = {
+    { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "Toggle term" },
+  },
   config = function()
     require("toggleterm").setup({
       open_mapping = [[<c-\>]],

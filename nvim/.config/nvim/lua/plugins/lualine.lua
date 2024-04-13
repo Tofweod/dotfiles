@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "LazyFile",
+  event = { "User IceLoad", "LazyFile" },
   opts = function()
     local colors = {
       red = "#cdd6f4",
