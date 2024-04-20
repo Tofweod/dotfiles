@@ -16,7 +16,7 @@ clip = video_in
 ############
 
 H_Pre = 1440
-Model = 23
+Model = 41
 T_Tta = False
 Fps_Num = 2
 Fps_Den = 1

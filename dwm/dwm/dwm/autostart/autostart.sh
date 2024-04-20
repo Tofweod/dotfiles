@@ -22,6 +22,7 @@ done
 # start process
 # crow & # translate
 # copyq & # copy software
+# nekoray > /dev/null 2>&1 &
 xfce4-power-manager > /dev/null 2>&1 &
 redshift > /dev/null 2>&1 &
 xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh" > /dev/null 2>&1 &
