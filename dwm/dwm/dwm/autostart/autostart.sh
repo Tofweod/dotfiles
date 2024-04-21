@@ -13,6 +13,14 @@ cron() {
 }
 cron&
 
+# load sound card
+# this occurs when using multi monitors
+if [[ $(xrandr --listmonitors | rg 'Monitor' | awk '{print $2}') > 1 ]];then
+    pactl load-module module-alsa-sink device=hw:1,7
+    sink=$(pactl list short sinks | rg 'hw' | awk '{print $1}')
+    pactl set-default-sink $sink
+fi
+
 # start autostart shells
 for file in ~/.config/autostart/*.sh; do
   "$file" # execute
@@ -34,21 +42,15 @@ qbittorrent > /dev/null 2>&1 &
 
 picom --animations& 
 
-# # start btop at secondary screen
-# # 检测屏幕是否连接且不是主屏幕，此处指定为eDP
-# output=$(xrandr | rg 'eDP.*connected' | rg -v 'primary')
-#
-# if ! [[ -z "$output" ]]; then
-#     p_info=$(xrandr | grep -w "connected" | awk 'NR==2')
-#     l_width=$(xrandr | grep -w "connected" | awk 'NR==1' | awk '{print $3}' | cut -d 'x' -f1)
-#     p_width=$(echo $p_info | awk '{print $4}' | cut -d 'x' -f1)
-#     p_height=$(echo $p_info | awk '{print $4}' | cut -d 'x' -f2)
-#     xdotool mousemove ${p_width}+${l_width}/2 ${p_height}
-# 	  alacritty -t statusutil --class floatingTerminal -e btop > /dev/null 2>&1 &
-#     sleep 0.3
-#     xdotool mousemove 0 0
-# fi
-
+# open statusutil
+# navigator to second screen
+xdotool keydown Super Alt l keyup l Alt Super
+# clear state bar
+xdotool keydown Super b keyup b Super
+alacritty -t statusutil --class statusutil -e btop >/dev/null 2>&1 &
+sleep 0.5
+# back to main screen
+xdotool keydown Super Alt l keyup l Alt Super
 
 pkill -f statusbar.py
 python3 ~/dwm/dwm/statusbar/statusbar.py cron &>/dev/null

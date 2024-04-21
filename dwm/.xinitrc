@@ -4,7 +4,7 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
 # 125%
-# xrandr --dpi 120
+xrandr --dpi 120
 
 #display settings
 # LAPTOP_DISPLAY="eDP"

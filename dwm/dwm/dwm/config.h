@@ -20,7 +20,7 @@ static const int overviewgappi            = 20;        /* overview时 窗口与�
 static const int overviewgappo            = 30;        /* overview时 窗口与边缘 缝隙大小 */
 static const int showbar                  = 1;         /* 是否显示状态栏 */
 static const int topbar                   = 1;         /* 指定状态栏位置 0底部 1顶部 */
-static const float mfact                  = 0.5;       /* 主工作区 大小比例 */
+static const float mfact                  = 0.55;       /* 主工作区 大小比例 */
 static const int   nmaster                = 1;         /* 主工作区 窗口数量 */
 static const int nstack                   = 0;         /* number of clients in primary stack area */
 static const unsigned int snap            = 10;        /* 边缘依附宽度 */
@@ -222,7 +222,7 @@ static const Layout layouts[] = {
 static const Layout layouts[] = {
 	/* symbol     arrange function, { nmaster, nstack, layout, master axis, stack axis, secondary stack axis } */
 	{ "󰕴",          flextile,         { -1, -1, SPLIT_VERTICAL, TOP_TO_BOTTOM, TOP_TO_BOTTOM, 0, NULL } }, // default tile layout
-  { "󰕰",        magicgrid,{0} },    /* 网格 */
+    { "󰕰",        magicgrid,{0} },    /* 网格 */
 	// { "><>",      NULL,             {0} },    /* no layout function means floating behavior */ // 已经被win+shift+f 替代，不用这个
 	// { "[M]",      flextile,         { -1, -1, NO_SPLIT, MONOCLE, MONOCLE, 0, NULL } }, // monocle
 	// { "|||",      flextile,         { -1, -1, SPLIT_VERTICAL, LEFT_TO_RIGHT, TOP_TO_BOTTOM, 0, NULL } }, // columns (col) layout //其实就是tile
