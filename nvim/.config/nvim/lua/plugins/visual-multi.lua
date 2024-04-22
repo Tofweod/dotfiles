@@ -1,4 +1,4 @@
 return {
-  event = "User IceLoad",
+  event = "VeryLazy",
   "mg979/vim-visual-multi",
 }

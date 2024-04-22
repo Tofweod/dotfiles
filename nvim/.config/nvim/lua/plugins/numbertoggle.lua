@@ -1,4 +1,4 @@
 return {
-  event = "User IceLoad",
+  event = "VeryLazy",
   "sitiom/nvim-numbertoggle",
 }

@@ -47,7 +47,7 @@ picom --animations&
 xdotool keydown Super Alt l keyup l Alt Super
 # clear state bar
 xdotool keydown Super b keyup b Super
-alacritty -t statusutil --class statusutil -e btop >/dev/null 2>&1 &
+alacritty -o "font.size=8.5" -t statusutil --class statusutil -e btop >/dev/null 2>&1 &
 sleep 0.5
 # back to main screen
 xdotool keydown Super Alt l keyup l Alt Super
