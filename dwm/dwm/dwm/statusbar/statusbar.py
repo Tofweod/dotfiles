@@ -46,7 +46,7 @@ def MainRefresh():
 
     packages = packages_list.keys()
     for name in packages:
-        match_string = "^\^s" + str(name)
+        match_string = "^\\^s" + str(name)
         for line in lines:
             flag = re.match(str(match_string), line)
             if flag != None:

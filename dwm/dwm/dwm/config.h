@@ -374,7 +374,7 @@ static Key keys[] = {
 //-----------------------------------------------------------------------------
     // TODO:
     { MODKEY,              XK_q,  ToggleShowHideWindows,    {.v="QQ"} },          
-    // { MODKEY,              XK_w,  ToggleShowHideWindows,    {.v="WeChat"} },     
+    { MODKEY,              XK_w,  ToggleShowHideWindows,    {.v="微信"} },     
     // { MODKEY,              XK_x,  ToggleShowHideWindows,    {.v="钉钉"} },      
 //-----------------------------------------------------------------------------
     // { MODKEY|ShiftMask,      XK_q,    spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')") },//选中某个窗口并强制kill

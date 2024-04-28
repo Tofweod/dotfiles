@@ -29,7 +29,7 @@ cron &
 
 # mount nas
 passwd=$(openssl enc -aes-256-cbc -d -in $HOME/.passwd -pass pass:$(uname -n) -pbkdf2)
-echo $passwd | sudo -S mount -t cifs //Laptop-tofweod/nas /mnt/nas -o credentials=/home/tofweod/.smb,uid=1000,gid=1000 >/dev/null 2>>$errorlog &
+echo $passwd | sudo -S mount -t cifs //Laptop-tofweod/nas /mnt/nas -o credentials=$HOME/.smb,uid=1000,gid=1000 >/dev/null 2>>$errorlog &
 
 # this occurs when using multi monitors
 if [ $(xrandr --listmonitors | rg 'Monitor' | awk '{print $2}') -ge 1 ]; then
@@ -69,7 +69,7 @@ qbittorrent >/dev/null 2>>$errorlog &
 picom --animations &
 
 pkill -f statusbar.py
-python3 ~/dwm/dwm/statusbar/statusbar.py cron >>$statusbarlog &
+python3 ~/dwm/dwm/statusbar/statusbar.py cron >>$statusbarlog 2>&1 &
 
 libinput-gestures-setup start                   # touchpad open gesture
 xinput --set-prop 15 'libinput Accel Speed' 0.5 # set touchpad sensitivity
