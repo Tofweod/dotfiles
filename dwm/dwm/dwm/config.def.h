@@ -135,7 +135,7 @@ static const char scratchpadname[] = "scratchpad";
 //            ﮸  ﭮ 切  ﬐ // 增补图标
 //            
 //=============================================================================
-static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "","", "󰎄","󰎼","󰽽","󰟀" };
+static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "󰎳","", "󰎄","󰎼","󰽽","" };
 
 
 //=============================================================================
@@ -296,7 +296,7 @@ static Key keys[] = {
 //=============================================================================
     { MODKEY,              XK_d,       hidewin,           {0} },          // 隐藏窗口
     { MODKEY|ShiftMask,    XK_d,       restorewin,        {0} },          // 取消隐藏窗口
-    { MODKEY|ControlMask,  XK_d,       view,              {.ui= 1 << 10}},// 跳转到桌面
+    // { MODKEY|ControlMask,  XK_d,       view,              {.ui= 1 << 10}},// 跳转到桌面
 //-----------------------------------------------------------------------------
     { MODKEY,              XK_z,       showonlyorall,     {0} },          // 单窗口
     { MODKEY,              XK_F11,     fullscreen,        {0} },          // 开启/关闭 全屏
@@ -413,9 +413,9 @@ static Key keys[] = {
     TAGKEYS(XK_7, 6,  0)
     TAGKEYS(XK_8, 7,  0)
     TAGKEYS(XK_9, 8,  0)
-    TAGKEYS(XK_0, 5,  "alacritty -t TerminalTag -e tmux new -A -s terminal-tag")
     TAGKEYS(XK_c, 6,  "/bin/zsh -c 'firefox'") 
     TAGKEYS(XK_m, 7,  "/opt/YesPlayMusic/yesplaymusic")
+    TAGKEYS(XK_0, 10,  "alacritty -t TerminalTag -e tmux new -A -s terminal-tag")
     // TAGKEYS(XK_t, 8,  "alacritty -t statusutil -e btop")
 //-----------------------------------------------------------------------------
     //TAGKEYS(XK_0, 8,  "linuxqq")

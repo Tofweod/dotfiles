@@ -22,7 +22,7 @@ text_color = "^c" + str(text_fg) + "^^b" + str(text_bg) + str(text_tr) + "^"
 DELAY_TIME = 3
 
 filename = os.path.basename(__file__)
-name = re.sub("\..*", "", filename)
+name = re.sub("\\..*", "", filename)
 
 
 def update(loop=False, exec=True):
@@ -89,7 +89,7 @@ def get_all_screen_status():
     HDMI = ""
     DP = ""
 
-    cmd = 'xrandr | rg "\\beDP.*? .*? " -o'
+    cmd = 'xrandr | rg "\\beDP.*? .*? " -o | rg -w "connected"'
     result = subprocess.run(
         cmd,
         shell=True,
@@ -99,7 +99,7 @@ def get_all_screen_status():
     )
     eDP = result.stdout.decode("utf-8")
 
-    cmd = 'xrandr | rg "\\bHDMI.*? .*? " -o'
+    cmd = 'xrandr | rg "\\bHDMI.*? .*? " -o | rg -w "connected"'
     result = subprocess.run(
         cmd,
         shell=True,
@@ -109,7 +109,7 @@ def get_all_screen_status():
     )
     HDMI = result.stdout.decode("utf-8")
 
-    cmd = 'xrandr | rg "\\bDP.*? .*? " -o'
+    cmd = 'xrandr | rg "\\bDP.*? .*? " -o | rg -w "connected"'
     result = subprocess.run(
         cmd,
         shell=True,

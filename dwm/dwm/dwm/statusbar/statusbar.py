@@ -9,6 +9,7 @@ import time
 import re
 import common
 import threading
+from setproctitle import setthreadtitle
 
 # from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -88,6 +89,7 @@ def Run():
 
 
 if __name__ == "__main__":
+    setthreadtitle("statusbar")
     if len(sys.argv) > 1:
         if sys.argv[1] == "cron":
             Run()

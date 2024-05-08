@@ -27,16 +27,17 @@ cron() {
 }
 cron &
 
-# mount nas
+# mount shared disk
 passwd=$(openssl enc -aes-256-cbc -d -in $HOME/.passwd -pass pass:$(uname -n) -pbkdf2)
 echo $passwd | sudo -S mount -t cifs //Laptop-tofweod/nas /mnt/nas -o credentials=$HOME/.smb,uid=1000,gid=1000 >/dev/null 2>>$errorlog &
+# echo $passwd | sudo -S mount -t cifs //192.168.31.7/e /mnt/res -o credentials=$HOME/.smb,uid=1000,gid=1000 >/dev/null 2>>$errorlog &
 
 # this occurs when using multi monitors
-if [ $(xrandr --listmonitors | rg 'Monitor' | awk '{print $2}') -ge 1 ]; then
+if [ $(xrandr --listmonitors | rg 'Monitor' | awk '{print $2}') -gt 1 ]; then
 	# load sound card
-	pactl load-module module-alsa-sink device=hw:1,7
-	sink=$(pactl list short sinks | rg 'hw' | awk '{print $1}')
-	pactl set-default-sink $sink
+	# pactl load-module module-alsa-sink device=hw:1,7
+	# sink=$(pactl list short sinks | rg 'hw' | awk '{print $1}')
+	# pactl set-default-sink $sink
 	# open statusutil
 	# navigator to second screen
 	xdotool keydown Super Alt l keyup l Alt Super
