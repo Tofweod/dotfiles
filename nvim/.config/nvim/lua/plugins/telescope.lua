@@ -11,6 +11,16 @@ return {
       desc = "Find History",
     },
     {
+      "<leader>faf",
+      function()
+        require("telescope.builtin").find_files({
+          hidden = true,
+          no_ignore = true,
+        })
+      end,
+      desc = "Find All Files(root dir)",
+    },
+    {
       "<leader>Ff",
       function()
         require("telescope.builtin").find_files({ hidden = true })

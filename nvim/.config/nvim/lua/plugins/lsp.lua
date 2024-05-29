@@ -15,7 +15,7 @@ return {
         "--all-scopes-completion",
       }, -- 可以根据你的需求添加其他参数
       filetypes = { "c", "cpp" }, -- 支持的文件类型
-      root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json"),
+      root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", ".root"),
     })
 
     lspconfig.cmake.setup({
@@ -55,6 +55,17 @@ return {
     })
 
     lspconfig.lua_ls.setup({})
+
+    lspconfig.autotools_ls.setup({
+      cmd = { "autotools-language-server" },
+      filetypes = {
+        "config",
+        "automake",
+        "make",
+      },
+      root_dir = lspconfig.util.root_pattern("configure.ac", "Makefile", "Makefile.am", "*.mk"),
+      single_file_support = true,
+    })
 
     lspconfig.bsl_ls.setup({
       cmd = { "bash-language-server", "start" },

@@ -46,6 +46,8 @@ alias j='z'
 
 alias du='dust'
 
+alias fetch='fastfetch'
+
 
 # ranger settings
 ranger_cd() {
@@ -76,7 +78,7 @@ open_file() {
 
 # fzf search
 fzf_select() {
-  res=$(fd --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf)
+  res=$(fd --hidden --follow --exclude={.wine,.git,.idea,.vscode,node_modules,build,ssd} | fzf --preview='bat --color=always {}')
 
   if [[ -z $res ]];then
     return

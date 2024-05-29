@@ -1,4 +1,3 @@
-
 # nvidia drivers settings from offical,dont change
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
