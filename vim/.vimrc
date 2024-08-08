@@ -30,10 +30,17 @@ call vundle#begin()
 
 	Plugin 'jiangmiao/auto-pairs'
 	Plugin 'majutsushi/tagbar'
-" 	Plugin 'ctrlpvim/ctrlp.vim'
 	Plugin 'Lokaltog/vim-easymotion'
 	Plugin 'fholgado/minibufexpl.vim'
 	Plugin 'Yggdroot/LeaderF', {'do':':LeaderfInstallCExtension'}
+
+	Plugin 'tpope/vim-surround'
+	Plugin 'preservim/nerdcommenter'
+	" Plugin 'thaerkh/vim-workspace'
+	Plugin 'tpope/vim-obsession'
+	Plugin 'christoomey/vim-tmux-navigator'
+	Plugin 'mhinz/vim-startify'
+	Plugin 'sakshamgupta05/vim-todo-highlight'
 call vundle#end()
 filetype plugin indent on
 
@@ -41,6 +48,16 @@ set updatetime=300
 
 set signcolumn=yes
 
+
+nnoremap <leader>nhl :nohl<CR>
+
+nnoremap <leader>q :q<CR>
+
+nnoremap <leader>wh :split<CR>
+nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>wd :close<CR>
+
+nnoremap <leader>bd :bdelete<CR>
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
@@ -102,10 +119,11 @@ augroup end
  
 " Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
-xmap <leader>x  <Plug>(coc-codeaction-selected)
-nmap <leader>x  <Plug>(coc-codeaction-selected)
- 
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
+
 " Remap keys for applying code actions at the cursor position
+nnoremap <leader>xx :CocList diagnostics<CR>
 nmap <leader>xc  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
 nmap <leader>xs  <Plug>(coc-codeaction-source)
@@ -188,7 +206,7 @@ let g:tagbar_type_ruby = {
 
 
 let g:EasyMotion_smartcase=1
-nmap <leader>s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s)
 
 let g:miniBufExpMapWindowNavVim=1
 let g:miniBufExpMapWindowNavArrows=1
@@ -199,7 +217,6 @@ nnoremap <s-l> :bnext<CR>
 nnoremap <s-h> :bprev<CR>
 
 let g:Lf_WindowPosition='popup'
-
 let g:Lf_WildIgnore = {
 			\ 'dir':['.git','build']
 			\}
@@ -208,9 +225,25 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>ff :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
-noremap <leader>fg :Leaderf rg<CR>
+noremap <leader>fg :Leaderf rg --live -g '!build/'<CR>
+noremap <leader>fs :CocList -I symbols<CR>
 
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search visually selected text literally
 " xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+
+
+let g:NERDCreateDefaultMappings=0
+let g:NERDSpaceDelims=1
+let g:NERDCompactSexyComs=1
+let g:NERDCommentEmptyLines=1
+let g:NERDToggleCheckAllLines=1
+
+map gcc <plug>NERDCommenterToggle
+map gcb <plug>NERDCommenterSexy
+
+nnoremap <leader>ss :SSave<CR>
+nnoremap <leader>sl :SLoad<CR>
+nnoremap <leader>sd :SDelete<CR>
+nnoremap <leader>sc :SClose<CR>
