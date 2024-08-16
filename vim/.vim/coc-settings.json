@@ -1,0 +1,10 @@
+{
+	"clangd.arguments":[
+		"--background-index",
+		"--compile-commands-dir=build",
+		"--clang-tidy",
+		"--all-scopes-completion",
+		"--completion-style=detailed",
+		"--function-arg-placeholders=false"
+	],
+}

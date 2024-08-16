@@ -36,7 +36,7 @@ highlight Error NONE
 
 nnoremap <leader>nhl :nohl<CR>
 
-nnoremap <leader>q :q<CR>
+nnoremap <leader>q :qall<CR>
 nnoremap <leader>w :w<CR>
 
 nnoremap <leader>wh :split<CR>
@@ -44,6 +44,8 @@ nnoremap <leader>wv :vsplit<CR>
 nnoremap <leader>wd :close<CR>
 
 nnoremap <leader>bd :bdelete<CR>
+
+nnoremap <enter> o<esc>
 
 
 let plugpath = expand("~/.plugrc.vim")

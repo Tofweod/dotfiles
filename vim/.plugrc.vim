@@ -15,6 +15,9 @@ call plug#begin()
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'mhinz/vim-startify'
     Plug 'sakshamgupta05/vim-todo-highlight'
+	" Plug 'Shougo/deoplete.nvim'
+	Plug 'Shougo/echodoc.vim'
+	Plug 'rhysd/clever-f.vim'
 call plug#end()
 filetype plugin indent on
 
@@ -207,7 +210,20 @@ let g:NERDToggleCheckAllLines=1
 map gcc <plug>NERDCommenterToggle
 map gcb <plug>NERDCommenterSexy
 
+let g:startify_session_persistence=1
+let g:startify_session_delete_buffers=1
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+let g:startify_bookmarks=[
+			\ {'c': '~/.vimrc'},
+			\ {'zc': '~/.zshrc'}
+			\]
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
 nnoremap <leader>sd :SDelete<CR>
 nnoremap <leader>sc :SClose<CR>
+
+" let g:deoplete#enable_at_startup=1
+
+let g:echodoc#enable_at_startup=1
+" let g:echodoc#type='popup'
+" highlight link EchoDocPopup Pmenu
