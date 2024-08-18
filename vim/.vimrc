@@ -25,9 +25,10 @@ set textwidth=80
 set wrap
 set ruler
 set showmatch
-set autochdir
+" set autochdir
 set autoread
-set laststatus=0
+set laststatus=2
+set hidden
 
 set jumpoptions=stack
 
@@ -46,6 +47,26 @@ nnoremap <leader>wd :close<CR>
 nnoremap <leader>bd :bdelete<CR>
 
 nnoremap <enter> o<esc>
+
+function! Home()
+	let l:line = getline('.')
+	let l:cursor = getpos('.')
+
+	let l:head = match(l:line,'\S')
+
+	let l:head = l:head == -1 ? 0 :l:head
+
+	let l:cursor[2] = l:cursor[2] == l:head+1? 1: l:head+1
+	call setpos('.',l:cursor)
+endfunction
+
+nnoremap <Home> :call Home()<CR>
+inoremap <Home> <Esc>:call Home()<CR>a
+
+nnoremap 0 :call Home()<CR>
+onoremap 0 :call Home()<CR>
+vnoremap 0 :call Home()<CR>
+
 
 
 let plugpath = expand("~/.plugrc.vim")

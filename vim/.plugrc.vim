@@ -5,7 +5,12 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs'
     Plug 'majutsushi/tagbar'
     Plug 'lokaltog/vim-easymotion'
-    Plug 'fholgado/minibufexpl.vim'
+    " Plug 'fholgado/minibufexpl.vim'
+	Plug 'gcmt/taboo.vim'
+	Plug 'zefei/vim-wintabs'
+	Plug 'zefei/vim-wintabs-powerline'
+	Plug 'itchyny/lightline.vim'
+	Plug 'mhinz/vim-signify', {'tag':'legacy'}
     Plug 'yggdroot/leaderf', {'do':':leaderfinstallcextension'}
  
     Plug 'tpope/vim-surround'
@@ -21,6 +26,7 @@ call plug#begin()
 call plug#end()
 filetype plugin indent on
 
+" coc.nvim
 set updatetime=300
 
 set signcolumn=yes
@@ -158,6 +164,8 @@ nnoremap <silent><nowait> <space>cl  :<C-u>CocList<cr>
 " " Resume latest coc list
 " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " 
+
+" tagbar
 nmap <leader>a :TagbarToggle<CR>
 let g:tagbar_autofocus=1
 let g:tagbar_type_ruby = {
@@ -171,19 +179,35 @@ let g:tagbar_type_ruby = {
 			\]
 \}
 
-
+" easymotion
+let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase=1
-nmap s <Plug>(easymotion-s)
 
-let g:miniBufExpMapWindowNavVim=1
-let g:miniBufExpMapWindowNavArrows=1
-let g:miniBufExpMapCTabSwitchBufs=1
-let g:miniBufExpMapSelTarget=1
+nmap s <Plug>(easymotion-overwin-f2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
-nnoremap <s-l> :bnext<CR>
-nnoremap <s-h> :bprev<CR>
 
+" wintabls
+nnoremap <s-l> <plug>(wintabs_next)<CR>
+nnoremap <s-h> <plug>(wintabs_previous)<CR>
+nnoremap <leader>bd <plug>(wintabs_close)<CR>
+nnoremap <leader>wd <plug>(wintabs_close_window)<CR>
+
+let g:wintabs_powerline_arrow_right = "\u25b6"
+let g:wintabs_powerline_sep_buffer_transition="\ue0b0"
+let g:wintabs_powerline_sep_buffer="\ue0b1"
+
+
+
+" taboo.vim
+set guioptions-=e
+set sessionoptions+=tabpages,globals
+
+
+" Leaderf
 let g:Lf_WindowPosition='popup'
+let g:Lf_RootMarkers = ['.git', 'build']
 let g:Lf_WildIgnore = {
 			\ 'dir':['.git','build']
 			\}
@@ -201,6 +225,7 @@ noremap <leader>fs :CocList -I symbols<CR>
 " xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 
 
+" NERDCommenter
 let g:NERDCreateDefaultMappings=0
 let g:NERDSpaceDelims=1
 let g:NERDCompactSexyComs=1
@@ -210,6 +235,7 @@ let g:NERDToggleCheckAllLines=1
 map gcc <plug>NERDCommenterToggle
 map gcb <plug>NERDCommenterSexy
 
+" startify
 let g:startify_session_persistence=1
 let g:startify_session_delete_buffers=1
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
@@ -222,8 +248,33 @@ nnoremap <leader>sl :SLoad<CR>
 nnoremap <leader>sd :SDelete<CR>
 nnoremap <leader>sc :SClose<CR>
 
-" let g:deoplete#enable_at_startup=1
 
+" echodoc
 let g:echodoc#enable_at_startup=1
-" let g:echodoc#type='popup'
-" highlight link EchoDocPopup Pmenu
+let g:echodoc#type='popup'
+highlight link EchoDocPopup Pmenu
+
+" lightline
+let g:lightline = {
+			\ 'subseparator': {'left':'>'},
+			\ 'active': {
+			\ 'left': [ [ 'mode','paste' ],
+			\           [ 'cocstatus'],
+			\           ['filename', 'coc_symbol_line'],
+			\           ['modified' ]]
+			\},
+			\ 'component_function': {
+			\  'cocstatus': 'coc#status',
+			\  'coc_symbol_line':'CocSymbolLine'
+			\},
+			\}
+
+function ColorCocSymbolLine()
+	return get(b:,'coc_symbol_line_plain','')
+endfunction
+
+function CocSymbolLine()
+	return substitute(ColorCocSymbolLine(),'%#CocSymbolLine#','','g')
+endfunction
+
+" set statusline=%!ColorCocSymbolLine()
