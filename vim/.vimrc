@@ -29,6 +29,9 @@ set showmatch
 set autoread
 set laststatus=2
 set hidden
+set undofile
+
+set undodir=~/.vim/undodir
 
 set jumpoptions=stack
 
