@@ -14,8 +14,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- 文件保退出
 keymap.set("n", "<leader>w", ":w<CR>")
-keymap.set("n", "<leader>q", ":q<CR>")
-keymap.set("n", "<leader>wq", ":wq<CR>")
+-- keymap.set("n", "<leader>q", ":q<CR>")
+-- keymap.set("n", "<leader>wq", ":wq<CR>")
 
 -- 窗口
 wk.register({
@@ -90,8 +90,8 @@ wk.register({
   },
 })
 
--- vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
--- vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),

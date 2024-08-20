@@ -9,6 +9,8 @@ return {
       cmd = {
         "clangd",
         "--compile-commands-dir=build",
+        "--query-driver=/usr/bin/gcc",
+        "--log=verbose",
         "--background-index",
         "--clang-tidy",
         "--completion-style=detailed",
