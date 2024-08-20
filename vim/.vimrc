@@ -20,21 +20,26 @@ set showcmd
 set mouse=a
 set autoindent
 set relativenumber
-set t_Co=16
+set t_Co=256
 set textwidth=80
 set wrap
 set ruler
 set showmatch
+" set noshowmode
 " set autochdir
 set autoread
 set laststatus=2
 set hidden
 set undofile
+set termguicolors
 
 set undodir=~/.vim/undodir
 
 set jumpoptions=stack
 
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 highlight Error NONE
 

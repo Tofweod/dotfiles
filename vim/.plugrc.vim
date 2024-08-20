@@ -23,11 +23,14 @@ call plug#begin()
 	" Plug 'Shougo/deoplete.nvim'
 	Plug 'Shougo/echodoc.vim'
 	Plug 'rhysd/clever-f.vim'
+
+	Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 filetype plugin indent on
+colorscheme catppuccin_frappe
 
 " coc.nvim
-set updatetime=300
+set updatetime=100
 
 set signcolumn=yes
 
@@ -252,10 +255,11 @@ nnoremap <leader>sc :SClose<CR>
 " echodoc
 let g:echodoc#enable_at_startup=1
 let g:echodoc#type='popup'
-highlight link EchoDocPopup Pmenu
+" highlight link EchoDocPopup Pmenu
 
 " lightline
 let g:lightline = {
+			\ 'colorscheme': 'catppuccin_mocha',
 			\ 'subseparator': {'left':'>'},
 			\ 'active': {
 			\ 'left': [ [ 'mode','paste' ],
