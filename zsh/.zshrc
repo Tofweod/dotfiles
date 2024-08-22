@@ -48,6 +48,8 @@ alias du='dust'
 
 alias fetch='fastfetch'
 
+alias l='ls -l'
+
 
 # ranger settings
 ranger_cd() {

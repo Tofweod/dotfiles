@@ -413,7 +413,7 @@ static Key keys[] = {
     TAGKEYS(XK_7, 6,  0)
     TAGKEYS(XK_8, 7,  0)
     TAGKEYS(XK_9, 8,  0)
-    TAGKEYS(XK_c, 6,  "/bin/zsh -c 'firefox'") 
+    TAGKEYS(XK_c, 6,  "/bin/zsh -c 'microsoft-edge-beta'") 
     TAGKEYS(XK_m, 7,  "/opt/YesPlayMusic/yesplaymusic")
     TAGKEYS(XK_0, 10,  "alacritty -t TerminalTag -e tmux new -A -s terminal-tag")
     // TAGKEYS(XK_t, 8,  "alacritty -t statusutil -e btop")
