@@ -84,7 +84,13 @@ highlight_rules = {
 }
 
 
+def todofile_exist():
+    return os.path.exists(TODOFILE)
+
+
 def get_todo_num():
+    if not todofile_exist():
+        return 0
     cmd = f"echo $(cat {TODOFILE} | wc -l)"
     result = subprocess.run(
         cmd,
@@ -134,23 +140,19 @@ def parse_todo_line(line):
     return line + '\n'
 
 
-def get_todo_list():
+def get_todo_list_str():
+    if not todofile_exist():
+        return f"Not found file: {TODOFILE}"
     result = ""
-    try:
-        with open(TODOFILE, "r") as todolist:
-            for line in todolist:
-                line = line.strip()
-                result += parse_todo_line(line)
-    except FileNotFoundError:
-        result = f"Not found file: {TODOFILE}"
-
+    with open(TODOFILE, "r") as todolist:
+        for line in todolist:
+            line = line.strip()
+            result += parse_todo_line(line)
     return result
 
 
 def notify(string=""):
-    send_string = ""
-    for string_ in get_todo_list():
-        send_string += string_
+    send_string = get_todo_list_str()
     os.system(
         "notify-send " + " '󰺲 TodoList' " + "\"" + send_string + "\" -r 1212"
     )
