@@ -15,6 +15,7 @@ PACKAGES_LISTS = {
     # 'music_pre':10,
     "music_play": 1,
     # 'music_next':10,
+    "todo": 1,
     "screen": 3,
     # 'pacman':36000,
     "net": 1,
@@ -28,9 +29,11 @@ PACKAGES_LISTS = {
 }
 
 
-DWM_PATH = "/home/tofweod/dwm/dwm/"
+_DWM_PATH = "~/dwm/dwm/"
+DWM_PATH = os.path.expanduser(_DWM_PATH)
 PACKAGES_PATH = DWM_PATH + "statusbar/"
-TEMP_FILE = "/home/tofweod/python_tmp"
+_TEMP_FILE = "~/python_tmp"
+TEMP_FILE = os.path.expanduser(_TEMP_FILE)
 
 MUSIC_PROGRAM = "yesplaymusic"
 

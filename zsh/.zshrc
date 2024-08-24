@@ -50,6 +50,8 @@ alias fetch='fastfetch'
 
 alias l='ls -l'
 
+alias todo='todo.sh'
+
 
 # ranger settings
 ranger_cd() {

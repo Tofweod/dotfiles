@@ -24,6 +24,10 @@ call plug#begin()
 	Plug 'Shougo/echodoc.vim'
 	Plug 'rhysd/clever-f.vim'
 
+	Plug 'mg979/vim-visual-multi'
+
+	Plug 'freitass/todo.txt-vim'
+
 	Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 filetype plugin indent on
@@ -244,7 +248,8 @@ let g:startify_session_delete_buffers=1
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_bookmarks=[
 			\ {'c': '~/.vimrc'},
-			\ {'zc': '~/.zshrc'}
+			\ {'zc': '~/.zshrc'},
+			\ {'td':'~/.todo/todo.txt'}
 			\]
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
@@ -282,3 +287,6 @@ function CocSymbolLine()
 endfunction
 
 " set statusline=%!ColorCocSymbolLine()
+
+" vim-visual-multi
+let g:VM_highlight_matches          = 'underline'
