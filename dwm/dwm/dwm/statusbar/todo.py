@@ -91,7 +91,7 @@ def todofile_exist():
 def get_todo_num():
     if not todofile_exist():
         return 0
-    cmd = f"echo $(cat {TODOFILE} | wc -l)"
+    cmd = f"echo $(sed '/^$/d' {TODOFILE} | wc -l)"
     result = subprocess.run(
         cmd,
         shell=True,
