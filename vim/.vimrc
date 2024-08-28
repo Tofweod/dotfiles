@@ -5,6 +5,7 @@ set nocompatible
 set nosmartindent
 set autoindent
 set noincsearch
+set hlsearch
 set title
 set modeline
 set modelines=6
@@ -25,7 +26,7 @@ set textwidth=80
 set wrap
 set ruler
 set showmatch
-" set noshowmode
+set noshowmode
 " set autochdir
 set autoread
 set laststatus=2

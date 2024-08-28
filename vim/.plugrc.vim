@@ -28,6 +28,10 @@ call plug#begin()
 
 	Plug 'freitass/todo.txt-vim'
 
+	Plug 'drmikehenry/vim-fixkey'
+	
+	Plug 'preservim/nerdtree'
+
 	Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 filetype plugin indent on
@@ -200,6 +204,15 @@ nnoremap <s-l> <plug>(wintabs_next)<CR>
 nnoremap <s-h> <plug>(wintabs_previous)<CR>
 nnoremap <leader>bd <plug>(wintabs_close)<CR>
 nnoremap <leader>wd <plug>(wintabs_close_window)<CR>
+nnoremap <M-1> :WintabsGo 1<CR>
+nnoremap <M-2> :WintabsGo 2<CR>
+nnoremap <M-3> :WintabsGo 3<CR>
+nnoremap <M-4> :WintabsGo 4<CR>
+nnoremap <M-5> :WintabsGo 5<CR>
+nnoremap <M-6> :WintabsGo 6<CR>
+nnoremap <M-7> :WintabsGo 7<CR>
+nnoremap <M-8> :WintabsGo 8<CR>
+nnoremap <M-9> :WintabsGo 9<CR>
 
 let g:wintabs_powerline_arrow_right = "\u25b6"
 let g:wintabs_powerline_sep_buffer_transition="\ue0b0"
@@ -290,3 +303,6 @@ endfunction
 
 " vim-visual-multi
 let g:VM_highlight_matches          = 'underline'
+
+" nerdtree
+nnoremap <leader>e :NERDTreeToggle<CR>
