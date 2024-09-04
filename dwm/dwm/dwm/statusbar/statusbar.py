@@ -10,6 +10,8 @@ import re
 import common
 import threading
 from setproctitle import setthreadtitle
+import signal
+import atexit
 
 # from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -88,7 +90,35 @@ def Run():
         time.sleep(0.5)
 
 
+pidfile_path = "/tmp/dwm-statusbar.pid"
+
+
+def register_pidfile():
+    with open(pidfile_path, "w") as pidfile:
+        pidfile.write(str(os.getpid()))
+
+
+def cleanup_pidfile():
+    if os.path.exists(pidfile_path):
+        os.unlink(pidfile_path)
+
+
+def restart_statusbar():
+    cleanup_pidfile()
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
+
+
+def handle_signal(signum, frame):
+    if signum in (signal.SIGTERM, signal.SIGINT):
+        restart_statusbar()
+
+
 if __name__ == "__main__":
+    register_pidfile()
+    atexit.register(cleanup_pidfile)
+    signal.signal(signal.SIGTERM, handle_signal)
+    signal.signal(signal.SIGINT, handle_signal)
     setthreadtitle("statusbar")
     if len(sys.argv) > 1:
         if sys.argv[1] == "cron":
