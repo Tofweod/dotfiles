@@ -3,4 +3,5 @@
 !.vim/autoload/
 !.vim/coc-settings.json
 
-.vim/undodir
+.vim/undodir/*
+!.vim/undodir/

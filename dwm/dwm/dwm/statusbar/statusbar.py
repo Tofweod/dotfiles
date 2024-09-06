@@ -90,7 +90,7 @@ def Run():
         time.sleep(0.5)
 
 
-pidfile_path = "/tmp/dwm-statusbar.pid"
+pidfile_path = "/tmp/dwm_statusbar.pid"
 
 
 def register_pidfile():
