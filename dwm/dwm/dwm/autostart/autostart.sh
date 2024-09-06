@@ -39,6 +39,7 @@ run_and_log() {
 
   program_arg=("${@:2:$#-1}")
 
+  echo "%%" >>${log_name}
   echo "$(date)" >>${log_name}
   r_cmd="$program_name ${program_arg[@]}>/dev/null 2>>${log_name} &"
 
