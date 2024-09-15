@@ -116,7 +116,6 @@ def handle_signal(signum, frame):
 
 if __name__ == "__main__":
     register_pidfile()
-    atexit.register(cleanup_pidfile)
     signal.signal(signal.SIGTERM, handle_signal)
     signal.signal(signal.SIGINT, handle_signal)
     setthreadtitle("statusbar")

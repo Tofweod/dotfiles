@@ -57,9 +57,12 @@ def reboot():
     os.system("systemctl reboot")
 
 
-def sleep():
+def suspend():
     os.system("systemctl suspend ")
-    # os.system("systemctl hibernate ")
+
+
+def hibernate():
+    os.system("systemctl hibernate ")
 
 
 def lock():
@@ -71,7 +74,8 @@ def system_rofi_set():
     choose = {
         "⏻ Shutdown": "shutdown",
         " Reboot": "reboot",
-        "⏾ Sleep": "sleep",
+        "⏾ Suspend": "suspend",
+        "󱌕 Hibernate": "hibernate",
         " Lock": "lock",
     }
     cmd = "echo $(echo '"
