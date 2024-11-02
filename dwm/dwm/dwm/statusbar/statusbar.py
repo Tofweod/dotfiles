@@ -20,6 +20,8 @@ packages_list = common.PACKAGES_LISTS
 
 # import packages
 for name in packages_list.keys():
+    if str(name) == "":
+        continue
     exec("import " + str(name))
 
 
@@ -71,6 +73,8 @@ def Run():
     # scheduler = BlockingScheduler()
     scheduler = BackgroundScheduler()
     for key, value in packages_list.items():
+        if str(key) == "":
+            continue
         cmd = (
             "scheduler.add_job("
             + str(key)

@@ -10,6 +10,29 @@ import threading
 
 # import time
 
+import psutil
+import socket
+
+
+def get_network_module(interface_name):
+    network_info = psutil.net_if_addrs()
+
+    if interface_name not in network_info:
+        return "Interface not found"
+
+    for address in network_info[interface_name]:
+        if address.family == socket.AF_INET:  # 检查是否是 IPv4
+            if 'wlan' in interface_name:
+                return "wifi"
+            elif 'eth' in interface_name or 'enp' in interface_name:
+                return "eth"
+
+    return ""
+
+
+netname = "enp6s0"
+_net_mod = get_network_module(netname)
+
 PACKAGES_LISTS = {
     "music_title": 1,
     # 'music_pre':10,
@@ -19,7 +42,7 @@ PACKAGES_LISTS = {
     "screen": 3,
     # 'pacman':36000,
     "net": 1,
-    "wifi": 2,
+    _net_mod: 2,
     "cpu": 3,
     "memory": 3,
     "vol": 1,
