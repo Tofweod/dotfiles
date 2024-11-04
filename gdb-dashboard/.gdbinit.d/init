@@ -1,0 +1,17 @@
+set breakpoint pending on
+set confirm off
+set disassembly-flavor intel
+
+dashboard registers -style column-major True
+
+dashboard -layout !assembly breakpoints expressions !history memory registers source stack threads variables
+
+dashboard variables -style align True
+dashboard variables -style compact False
+
+dashboard stack -style arguments True
+
+dashboard expressions -style align True
+
+dashboard source -style path True
+dashboard source -style path True

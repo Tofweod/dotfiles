@@ -60,6 +60,9 @@ if [ $(xrandr --listmonitors | rg 'Monitor' | awk '{print $2}') -gt 1 ]; then
   # clear state bar
   xdotool keydown Super b keyup b Super
   run_and_log alacritty -o "font.size=8.5" -t statusutil --class statusutil -e btop
+  sleep 0.2
+  run_and_log alacritty -t cava --class cava -e cava
+  xdotool keydown Super Control period keyup period Control Super
   sleep 0.5
   # back to main screen
   xdotool keydown Super Alt l keyup l Alt Super
