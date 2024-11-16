@@ -110,6 +110,7 @@ static const char *showhidewindows[] = {
   "WeChat",
   "钉钉",
   "QQ",
+  "微信",
 };
 
 
@@ -360,7 +361,7 @@ static Key keys[] = {
     { MODKEY|ControlMask,  XK_s,        spawn,   SHCMD("rofi -show run -show-icons") }, // rofi 
     // Notice that if you first use copyq , Remeber config 1.disable tray show 2.Enable hidden mainwindow. Then you can use this better.
     { MODKEY,              XK_v,        spawn,   SHCMD("copyq toggle") },  // copyq
-    { MODKEY|ShiftMask,    XK_s,        spawn,   SHCMD("flameshot gui") }, // flameshot
+    { MODKEY|ShiftMask,    XK_s,        spawn,   SHCMD("scrot -s ~/Pictures/screenshots/%Y-%m-%d-%T.png") }, // flameshot
     { MODKEY|ControlMask,  XK_l,        spawn,   SHCMD("~/dwm/dwm/i3lock/lock.sh") },   
     { MODKEY,           XK_grave, togglescratch, SHCMD("alacritty -t scratchpad --class floatingTerminal")  }, // 打开/隐藏scrtachpad
     { MODKEY,              XK_Return,   spawn,   SHCMD("alacritty") }, // 新打开一个终端

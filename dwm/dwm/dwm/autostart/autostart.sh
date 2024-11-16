@@ -77,7 +77,6 @@ done
 # crow & # translate
 # copyq & # copy software
 # nekoray > /dev/null 2>&1 &
-run_and_log xfce4-power-manager
 run_and_log redshift
 run_and_log xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh"
 run_and_log dunst
