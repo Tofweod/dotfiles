@@ -14,6 +14,9 @@ xrandr --dpi 96
 # xrandr --output "$PRIMARY_DISPLAY" --mode 2560x1440 --rate 144 --primary
 # xrandr --output "$LAPTOP_DISPLAY" --right-of "$PRIMARY_DISPLAY" --auto
 
+xset s off
+xset m 0 0
+
 #nitrogen
 nitrogen --restore &
 

@@ -65,6 +65,19 @@ ranger_cd() {
 
 alias rr='ranger_cd'
 
+yazi_cd() {
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    yazi --cwd-file="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
+
+alias yz='yazi_cd'
+
+alias rr='yz'
+
 open_file() {
   res=$1
   type=$(file -b $res)

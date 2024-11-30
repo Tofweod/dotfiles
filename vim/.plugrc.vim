@@ -32,6 +32,8 @@ call plug#begin()
 	
 	Plug 'preservim/nerdtree'
 
+	Plug 'henrik/vim-indexed-search'
+
 	Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 filetype plugin indent on
@@ -262,7 +264,6 @@ let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_bookmarks=[
 			\ {'c': '~/.vimrc'},
 			\ {'zc': '~/.zshrc'},
-			\ {'td':'~/.todo/todo.txt'}
 			\]
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>

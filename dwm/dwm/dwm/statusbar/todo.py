@@ -24,82 +24,79 @@ DELAY_TIME = 3
 filename = os.path.basename(__file__)
 name = re.sub("\\..*", "", filename)
 
-_TODOFILE = "~/.todo/todo.txt"
-TODOFILE = os.path.expanduser(_TODOFILE)
+# _TODOFILE = "~/.todo/todo.txt"
+# TODOFILE = os.path.expanduser(_TODOFILE)
 
 
-class Colors:
-    RESET = "</span>"
-    COMMON = "<span color='#000000'>"
-    COMMENT = "<span color='#808080'>"
-    PRIORITY_A = "<span color='#c93756'>"
-    PRIORITY_B = "<span color='#ff7500'>"
-    PRIORITY_C = "<span color='#5d513c'>"
-    DATE = "<span color='#789262'>"
-    CONTEXT = "<span color='#b0a4e3'>"
-    PROJECT = "<span color='#758a99'>"
-
-
-patterns = {
-    "TodoDone": r'^[xX]\s.+$',
-    "TodoPriorityA": r'^\([aA]\)\s.+$',
-    "TodoPriorityB": r'^\([bB]\)\s.+$',
-    "TodoPriorityC": r'^\([cC]\)\s.+$',
-    "TodoPriorityD": r'^\([dD]\)\s.+$',
-    "TodoPriorityE": r'^\([eE]\)\s.+$',
-    "TodoPriorityF": r'^\([fF]\)\s.+$',
-    "TodoPriorityG": r'^\([gG]\)\s.+$',
-    "TodoPriorityH": r'^\([hH]\)\s.+$',
-    "TodoPriorityI": r'^\([iI]\)\s.+$',
-    "TodoPriorityJ": r'^\([jJ]\)\s.+$',
-    "TodoPriorityK": r'^\([kK]\)\s.+$',
-    "TodoPriorityL": r'^\([lL]\)\s.+$',
-    "TodoPriorityM": r'^\([mM]\)\s.+$',
-    "TodoPriorityN": r'^\([nN]\)\s.+$',
-    "TodoPriorityO": r'^\([oO]\)\s.+$',
-    "TodoPriorityP": r'^\([pP]\)\s.+$',
-    "TodoPriorityQ": r'^\([qQ]\)\s.+$',
-    "TodoPriorityR": r'^\([rR]\)\s.+$',
-    "TodoPriorityS": r'^\([sS]\)\s.+$',
-    "TodoPriorityT": r'^\([tT]\)\s.+$',
-    "TodoPriorityU": r'^\([uU]\)\s.+$',
-    "TodoPriorityV": r'^\([vV]\)\s.+$',
-    "TodoPriorityW": r'^\([wW]\)\s.+$',
-    "TodoPriorityX": r'^\([xX]\)\s.+$',
-    "TodoPriorityY": r'^\([yY]\)\s.+$',
-    "TodoPriorityZ": r'^\([zZ]\)\s.+$',
-    "TodoDate": r'\d{2,4}-\d{2}-\d{2}',
-    "TodoProject": r'\B\+\S+',
-    "TodoContext": r'\B@\S+',
-}
-
-highlight_rules = {
-    "TodoDone": Colors.COMMENT,
-    "TodoPriorityA": Colors.PRIORITY_A,
-    "TodoPriorityB": Colors.PRIORITY_B,
-    "TodoPriorityC": Colors.PRIORITY_C,
-    "TodoDate": Colors.DATE,
-    "TodoProject": Colors.PROJECT,
-    "TodoContext": Colors.CONTEXT,
-}
-
-
-def todofile_exist():
-    return os.path.exists(TODOFILE)
+# class Colors:
+#     RESET = "</span>"
+#     COMMON = "<span color='#000000'>"
+#     COMMENT = "<span color='#808080'>"
+#     PRIORITY_A = "<span color='#c93756'>"
+#     PRIORITY_B = "<span color='#ff7500'>"
+#     PRIORITY_C = "<span color='#5d513c'>"
+#     DATE = "<span color='#789262'>"
+#     CONTEXT = "<span color='#b0a4e3'>"
+#     PROJECT = "<span color='#758a99'>"
+#
+#
+# patterns = {
+#     "TodoDone": r'^[xX]\s.+$',
+#     "TodoPriorityA": r'^\([aA]\)\s.+$',
+#     "TodoPriorityB": r'^\([bB]\)\s.+$',
+#     "TodoPriorityC": r'^\([cC]\)\s.+$',
+#     "TodoPriorityD": r'^\([dD]\)\s.+$',
+#     "TodoPriorityE": r'^\([eE]\)\s.+$',
+#     "TodoPriorityF": r'^\([fF]\)\s.+$',
+#     "TodoPriorityG": r'^\([gG]\)\s.+$',
+#     "TodoPriorityH": r'^\([hH]\)\s.+$',
+#     "TodoPriorityI": r'^\([iI]\)\s.+$',
+#     "TodoPriorityJ": r'^\([jJ]\)\s.+$',
+#     "TodoPriorityK": r'^\([kK]\)\s.+$',
+#     "TodoPriorityL": r'^\([lL]\)\s.+$',
+#     "TodoPriorityM": r'^\([mM]\)\s.+$',
+#     "TodoPriorityN": r'^\([nN]\)\s.+$',
+#     "TodoPriorityO": r'^\([oO]\)\s.+$',
+#     "TodoPriorityP": r'^\([pP]\)\s.+$',
+#     "TodoPriorityQ": r'^\([qQ]\)\s.+$',
+#     "TodoPriorityR": r'^\([rR]\)\s.+$',
+#     "TodoPriorityS": r'^\([sS]\)\s.+$',
+#     "TodoPriorityT": r'^\([tT]\)\s.+$',
+#     "TodoPriorityU": r'^\([uU]\)\s.+$',
+#     "TodoPriorityV": r'^\([vV]\)\s.+$',
+#     "TodoPriorityW": r'^\([wW]\)\s.+$',
+#     "TodoPriorityX": r'^\([xX]\)\s.+$',
+#     "TodoPriorityY": r'^\([yY]\)\s.+$',
+#     "TodoPriorityZ": r'^\([zZ]\)\s.+$',
+#     "TodoDate": r'\d{2,4}-\d{2}-\d{2}',
+#     "TodoProject": r'\B\+\S+',
+#     "TodoContext": r'\B@\S+',
+# }
+#
+# highlight_rules = {
+#     "TodoDone": Colors.COMMENT,
+#     "TodoPriorityA": Colors.PRIORITY_A,
+#     "TodoPriorityB": Colors.PRIORITY_B,
+#     "TodoPriorityC": Colors.PRIORITY_C,
+#     "TodoDate": Colors.DATE,
+#     "TodoProject": Colors.PROJECT,
+#     "TodoContext": Colors.CONTEXT,
+# }
 
 
 def get_todo_num():
-    if not todofile_exist():
-        return 0
-    cmd = f"echo $(sed '/^$/d' {TODOFILE} | wc -l)"
+    cmd = f"task | tail -1"
     result = subprocess.run(
         cmd,
         shell=True,
         timeout=1,
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE,
-    )
-    return result.stdout.decode("utf-8")
+    ).stdout.decode("utf-8")
+
+    if result == "":
+        return 0
+    return result
 
 
 def update(loop=False, exec=True):
@@ -128,41 +125,36 @@ def update_thread():
     _thread.start_new_thread(update, (False, False))
 
 
-def parse_todo_line(line):
-    for syntax_group, pattern in patterns.items():
-        color = highlight_rules.get(syntax_group, Colors.COMMON)
-        line = re.sub(
-            pattern,
-            lambda m: f"{color}{m.group(0)}{Colors.RESET}",
-            line,
-            flags=re.MULTILINE,
-        )
-    return line + '\n'
+# def parse_todo_line(line):
+#     for syntax_group, pattern in patterns.items():
+#         color = highlight_rules.get(syntax_group, Colors.COMMON)
+#         line = re.sub(
+#             pattern,
+#             lambda m: f"{color}{m.group(0)}{Colors.RESET}",
+#             line,
+#             flags=re.MULTILINE,
+#         )
+#     return line + '\n'
 
 
-def get_todo_list_str():
-    if not todofile_exist():
-        return f"Not found file: {TODOFILE}"
-    result = ""
-    with open(TODOFILE, "r") as todolist:
-        for line in todolist:
-            line = line.strip()
-            result += parse_todo_line(line)
-    return result
+# def get_todo_list_str():
+#     cmd = f"task | head -n -1"
+#     result = subprocess.run(
+#         cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE
+#     )
+#     return result.stdout.decode("utf-8")
 
 
 def notify(string=""):
-    send_string = get_todo_list_str()
-    os.system(
-        "notify-send " + " '󰺲 TodoList' " + "\"" + send_string + "\" -r 1212"
-    )
     pass
 
 
 def click(string=""):
     match string:
         case "L":
-            notify()
+            # os.system(
+            #     "alacritty -t task --class floatingTerminal -e zsh -c 'task;zsh'"
+            # )
             pass
         case "M":
             pass
