@@ -20,7 +20,7 @@ export BOOST_ROOT=/usr/local/boost_1_84_0/
 
 export EDITOR=nvim
 
-export PATH="$PATH:/home/tofweod/pintos/src/utils:/home/tofweod/.local/bin"
+export PATH="$PATH:/home/tofweod/.local/bin"
 
 export BAT_THEME="ansi"
 
@@ -42,6 +42,7 @@ alias trs='trash-restore'
 
 alias ytdlp='yt-dlp --cookies-from-browser firefox'
 
+eval "$(zoxide init zsh)"
 alias j='z'
 
 alias du='dust'
@@ -65,13 +66,13 @@ ranger_cd() {
 
 alias rr='ranger_cd'
 
-yazi_cd() {
-    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
-    yazi --cwd-file="$temp_file" -- "${@:-$PWD}"
-    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
-        cd -- "$chosen_dir"
-    fi
-    rm -f -- "$temp_file"
+function yazi_cd() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 alias yz='yazi_cd'
@@ -146,7 +147,6 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 zinit ice lucid wait='1'
-zinit light skywind3000/z.lua
 
 # 语法高亮
 zinit ice lucid wait='0' atinit='zpcompinit'
@@ -186,7 +186,6 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit as="null" wait="1" lucid from="gh-r" for \
     mv="*/rg -> rg"  sbin		BurntSushi/ripgrep \
     mv="fd* -> fd"   sbin="fd/fd"  @sharkdp/fd \
-    sbin="fzf"       junegunn/fzf-bin
 
 # 加载它们的补全等
 zinit ice mv="*.zsh -> _fzf" as="completion"
