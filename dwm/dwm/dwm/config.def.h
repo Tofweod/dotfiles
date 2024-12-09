@@ -363,7 +363,7 @@ static Key keys[] = {
     { MODKEY,              XK_v,        spawn,   SHCMD("copyq toggle") },  // copyq
     { MODKEY|ShiftMask,    XK_s,        spawn,   SHCMD("scrot -s ~/Pictures/screenshots/%Y-%m-%d-%T.png") }, // flameshot
     { MODKEY|ControlMask,  XK_l,        spawn,   SHCMD("~/dwm/dwm/i3lock/lock.sh") },   
-    { MODKEY,           XK_grave, togglescratch, SHCMD("alacritty -t scratchpad --class floatingTerminal")  }, // 打开/隐藏scrtachpad
+    { MODKEY,           XK_grave, togglescratch, SHCMD("alacritty -t scratchpad --class floatingTerminal -e tmux new -s scratchpad")  }, // 打开/隐藏scrtachpad
     { MODKEY,              XK_Return,   spawn,   SHCMD("alacritty") }, // 新打开一个终端
     { MODKEY|Mod1Mask,              XK_Return,   spawn,   SHCMD("alacritty -e tmux") }, // 新打开一个tmux终端
     { MODKEY|ShiftMask,    XK_n,        spawn,   SHCMD("alacritty -t term-global --class globalingTerminal") }, // 新打开一个浮动终端

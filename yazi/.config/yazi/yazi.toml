@@ -51,7 +51,7 @@ extract = [
 	{ run = 'atool --list "$@"', desc = "list zip here", for = "unix" },
 ]
 view = [
-  { run = 'imv "$@"',orphan=true, for= "unix"},
+  { run = 'imv -r "$@"',orphan=true, for= "unix"},
 ]
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },

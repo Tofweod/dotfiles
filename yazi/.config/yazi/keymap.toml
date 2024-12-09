@@ -61,7 +61,7 @@ keymap = [
 	{ on = "_",         run = "link --relative",             desc = "Symlink the relative path of yanked files" },
 	{ on = "<C-->",     run = "hardlink",                    desc = "Hardlink yanked files" },
 	{ on = "u",         run = "unyank",                      desc = "Cancel the yank status" },
-	{ on = "D",         run = "remove",                      desc = "Trash selected files" },
+	{ on = "D",         run = '''shell --confirm 'trash-put "$@"'''' ,                      desc = "Trash selected files" },
 	{ on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
 	{ on = "r",         run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
 	{ on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
