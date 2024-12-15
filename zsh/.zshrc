@@ -44,6 +44,7 @@ alias ytdlp='yt-dlp --cookies-from-browser firefox'
 
 eval "$(zoxide init zsh)"
 alias j='z'
+alias ji='zi'
 
 alias du='dust'
 
@@ -205,3 +206,5 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 bindkey -M vicmd '^P' history-substring-search-up
 bindkey -M vicmd '^N' history-substring-search-down
+
+unalias zi

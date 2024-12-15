@@ -35,6 +35,10 @@ call plug#begin()
 	Plug 'henrik/vim-indexed-search'
 
 	Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+	Plug 'voldikss/vim-floaterm'
+
+	Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 filetype plugin indent on
 colorscheme catppuccin_frappe
@@ -228,6 +232,11 @@ set sessionoptions+=tabpages,globals
 
 
 " Leaderf
+let g:Lf_HideHelp = 1
+let g:Lf_CursorBlink = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "Monaco" }
+let g:Lf_WorkingDirectoryMode = "ac"
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 let g:Lf_WindowPosition='popup'
 let g:Lf_RootMarkers = ['.git', 'build']
 let g:Lf_WildIgnore = {
@@ -307,3 +316,13 @@ let g:VM_highlight_matches          = 'underline'
 
 " nerdtree
 nnoremap <leader>e :NERDTreeToggle<CR>
+
+" floaterm
+let g:floaterm_wintype = "split"
+let g:flaoterm_position="botright"
+nnoremap <leader>tn :FloatermNew<CR>
+nnoremap <leader>tt :FloatermToggle<CR>
+
+" asyncrun
+let g:asyncrun_open = 10
+nnoremap <leader>ar :AsyncRun
