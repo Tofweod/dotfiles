@@ -24,13 +24,12 @@ export PATH="$PATH:/home/tofweod/.local/bin"
 
 export BAT_THEME="ansi"
 
-
 # alias
 alias clc='clear -x'
 
 alias d='dirs -v'
 
-alias date='date +%Y-%m-%d\ %H:%M:%S'
+alias mydate='date +%Y-%m-%d\ %H:%M:%S'
 
 alias v='nvim'
 
@@ -45,6 +44,7 @@ alias ytdlp='yt-dlp --cookies-from-browser firefox'
 eval "$(zoxide init zsh)"
 alias j='z'
 alias ji='zi'
+alias jl='j -'
 
 alias du='dust'
 
