@@ -76,6 +76,14 @@ function yazi_cd() {
 	rm -f -- "$tmp"
 }
 
+function cr() {
+  git status > /dev/null 2>&1
+  if [[ $? -eq 0 ]];then
+	  local git_root="$(git rev-parse --show-toplevel)"
+	  cd "$git_root"
+  fi
+}
+
 alias yz='yazi_cd'
 
 alias rr='yz'

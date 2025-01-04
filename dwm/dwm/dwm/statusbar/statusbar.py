@@ -54,13 +54,17 @@ def MainRefresh():
         match_string = "^\\^s" + str(name)
         for line in lines:
             flag = re.match(str(match_string), line)
+            # locals bugs
+            locals_scope = locals()
             if flag != None:
                 exec(
                     str(name)
                     + "_txt"
-                    + "=line.encode('utf-8').decode('utf-8').replace('\\n','')"
+                    + "=line.encode('utf-8').decode('utf-8').replace('\\n','')",
+                    {},
+                    locals_scope,
                 )
-                tmp += locals()[str(name) + "_txt"]
+                tmp += locals_scope[str(name) + "_txt"]
                 break
     os.system("xsetroot -name '" + str(tmp) + "'")
 

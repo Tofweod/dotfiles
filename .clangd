@@ -1,2 +1,18 @@
-CompileFlags:
-	Add: ["-xc"]
+If:
+  PathMatch: .*\.h
+
+CompileFlags:            
+  Add:
+    - "-Wall"           
+    - "-Wextra"         
+  Compiler: /usr/bin/gcc
+
+InlayHints:              
+  Enabled: true          
+  ParameterNames: true   
+  DeducedTypes: true     
+  Designators: true      
+
+Completion:              
+  AllScopes: true        
+  Brackets: "[]"         

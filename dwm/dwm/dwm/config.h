@@ -357,9 +357,8 @@ static Key keys[] = {
 //=============================================================================
 //                              其它命令
 //=============================================================================
-    { MODKEY,              XK_e,        spawn,   SHCMD("dmenu_run") },// dmenu
     { MODKEY,              XK_s,        spawn,   SHCMD("rofi -show drun -show-icons") },// rofi
-    { MODKEY|ControlMask,  XK_s,        spawn,   SHCMD("rofi -show run -show-icons") }, // rofi 
+    { MODKEY,              XK_u,        spawn,   SHCMD("dmenu_run") }, // dmenu_run
     // Notice that if you first use copyq , Remeber config 1.disable tray show 2.Enable hidden mainwindow. Then you can use this better.
     { MODKEY,              XK_v,        spawn,   SHCMD("copyq toggle") },  // copyq
     { MODKEY|ShiftMask,    XK_s,        spawn,   SHCMD("scrot -s ~/Pictures/screenshots/%Y-%m-%d-%T.png") }, // flameshot
@@ -369,7 +368,7 @@ static Key keys[] = {
     { MODKEY|Mod1Mask,              XK_Return,   spawn,   SHCMD("alacritty -e tmux") }, // 新打开一个tmux终端
     { MODKEY|ShiftMask,    XK_n,        spawn,   SHCMD("alacritty -t term-global --class globalingTerminal") }, // 新打开一个浮动终端
     { MODKEY,              XK_n,        spawn,   SHCMD("alacritty -t term-float --class floatingTerminal") }, // 新打开一个全局浮动终端
-    // { MODKEY,              XK_e,        spawn,   SHCMD("alacritty -e ranger") }, // 打开资源管理器
+    { MODKEY,              XK_e,        spawn,   SHCMD("alacritty -e ranger") }, // 打开资源管理器
     // { MODKEY,              XK_e,        spawn,   SHCMD("nautilus .") }, // 打开资源管理器
     { MODKEY,              XK_BackSpace,spawn,   SHCMD("playerctl play-pause") },// audio play/pause
     { MODKEY,              XK_t,        spawn,   SHCMD("alacritty -t statusutil --class floatingTerminal -e btop")},

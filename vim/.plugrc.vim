@@ -240,7 +240,7 @@ let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 let g:Lf_WindowPosition='popup'
 let g:Lf_RootMarkers = ['.git', 'build']
 let g:Lf_WildIgnore = {
-			\ 'dir':['.git','build']
+			\ 'dir':['.git','build','.cache']
 			\}
 
 noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>

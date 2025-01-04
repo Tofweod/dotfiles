@@ -8,7 +8,7 @@ return {
       -- 配置语言服务器的其他参数（可选）
       cmd = {
         "clangd",
-        "--compile-commands-dir=build",
+        "--compile-commands-dir=build/",
         "--query-driver=/usr/bin/gcc",
         "--log=verbose",
         "--background-index",

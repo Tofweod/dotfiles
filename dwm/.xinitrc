@@ -15,7 +15,7 @@ xrandr --dpi 96
 # xrandr --output "$LAPTOP_DISPLAY" --right-of "$PRIMARY_DISPLAY" --auto
 
 xset s off
-xset s noblank
+xset s expose
 xset m 0 0
 
 #nitrogen
