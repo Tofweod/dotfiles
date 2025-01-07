@@ -55,7 +55,7 @@ PACKAGES_LISTS = {
 _DWM_PATH = "~/dwm/dwm/"
 DWM_PATH = os.path.expanduser(_DWM_PATH)
 PACKAGES_PATH = DWM_PATH + "statusbar/"
-_TEMP_FILE = "~/python_tmp"
+_TEMP_FILE = "~/statusbar_tmp"
 TEMP_FILE = os.path.expanduser(_TEMP_FILE)
 
 MUSIC_PROGRAM = "yesplaymusic"

@@ -347,22 +347,22 @@ run = [ '''
 
 [[manager.prepend_keymap]]
 on   = "T"
-run  = "plugin --sync max-preview"
+run  = "plugin max-preview"
 # For upcoming Yazi 0.4 (nightly version):
 # run  = "plugin max-preview"
 desc = "Maximize or restore preview"
 
 [[manager.prepend_keymap]]
 on  = "K"
-run = "plugin --sync parent-arrow --args=-1"
+run = "plugin parent-arrow --args=-1"
 
 [[manager.prepend_keymap]]
 on  = "J"
-run = "plugin --sync parent-arrow --args=1"
+run = "plugin parent-arrow --args=1"
 
 [[manager.prepend_keymap]]
 on   = ['z','t']
-run  = "plugin --sync hide-preview"
+run  = "plugin hide-preview"
 # For upcoming Yazi 0.4 (nightly version):
 # run  = "plugin hide-preview"
 desc = "Hide or show preview"
