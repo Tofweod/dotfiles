@@ -33,6 +33,7 @@ set laststatus=2
 set hidden
 set undofile
 set termguicolors
+set clipboard=unnamedplus
 
 set undodir=~/.vim/undodir
 
