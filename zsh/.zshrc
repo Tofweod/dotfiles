@@ -52,7 +52,7 @@ alias fetch='fastfetch'
 
 alias l='ls -l'
 
-alias todo='todo.sh'
+alias todo='rg TODO .'
 
 
 # ranger settings

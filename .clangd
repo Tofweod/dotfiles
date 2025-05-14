@@ -15,4 +15,3 @@ InlayHints:
 
 Completion:              
   AllScopes: true        
-  Brackets: "[]"         
