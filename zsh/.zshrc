@@ -52,6 +52,8 @@ alias fetch='fastfetch'
 
 alias l='ls -l'
 
+alias la='ls -a'
+
 alias todo='rg TODO .'
 
 
