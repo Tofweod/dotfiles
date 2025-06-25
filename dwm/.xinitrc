@@ -23,4 +23,8 @@ $HOME/.local/bin/rand_change_nitrogen_primary_wallpaper
 nitrogen --restore &
 
 # dwm
-dwm
+# exec dwm
+# bspwm
+xsetroot -cursor_name left_ptr
+exec sxhkd &
+exec bspwm
