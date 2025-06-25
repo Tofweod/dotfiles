@@ -33,7 +33,7 @@ bspc rule -a "cavautil" desktop=7 monitor=${SECOND_MONITER} state=titled
 
 # autostart
 pgrep -x btop >/dev/null || alacritty -o "font.size=16" -t statusutil --class statusutil -e btop &
-pgrep -x cava >/dev/null || alacritty -o "font.size=16" -t cava --class cavautil -e cava &
+pgrep -x cava >/dev/null || alacritty -o "font.size=32" -t cava --class cavautil -e cava &
 pgrep -x xfce4-power-manager >/dev/null || xfce4-power-manager &
 pgrep -x xautolock >/dev/null || xautolock -time 30 -locker "~/dwm/dwm/i3lock/lock.sh" &
 pgrep -x fcitx5 >/dev/null || fcitx5 &

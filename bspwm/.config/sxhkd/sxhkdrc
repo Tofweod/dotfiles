@@ -25,6 +25,10 @@ super + Return
 super + u
   dmenu_run
 
+# lock screen
+alt + l
+  ~/dwm/dwm/i3lock/lock.sh
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -102,6 +106,10 @@ super + shift + d
 # select window, used in monocle mode or when there are floating winodws
 super + w 
   $HOME/.config/sxhkd/scripts/select_cur_desktop_window.sh
+
+# select all windows, including hidden ones
+super + ctrl + w
+  $HOME/.config/sxhkd/scripts/all_windows.sh
 
 # set the window state
 super + {space,shift + t,f,z}
