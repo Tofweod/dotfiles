@@ -39,9 +39,10 @@ call plug#begin()
 	Plug 'voldikss/vim-floaterm'
 
 	Plug 'skywind3000/asyncrun.vim'
+	Plug 'dylanaraps/wal.vim'
 call plug#end()
 filetype plugin indent on
-colorscheme catppuccin_frappe
+colorscheme wal
 
 " coc.nvim
 set updatetime=100

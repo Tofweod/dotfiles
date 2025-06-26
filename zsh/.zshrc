@@ -218,3 +218,9 @@ bindkey -M vicmd '^P' history-substring-search-up
 bindkey -M vicmd '^N' history-substring-search-down
 
 unalias zi
+
+# dmenu
+. "${HOME}/.cache/wal/colors.sh"
+alias dmenu='dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
+
+alias dmenu_run='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'

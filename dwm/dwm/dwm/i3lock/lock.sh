@@ -15,49 +15,49 @@ HELLO="                  The sense of the world must lie outside the world.
                         there were,it would be of no value."
 
 scrot $SCREEN
-convert $SCREEN -blur 5x5 - | convert - $CHARACTER -geometry +5+2310 -composite $LOCKOUT
+magick $SCREEN -blur 5x5 - | magick - $CHARACTER -geometry +5+2310 -composite $LOCKOUT
 
 i3lock \
-	-i $LOCKOUT \
-	--greeter-text="$HELLO" \
-	--greeter-font='Monaco Nerd Font' \
-	--greeter-pos="2700:2400" \
-	--greeter-size=35 \
-	--greeter-color='#5F9EA0' \
-	--insidever-color=$CLEAR \
-	--ringver-color=$VERIFYING \
-	--insidewrong-color=$CLEAR \
-	--ringwrong-color=$WRONG \
-	\
-	--inside-color=$BLANK \
-	--ring-color=$DEFAULT \
-	--line-color=$BLANK \
-	--separator-color=$DEFAULT \
-	\
-	--verif-color=$TEXT \
-	--wrong-color=#ff0000 \
-	--time-color=$TEXT \
-	--date-color=#a5c689 \
-	--layout-color=$TEXT \
-	--keyhl-color=$WRONG \
-	--bshl-color=$WRONG \
-	\
-	--screen 1 \
-	--blur 3 \
-	--clock \
-	--force-clock \
-	--indicator \
-	--time-str="%H:%M:%S" \
-	--time-size=128 \
-	--date-str="%A  %Y-%m-%d" \
-	--date-size=32 \
-	--wrong-size=60 \
-	--verif-size=60 \
-	--radius=350 \
-	--pointer default \
-	--show-failed-attempts \
-	--time-font="Monaco" \
-	--date-font="Monaco"
+  -i $LOCKOUT \
+  --greeter-text="$HELLO" \
+  --greeter-font='Monaco Nerd Font' \
+  --greeter-pos="2700:2400" \
+  --greeter-size=35 \
+  --greeter-color='#5F9EA0' \
+  --insidever-color=$CLEAR \
+  --ringver-color=$VERIFYING \
+  --insidewrong-color=$CLEAR \
+  --ringwrong-color=$WRONG \
+  \
+  --inside-color=$BLANK \
+  --ring-color=$DEFAULT \
+  --line-color=$BLANK \
+  --separator-color=$DEFAULT \
+  \
+  --verif-color=$TEXT \
+  --wrong-color=#ff0000 \
+  --time-color=$TEXT \
+  --date-color=#a5c689 \
+  --layout-color=$TEXT \
+  --keyhl-color=$WRONG \
+  --bshl-color=$WRONG \
+  \
+  --screen 1 \
+  --blur 3 \
+  --clock \
+  --force-clock \
+  --indicator \
+  --time-str="%H:%M:%S" \
+  --time-size=128 \
+  --date-str="%A  %Y-%m-%d" \
+  --date-size=32 \
+  --wrong-size=60 \
+  --verif-size=60 \
+  --radius=350 \
+  --pointer default \
+  --show-failed-attempts \
+  --time-font="Monaco" \
+  --date-font="Monaco"
 
 rm $SCREEN
 rm $LOCKOUT

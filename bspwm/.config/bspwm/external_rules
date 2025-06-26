@@ -27,4 +27,17 @@ Brave-browser)
     echo "rectangle=1000x600+0+0"
   fi
   ;;
+"OSD Lyrics")
+  if [ $(xprop -id $wid WM_NAME | cut -d= -f2 | sed -E 's/.*"(.*)".*/\1/') == "Preferences" ]; then
+    echo "manage=on"
+  fi
+  ;;
 esac
+
+# echo -e "One group: \n \
+#     window ID : ${wid},\n \
+#     title : $(xtitle "${wid}"),\n \
+#     class name : ${class},\n \
+#     instance name : ${instance},\n \
+#     intermediate consequences : ${consequences}\n\n" \
+#   >>~/log

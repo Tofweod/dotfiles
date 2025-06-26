@@ -27,7 +27,7 @@ super + u
 
 # lock screen
 alt + l
-  ~/dwm/dwm/i3lock/lock.sh
+  lock
 
 # turn on powermenu
 super + ctrl + Escape

@@ -55,7 +55,7 @@ $reboot)
   ;;
 $lock)
   if [[ -f /usr/bin/i3lock ]]; then
-    ~/dwm/dwm/i3lock/lock.sh
+    lock
   elif [[ -f /usr/bin/betterlockscreen ]]; then
     betterlockscreen -l
   fi
