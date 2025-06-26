@@ -29,6 +29,10 @@ super + u
 alt + l
   ~/dwm/dwm/i3lock/lock.sh
 
+# turn on powermenu
+super + ctrl + Escape
+  $HOME/.config/polybar/colorblocks/scripts/powermenu.sh
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

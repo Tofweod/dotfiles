@@ -25,6 +25,7 @@ nitrogen --restore &
 # dwm
 # exec dwm
 # bspwm
+export DESKTOP_SESSION=bspwm
 xsetroot -cursor_name left_ptr
 exec sxhkd &
 exec bspwm

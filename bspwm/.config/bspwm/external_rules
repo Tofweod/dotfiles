@@ -5,18 +5,26 @@ class=$2
 instance=$3
 consequences=$4
 
-if [ "$instance" = fontforge ] ; then
-	title=$(xtitle "$wid")
-	case "$title" in
-		Layers|Tools|Warning)
-			echo "focus=off"
-			;;
-	esac
+if [ "$instance" = fontforge ]; then
+  title=$(xtitle "$wid")
+  case "$title" in
+  Layers | Tools | Warning)
+    echo "focus=off"
+    ;;
+  esac
 fi
 
 case "$class" in
-	Lutris|Liferea)
-		eval "$consequences"
-		[ "$state" ] || echo "state=pseudo_tiled"
-		;;
+Lutris | Liferea)
+  eval "$consequences"
+  [ "$state" ] || echo "state=pseudo_tiled"
+  ;;
+Brave-browser)
+  eval "$consequences"
+  if [ $(xprop -id $wid WM_WINDOW_ROLE | cut -d= -f2 | sed -E 's/.*"(.*)".*/\1/') == "pop-up" ]; then
+    echo "state=floating"
+    echo "center=on"
+    echo "rectangle=1000x600+0+0"
+  fi
+  ;;
 esac
