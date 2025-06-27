@@ -19,8 +19,7 @@ xset s expose
 xset m 0 0
 
 #nitrogen
-$HOME/.local/bin/rand_change_nitrogen_primary_wallpaper
-nitrogen --restore &
+cwp
 
 # dwm
 # exec dwm

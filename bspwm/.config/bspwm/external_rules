@@ -28,9 +28,17 @@ Brave-browser)
   fi
   ;;
 "OSD Lyrics")
-  if [ $(xprop -id $wid WM_NAME | cut -d= -f2 | sed -E 's/.*"(.*)".*/\1/') == "Preferences" ]; then
-    echo "manage=on"
-  fi
+  includes=("Preferences" "Search lyrics" "Choose LRC file to assign" "About OSD Lyrics" "Credits" "License" "Select a folder")
+  wmname=$(xprop -id $wid WM_NAME | cut -d= -f2 | sed -E 's/.*"(.*)".*/\1/')
+  for item in "${includes[@]}"; do
+    if [ "$wmname" == "$item" ]; then
+      echo "manage=on"
+      break
+    fi
+  done
+  # if [ "$wmname" == "Preferences" ]; then
+  #   echo "manage=on"
+  # fi
   ;;
 esac
 
