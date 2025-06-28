@@ -1,0 +1,12 @@
+#! /bin/bash
+
+SAVE_CONFIG="$HOME/.config/nitrogen/bg-saved.cfg"
+wallpaper_path="$(
+  sed -n '/^\[xin_0\]/,/^\[.*\]/s|^file=\(.*\)|\1|p' $SAVE_CONFIG
+)"
+
+random_wallpaper=$(find $HOME/Pictures/wallpapers -type f ! -wholename "$wallpaper_path" | grep -e .jpeg -e .jpg -e .png -e .gif | shuf -n 1)
+
+sed -i "/^\[xin_0\]/,/^\[.*\]/s|^\(file=\).*|\1$random_wallpaper|" $SAVE_CONFIG
+
+echo $random_wallpaper

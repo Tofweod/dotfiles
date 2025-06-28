@@ -1,0 +1,76 @@
+#! /bin/bash
+
+get_youtube_data() {
+  cmd="yt-dlp --newline -j \"ytsearch$1:$2\" | jq -c '{title,tags,webpage_url}'"
+  data=$(eval "$cmd")
+  echo "$data"
+}
+
+get_data() {
+  get_youtube_data $num "$1"
+}
+
+download_seleted() {
+  data="${choices[$1]}"
+  url="$(echo $data | jq .webpage_url)"
+  extra_arg=""
+  filename="'$keyword'.$format"
+  case "$format" in
+  mp4)
+    outdir="~/Videos/"
+    extra_arg="--merge-output-format $format"
+    ;;
+  mp3)
+    outdir="~/Music/"
+    extra_arg="--extract-audio --audio-format $format"
+    ;;
+  esac
+  cmd="yt-dlp -f "bestvideo+bestaudio/best/best" -P "$outdir" $url $extra_arg -o $filename"
+  eval $cmd
+}
+
+num=5
+root="youtube"
+format="mp4"
+
+while getopts "n:b:f:o:" opt; do
+  case "$opt" in
+  n) num="$OPTARG" ;;
+  b) root="$OPTARG" ;;
+  f) format="$OPTARG" ;;
+  o) outdir="$OPTARG" ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+
+if [ $# -eq 0 ]; then
+  echo "No keyword set for search"
+  exit 1
+fi
+
+keyword="$@"
+
+data="$(get_data "$keyword")"
+choices=()
+
+readarray -t choices < <(echo "$data" | sed '/^\s*$/d')
+
+while true; do
+  echo "Search on: $keyword"
+  for i in "${!choices[@]}"; do
+    title=$(echo "${choices[$i]}" | jq .title)
+    tags=$(echo "${choices[$i]}" | jq .tags)
+    echo "$i) $title"
+    echo "$tags" | sed -E '/^\[/d; /^\]/d' |
+      sed 's/"//g'
+  done
+
+  read -rp "Please select:" choice
+
+  if [[ $choice =~ ^[0-"${#choices[@]}"]$ ]]; then
+    download_seleted $choice
+    break
+  fi
+
+done

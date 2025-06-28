@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# update change to relavant apps
+
+# bspwm
+bspc wm -r
+
+# alacritty
+pywal2alacritty
+
+# brave, need to manually restart
+pywal2chromium
+
+# telegram
+# walogram

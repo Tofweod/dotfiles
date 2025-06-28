@@ -1,0 +1,19 @@
+#! /bin/bash
+
+if [[ $# -eq 0 ]]; then
+  wiki_path_share=/usr/share/doc/arch-wiki/html/en
+else
+  wiki_path_share=/usr/share/doc/arch-wiki-zh-cn/html/zh-cn/
+fi
+
+if [[ ! -d "$wiki_path_share" ]]; then
+  msg="wrong language setting"
+  notify-send -r 23 "$msg"
+  exit 1
+fi
+
+selected_page=$(find "$wiki_path_share" -type f | dmenu -l 6 -i -p "wwiki: ")
+
+if [[ -n "$selected_page" ]]; then
+  google-chrome-stable file://"$selected_page"
+fi

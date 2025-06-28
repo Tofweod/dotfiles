@@ -1,0 +1,8 @@
+#! /bin/bash
+
+paper="$($HOME/.local/bin/rand_change_nitrogen_primary_wallpaper)"
+echo $paper
+nitrogen --restore 2>/dev/null
+
+# apply to wal
+wal -qnst --backend haishoku -i "$paper" && walupdate

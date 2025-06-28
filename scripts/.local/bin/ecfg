@@ -1,0 +1,33 @@
+#! /bin/bash
+
+search_path=(
+  "$HOME/.config/btop/btop.conf"
+  "$HOME/.config/redshift.conf"
+  "$HOME/.config/yazi/"
+  "$HOME/.config/cava/config"
+  "$HOME/.config/dunst/dunstrc"
+  "$HOME/.config/mpv/"
+  "$HOME/.config/nvim/"
+  "$HOME/.config/ranger"
+  "$HOME/.config/picom.conf"
+  "$HOME/.config/fastfetch/config.jsonc"
+  "$HOME/.config/zathura"
+  "$HOME/.zshrc"
+  "$HOME/.Xauthority"
+  "$HOME/.vimrc"
+  "$HOME/.plugrc.vim"
+  "$HOME/.autocmdrc.vim"
+  "$HOME/.xinitrc"
+  "$HOME/.gitconfig"
+  "$HOME/.tmux.conf"
+  "$HOME/dwm/dwm/config.def.h"
+  "$HOME/.local/bin"
+  "$HOME/dotfiles/bspwm/"
+  "$HOME/.config/alacritty.toml"
+)
+
+selected_file=$(find "${search_path[@]}" -type f -o -type l | grep -ve ".git/" -ve ".ttf" | dmenu -l 15 -i | xargs -I {} alacritty -e nvim {})
+
+if [ -n "$selected_file" ]; then
+  alacritty -e nvim "$selected_file"
+fi
