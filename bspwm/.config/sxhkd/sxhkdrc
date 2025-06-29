@@ -81,17 +81,17 @@ super + ctrl + {Left,Right,Up,Down}
 super + c
   $HOME/.config/sxhkd/scripts/jump_or_run.sh 5 brave
 super + shift + c
-	bspc node -d 5
+	bspc node -d 5 --follow
 
 super + m
   $HOME/.config/sxhkd/scripts/jump_or_run.sh 6 yesplaymusic
 super + shift + m
-	bspc node -d 6
+	bspc node -d 6 --follow
 
 super + 0
   $HOME/.config/sxhkd/scripts/jump_or_run.sh 10 alacritty -t terminal -e tmux new -A -s terminal-tag
 super + shift + 0
-	bspc node -d 10
+	bspc node -d 10 --follow
 
 
 # toggle bar
@@ -156,8 +156,11 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9}
-	bspc {desktop -f,node -d} '{1-9}'
+super + {1-9}
+	bspc desktop -f '{1-9}'
+
+super + shift + {1-9}
+	bspc node -d '{1-9}' --follow
 
 #
 # preselect
