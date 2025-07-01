@@ -23,7 +23,7 @@ super + Return
 
 # program launcher
 super + u
-  dmenu_run
+  dmen_run
 
 # lock screen
 alt + l

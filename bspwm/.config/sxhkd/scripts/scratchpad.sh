@@ -12,7 +12,12 @@ for id in "${ids[@]}"; do
       bspc node $id -g hidden=off
       bspc node $id -f
     else
-      bspc node $id -g hidden=on
+      focused=$(bspc query -N -n focused)
+      if [ "$focused" == "$id" ]; then
+        bspc node $id -g hidden=on
+      else
+        bspc node $id -f
+      fi
     fi
   fi
 done

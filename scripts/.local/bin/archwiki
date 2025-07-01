@@ -12,8 +12,8 @@ if [[ ! -d "$wiki_path_share" ]]; then
   exit 1
 fi
 
-selected_page=$(find "$wiki_path_share" -type f | dmenu -l 6 -i -p "wwiki: ")
+selected_page=$(find "$wiki_path_share" -type f | dmen -l 6 -i -p "wwiki: ")
 
 if [[ -n "$selected_page" ]]; then
-  google-chrome-stable file://"$selected_page"
+  brave file://"$selected_page"
 fi

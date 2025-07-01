@@ -30,20 +30,20 @@ bindings = [
 ]
 # BEGIN WAL
 [colors.primary]
-background = '#161618'
-foreground = '#c4c4c5'
+background = '#191a19'
+foreground = '#c5c5c5'
 
 [colors.cursor]
-text   = '#161618' # Apply background color to color of text inside cursor
-cursor = '#c4c4c5' # Apply foreground color to color of cursor
+text   = '#191a19' # Apply background color to color of text inside cursor
+cursor = '#c5c5c5' # Apply foreground color to color of cursor
 
 [colors.vi_mode_cursor]
-text    = '#161618' # Same as above
-cursor  = '#c4c4c5'
+text    = '#191a19' # Same as above
+cursor  = '#c5c5c5'
 
 [colors.search.matches]
-foreground = '#161618' # Same as above
-background = '#c4c4c5' # Apply bright/white color to bg color of matching search
+foreground = '#191a19' # Same as above
+background = '#c5c5c5' # Apply bright/white color to bg color of matching search
 
 [colors.search.focused_match]
 foreground = 'CellBackground'
@@ -54,30 +54,30 @@ foreground = 'None'
 background = 'None'
 
 [colors.footer_bar]
-foreground = '#505051'
-background = '#c4c4c5'
+foreground = '#525352'
+background = '#c5c5c5'
 
 [colors.selection]
 text       = 'CellBackground'
 background = 'CellForeground'
 
 [colors.normal]
-black   = '#161618'
-red     = '#314283'
-green   = '#475d9e'
-yellow  = '#4968ba'
-blue    = '#6a7197'
-magenta = '#6d8ace'
-cyan    = '#95b5f0'
-white   = '#c4c4c5'
+black   = '#191a19'
+red     = '#805274'
+green   = '#8f8692'
+yellow  = '#a09bb8'
+blue    = '#c29998'
+magenta = '#baa8bb'
+cyan    = '#d1c793'
+white   = '#c5c5c5'
 
 [colors.bright]
-black   = '#505051'
-red     = '#314283'
-green   = '#475d9e'
-yellow  = '#4968ba'
-blue    = '#6a7197'
-magenta = '#6d8ace'
-cyan    = '#95b5f0'
-white   = '#c4c4c5'
+black   = '#525352'
+red     = '#805274'
+green   = '#8f8692'
+yellow  = '#a09bb8'
+blue    = '#c29998'
+magenta = '#baa8bb'
+cyan    = '#d1c793'
+white   = '#c5c5c5'
 # END WAL

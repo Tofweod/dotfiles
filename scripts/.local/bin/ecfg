@@ -26,7 +26,7 @@ search_path=(
   "$HOME/.config/alacritty.toml"
 )
 
-selected_file=$(find "${search_path[@]}" -type f -o -type l | grep -ve ".git/" -ve ".ttf" | dmenu -l 15 -i | xargs -I {} alacritty -e nvim {})
+selected_file=$(find "${search_path[@]}" -type f -o -type l | grep -ve ".git/" -ve ".ttf" | dmen -l 15 -i | xargs -I {} alacritty -e nvim {})
 
 if [ -n "$selected_file" ]; then
   alacritty -e nvim "$selected_file"
