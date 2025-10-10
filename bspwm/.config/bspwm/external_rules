@@ -5,6 +5,8 @@ class=$2
 instance=$3
 consequences=$4
 
+echo "wid=$wid class=$class instance=$instance consequences=$consequences" >> /tmp/bspwm-extra.log
+
 if [ "$instance" = fontforge ]; then
   title=$(xtitle "$wid")
   case "$title" in
@@ -39,6 +41,19 @@ Brave-browser)
   # if [ "$wmname" == "Preferences" ]; then
   #   echo "manage=on"
   # fi
+  ;;
+steam)
+  eval "$consequences"
+  wmname="$(xprop -id $wid WM_NAME | cut -d= -f2 | sed -E 's/.*"(.*)".*/\1/')"
+  if [ "$wmname" == "Friends List" ]; then
+    echo "state=floating"
+    echo "center=on"
+    echo "rectangle=500x900+0+50"
+  fi
+  if [ "$wmname" == "Steam Settings" ]; then
+    echo "state=floating"
+    echo "center=on"
+  fi
   ;;
 esac
 

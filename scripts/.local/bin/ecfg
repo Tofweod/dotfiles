@@ -24,6 +24,7 @@ search_path=(
   "$HOME/.local/bin"
   "$HOME/dotfiles/bspwm/"
   "$HOME/.config/alacritty.toml"
+  "$HOME/.config/paru/paru.conf"
 )
 
 selected_file=$(find "${search_path[@]}" -type f -o -type l | grep -ve ".git/" -ve ".ttf" | dmen -l 15 -i | xargs -I {} alacritty -e nvim {})
