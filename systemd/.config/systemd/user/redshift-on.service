@@ -1,0 +1,8 @@
+[Unit]
+Description=Redshift Service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/redshift
+ExecStop=/usr/bin/pkill redshift
+RemainAfterExit=yes

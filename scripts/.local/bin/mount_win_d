@@ -1,0 +1,23 @@
+#!/bin/bash
+
+UUID="D0A300C67B0ACC90"
+MOUNT_POINT="/mnt/res"
+FS_TYPE="ntfs-3g"
+
+if [ ! -d "$MOUNT_POINT" ]; then
+  echo "挂载点 $MOUNT_POINT 不存在，正在创建..."
+  sudo mkdir -p "$MOUNT_POINT"
+fi
+
+echo "正在挂载 Windows 分区..."
+sudo mount -t $FS_TYPE -o uid=$UID,gid=$GID UUID=$UUID "$MOUNT_POINT"
+
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+if mountpoint -q "$MOUNT_POINT"; then
+  echo "挂载成功！分区已挂载到 $MOUNT_POINT"
+else
+  echo "挂载失败，请检查分区 UUID 或 ntfs-3g 是否安装"
+fi

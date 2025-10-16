@@ -1,0 +1,7 @@
+[Unit]
+Description=Stop Redshift in the morning
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl --user stop redshift-on.service
+

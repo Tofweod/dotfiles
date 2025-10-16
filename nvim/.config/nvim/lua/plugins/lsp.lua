@@ -4,8 +4,8 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
 
-    lspconfig.clangd.setup({
-      -- 配置语言服务器的其他参数（可选）
+    -- C / C++
+    vim.lsp.config("clangd", {
       cmd = {
         "clangd",
         "--compile-commands-dir=build/",
@@ -15,35 +15,42 @@ return {
         "--clang-tidy",
         "--completion-style=detailed",
         "--all-scopes-completion",
-      }, -- 可以根据你的需求添加其他参数
-      filetypes = { "c", "cpp" }, -- 支持的文件类型
-      root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", ".root"),
+      },
+      filetypes = { "c", "cpp" },
+      root_markers = {
+        ".clangd",
+        ".clang-tidy",
+        ".clang-format",
+        "compile_commands.json",
+        "compile_flags.txt",
+        "configure.ac", -- AutoTools
+        ".git",
+      },
     })
 
-    lspconfig.cmake.setup({
+    -- CMake
+    vim.lsp.config("cmake", {
       cmd = { "cmake-language-server" },
       filetypes = { "cmake" },
       init_options = {
         buildDirectory = "build",
       },
-      root_dir = lspconfig.util.root_pattern(".git", "CMakeLists.txt"),
+      root_markers = { "CMakePresets.json", "CTestConfig.cmake", ".git", "build", "cmake" },
     })
 
-    lspconfig.pyright.setup({
+    -- Python
+    vim.lsp.config("pyright", {
       cmd = { "pyright-langserver", "--stdio" },
       filetypes = { "python" },
-      root_dir = function(filename)
-        local root_files = {
-          "WORKSPACE",
-          "pyproject.toml",
-          "setup.py",
-          "setup.cfg",
-          "requirements.txt",
-          "Pipfile",
-          "pyrightconfig.json",
-        }
-        return lspconfig.util.root_pattern(unpack(root_files))(filename) or lspconfig.util.path.dirname(filename)
-      end,
+      root_markers = {
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "Pipfile",
+        "pyrightconfig.json",
+        ".git",
+      },
       settings = {
         python = {
           analysis = {
@@ -56,20 +63,27 @@ return {
       single_file_support = true,
     })
 
-    lspconfig.lua_ls.setup({})
-
-    lspconfig.autotools_ls.setup({
-      cmd = { "autotools-language-server" },
-      filetypes = {
-        "config",
-        "automake",
-        "make",
-      },
-      root_dir = lspconfig.util.root_pattern("configure.ac", "Makefile", "Makefile.am", "*.mk"),
-      single_file_support = true,
+    -- Lua
+    vim.lsp.config("lua_ls", {
+      cmd = { "lua-language-server" },
+      filetypes = { "lua" },
     })
 
-    lspconfig.bsl_ls.setup({
+    -- Autotools
+    local util = require("lspconfig.util")
+    local root_files = { "configure.ac", "Makefile", "Makefile.am", "*.mk" }
+
+    vim.lsp.config("autotools_ls", {
+      cmd = { "autotools-language-server" },
+      filetypes = { "config", "automake", "make" },
+      root_dir = function(bufnr, on_dir)
+        local fname = vim.api.nvim_buf_get_name(bufnr)
+        on_dir(util.root_pattern(unpack(root_files))(fname))
+      end,
+    })
+
+    -- Bash
+    vim.lsp.config("bashls", {
       cmd = { "bash-language-server", "start" },
       filetypes = { "sh" },
       settings = {
@@ -79,5 +93,7 @@ return {
       },
       single_file_support = true,
     })
+
+    vim.lsp.enable({ "clangd", "cmake", "pyright", "lua_ls", "bashls", "autotools_ls" })
   end,
 }

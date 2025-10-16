@@ -1,0 +1,11 @@
+[Unit]
+Description=Redshift morning timer
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Unit=redshift-off.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+

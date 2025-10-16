@@ -44,7 +44,8 @@ pgrep -x cava >/dev/null || alacritty -o "font.size=32" -t cava --class cavautil
 pgrep -x xfce4-power-manager >/dev/null || xfce4-power-manager &
 pgrep -x xautolock >/dev/null || xautolock -time 30 -locker "lock" &
 pgrep -x fcitx5 >/dev/null || fcitx5 &
-pgrep -x redshift >/dev/null || redshift &
+# use crontab to start at night
+# pgrep -x redshift >/dev/null || redshift &
 pgrep -x dunst >/dev/null || dunst &
 pgrep -x picom >/dev/null || picom --animations &
 pgrep -x polybar >/dev/null || $HOME/.config/bspwm/polybar/launch.sh &

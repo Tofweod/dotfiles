@@ -18,14 +18,10 @@ keymap.set("n", "<leader>w", ":w<CR>")
 -- keymap.set("n", "<leader>wq", ":wq<CR>")
 
 -- 窗口
-wk.register({
-  ["<leader>"] = {
-    w = {
-      name = "+windows",
-      v = { "<C-w>s", "split windows vertical" },
-      h = { "<C-w>v", "split windows horizontal" },
-    },
-  },
+wk.add({
+  { "<leader>w", group = "windows" },
+  { "<leader>wh", "<C-w>v", desc = "split windows horizontal" },
+  { "<leader>wv", "<C-w>s", desc = "split windows vertical" },
 })
 
 -- buffline
@@ -48,46 +44,42 @@ keymap.set("n", "<A-0>", ":BufferLineGoToBuffer 10<CR>")
 -- keymap.set("n", "<leader>tr", ":NvimTreeToggle<CR>")
 
 -- trouble
-wk.register({
-  ["<leader>"] = {
-    x = {
-      name = "+diagnostics/quickfix",
-      x = {
-        function()
-          require("trouble").toggle()
-        end,
-        "Document Diagnostics(Troule)",
-      },
-      X = {
-        function()
-          require("trouble").toggle("workspace_diagnostics")
-        end,
-        "Workspace Diagnostics(Troule)",
-      },
-    },
+wk.add({
+  { "<leader>x", group = "diagnostics/quickfix" },
+  {
+    "<leader>xX",
+    function()
+      require("trouble").toggle()
+    end,
+    desc = "Workspace Diagnostics(Troule)",
+  },
+  {
+    "<leader>xx",
+    function()
+      require("trouble").toggle("workspace_diagnostics")
+    end,
+    desc = "Document Diagnostics(Troule)",
   },
 })
+
 -- keymap.set("n", "gr", function()
 --   require("trouble").toggle("lsp_references")
 -- end)
 
-wk.register({
-  g = {
-    r = {
-      function()
-        require("trouble").toggle("lsp_references")
-      end,
-      "Go to references",
-    },
-    ["["] = { vim.diagnostic.goto_prev, "Go to prev" },
-    ["]"] = { vim.diagnostic.goto_next, "Go to next" },
+wk.add({
+  { "g[", vim.diagnostic.goto_prev, desc = "Go to prev" },
+  { "g]", vim.diagnostic.goto_next, desc = "Go to next" },
+  {
+    "gr",
+    function()
+      require("trouble").toggle("lsp_references")
+    end,
+    desc = "Go to references",
   },
 })
 
-wk.register({
-  [" "] = {
-    a = { "<cmd>Lspsaga outline<CR>", "Outline" },
-  },
+wk.add({
+  { "<leader>a", "<cmd>Lspsaga outline<CR>", desc = "Outline" },
 })
 
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
