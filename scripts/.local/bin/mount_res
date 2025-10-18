@@ -1,15 +1,16 @@
 #!/bin/bash
 
-UUID="D0A300C67B0ACC90"
-MOUNT_POINT="/mnt/wind"
-FS_TYPE="ntfs-3g"
+UUID="16C0-79A9"
+MOUNT_POINT="/mnt/res"
+FS_TYPE="exfat"
 
 if [ ! -d "$MOUNT_POINT" ]; then
   echo "挂载点 $MOUNT_POINT 不存在，正在创建..."
   sudo mkdir -p "$MOUNT_POINT"
 fi
 
-echo "正在挂载 Windows 分区..."
+echo "正在挂载 Res 分区..."
+echo $GID
 sudo mount -t $FS_TYPE -o uid=$(id -u),gid=$(id -g) UUID=$UUID "$MOUNT_POINT"
 
 if [ $? -ne 0 ]; then
