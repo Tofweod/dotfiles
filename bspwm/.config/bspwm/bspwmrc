@@ -36,6 +36,7 @@ bspc rule -a "statusutil" desktop=7 monitor=${SECOND_MONITER} state=titled
 bspc rule -a "cavautil" desktop=7 monitor=${SECOND_MONITER} state=titled
 bspc rule -a "QQ" state=floating center=on
 bspc rule -a "OSD Lyrics" manage=off
+bspc rule -a "copyq" state=floating center=on
 bspc config external_rules_command $HOME/.config/bspwm/external_rules
 
 # autostart
@@ -49,6 +50,7 @@ pgrep -x fcitx5 >/dev/null || fcitx5 &
 pgrep -x dunst >/dev/null || dunst &
 pgrep -x picom >/dev/null || picom --animations &
 pgrep -x polybar >/dev/null || $HOME/.config/bspwm/polybar/launch.sh &
+pgrep -x copyq >/dev/null || copyq &
 
 for file in ~/.config/autostart/*.sh; do
   "$file" # execute
