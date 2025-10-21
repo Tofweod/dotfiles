@@ -2,7 +2,7 @@
 
 UUID="D0A300C67B0ACC90"
 MOUNT_POINT="/mnt/wind"
-FS_TYPE="ntfs-3g"
+FS_TYPE="ntfs3"
 
 if [ ! -d "$MOUNT_POINT" ]; then
   echo "挂载点 $MOUNT_POINT 不存在，正在创建..."
