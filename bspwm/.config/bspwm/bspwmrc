@@ -41,6 +41,7 @@ bspc config external_rules_command $HOME/.config/bspwm/external_rules
 
 # autostart
 pgrep -x btop >/dev/null || alacritty -o "font.size=16" -t statusutil --class statusutil -e btop &
+sleep 0.1
 pgrep -x cava >/dev/null || alacritty -o "font.size=32" -t cava --class cavautil -e cava &
 pgrep -x xfce4-power-manager >/dev/null || xfce4-power-manager &
 pgrep -x xautolock >/dev/null || xautolock -time 30 -locker "lock" &

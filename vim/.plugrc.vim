@@ -293,14 +293,20 @@ let g:lightline = {
 			\ 'active': {
 			\ 'left': [ [ 'mode','paste' ],
 			\           [ 'cocstatus'],
-			\           ['filename', 'coc_symbol_line'],
+			\           ['fullname', 'coc_symbol_line'],
 			\           ['modified' ]]
 			\},
 			\ 'component_function': {
+			\ 'fullname': 'LightLineFullName',
 			\  'cocstatus': 'coc#status',
 			\  'coc_symbol_line':'CocSymbolLine'
 			\},
 			\}
+
+
+function LightLineFullName()
+	return expand('%:p') 
+endfunction
 
 function ColorCocSymbolLine()
 	return get(b:,'coc_symbol_line_plain','')

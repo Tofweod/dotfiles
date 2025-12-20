@@ -79,12 +79,12 @@ super + ctrl + {Left,Right,Up,Down}
 
 # targetkey
 super + c
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh 5 brave
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh 5 firefox
 super + shift + c
 	bspc node -d 5 --follow
 
 super + m
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh 6 yesplaymusic
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh 6 /opt/YesPlayMusic/yesplaymusic
 super + shift + m
 	bspc node -d 6 --follow
 
