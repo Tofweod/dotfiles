@@ -20,7 +20,7 @@ export BOOST_ROOT=/usr/local/boost_1_84_0/
 
 export EDITOR=nvim
 
-export PATH="$PATH:/home/tofweod/.local/bin"
+export PATH="/home/tofweod/.local/bin:$PATH"
 
 export BAT_THEME="ansi"
 

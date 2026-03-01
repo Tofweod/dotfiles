@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+BASE="$HOME/.my_log/notify-send"
+DATE="$(date +%F)"
+LOGDIR="$BASE/$DATE"
+
+mkdir -p $BASE
+
+
+mkdir -p "$LOGDIR"
+
+
+LOGFILE="$LOGDIR/notify-send.log"
+
+timestamp="$(date '+%F %T')"
+args="$*"
+
+
+echo "[$timestamp] notify-send $args" >> "$LOGFILE"
+
+exec /usr/bin/notify-send "$@"
