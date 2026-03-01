@@ -84,7 +84,7 @@ super + shift + c
 	bspc node -d 5 --follow
 
 super + m
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh 6 /opt/YesPlayMusic/yesplaymusic
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh 6 /opt/SPlayer/SPlayer
 super + shift + m
 	bspc node -d 6 --follow
 

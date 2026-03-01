@@ -88,7 +88,6 @@ function cr() {
 
 alias yz='yazi_cd'
 
-alias rr='yz'
 
 open_file() {
   res=$1

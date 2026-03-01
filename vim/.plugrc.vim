@@ -40,6 +40,8 @@ call plug#begin()
 
 	Plug 'skywind3000/asyncrun.vim'
 	Plug 'dylanaraps/wal.vim'
+
+	Plug 'kshenoy/vim-signature'
 call plug#end()
 filetype plugin indent on
 colorscheme wal
@@ -54,7 +56,10 @@ inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <C-j>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ coc#refresh()
+inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
  
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
@@ -86,8 +91,6 @@ nnoremap <silent> gh :call ShowDocumentation()<CR>
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
   endif
 endfunction
 " Highlight the symbol and its references when holding the cursor
@@ -249,7 +252,6 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>ff :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
 noremap <leader>fg :Leaderf rg --live -g '!build/'<CR>
-noremap <leader>fs :CocList -I symbols<CR>
 
 "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
@@ -333,3 +335,6 @@ nnoremap <leader>tt :FloatermToggle<CR>
 " asyncrun
 let g:asyncrun_open = 10
 nnoremap <leader>ar :AsyncRun
+
+" marks
+nnoremap <leader>ml :marks<CR>

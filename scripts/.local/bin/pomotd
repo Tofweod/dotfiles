@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pomotroid --no-sandbox
