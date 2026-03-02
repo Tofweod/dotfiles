@@ -7,8 +7,8 @@ SECOND_MONITER="HDMI-0"
 
 pgrep -x sxhkd >/dev/null || sxhkd &
 
-bspc monitor ${MASTER_MONITER} -d 1 2 3 4 5 6 10
-bspc monitor ${SECOND_MONITER} -d 7 8 9
+bspc monitor ${MASTER_MONITER} -d $TOFWEOD_PRIMARY_DESKTOPS
+bspc monitor ${SECOND_MONITER} -d $TOFWEOD_SIDE_DESKTOPS
 
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
@@ -32,8 +32,8 @@ bspc config -m ${SECOND_MONITER} split_ratio 0.5
 
 bspc rule -a "floatingTerminal" state=floating
 bspc rule -a "scratchpad" state=floating sticky=true
-bspc rule -a "statusutil" desktop=7 monitor=${SECOND_MONITER} state=titled
-bspc rule -a "cavautil" desktop=7 monitor=${SECOND_MONITER} state=titled
+bspc rule -a "statusutil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
+bspc rule -a "cavautil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
 bspc rule -a "QQ" state=floating center=on
 bspc rule -a "OSD Lyrics" manage=off
 bspc rule -a "copyq" state=floating center=on
@@ -52,6 +52,7 @@ pgrep -x dunst >/dev/null || dunst &
 pgrep -x picom >/dev/null || picom --animations &
 pgrep -x polybar >/dev/null || $HOME/.config/bspwm/polybar/launch.sh &
 pgrep -x copyq >/dev/null || copyq &
+pgrep -x birdtray >/dev/null || birdtray &
 
 for file in ~/.config/autostart/*.sh; do
   "$file" # execute

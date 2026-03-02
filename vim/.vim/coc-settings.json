@@ -6,5 +6,9 @@
 		"--all-scopes-completion",
 		"--completion-style=detailed",
 		"--function-arg-placeholders=false"
-	],
+  ],
+
+  "zig.enabled": true,
+  "zig.startUpMessage": true,
+  "zig.path": "zls",
 }

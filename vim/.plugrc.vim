@@ -42,6 +42,8 @@ call plug#begin()
 	Plug 'dylanaraps/wal.vim'
 
 	Plug 'kshenoy/vim-signature'
+
+	Plug 'ziglang/zig.vim'
 call plug#end()
 filetype plugin indent on
 colorscheme wal
@@ -51,6 +53,8 @@ set updatetime=100
 
 set signcolumn=yes
 
+" zig.vim
+let g:zig_fmt_autosave=0
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :

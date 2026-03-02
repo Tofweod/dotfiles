@@ -45,9 +45,13 @@ super + Escape
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill
-super + shift + {_,ctrl + }q
-	bspc node -{c,k}
+# kill
+super + shift + ctrl + q
+	bspc node -k
+
+# close or hidden
+super + shift + q
+  $HOME/.config/sxhkd/scripts/close_or_hidden.sh
 
 # alternate between the tiled and monocle layout
 super +shift + space
@@ -79,19 +83,19 @@ super + ctrl + {Left,Right,Up,Down}
 
 # targetkey
 super + c
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh 5 firefox
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_BROWSER_DESKTOP firefox
 super + shift + c
-	bspc node -d 5 --follow
+	bspc node -d $TOFWEOD_BROWSER_DESKTOP --follow
 
 super + m
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh 6 /opt/SPlayer/SPlayer
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_MUSIC_PLAYER_DESKTOP /opt/SPlayer/SPlayer
 super + shift + m
-	bspc node -d 6 --follow
+	bspc node -d $TOFWEOD_MUSIC_PLAYER_DESKTOP --follow
 
 super + 0
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh 10 alacritty -t terminal -e tmux new -A -s terminal-tag
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_TMUX_DESKTOP alacritty -t terminal -e tmux new -A -s terminal-tag
 super + shift + 0
-	bspc node -d 10 --follow
+	bspc node -d $TOFWEOD_TMUX_DESKTOP --follow
 
 
 # toggle bar

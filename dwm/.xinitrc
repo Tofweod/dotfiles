@@ -21,6 +21,16 @@ xset m 0 0
 #nitrogen
 cwp
 
+# desktop settings
+export TOFWEOD_PRIMARY_DESKTOPS="1 2 3 4 5 6 7 8 9 10"
+export TOFWEOD_SIDE_DESKTOPS="11 12 13"
+
+export TOFWEOD_BROWSER_DESKTOP=8
+export TOFWEOD_MUSIC_PLAYER_DESKTOP=9
+export TOFWEOD_TMUX_DESKTOP=10
+
+export TOFWEOD_MONITOR_DESKTOP=11
+
 # dwm
 # exec dwm
 # bspwm

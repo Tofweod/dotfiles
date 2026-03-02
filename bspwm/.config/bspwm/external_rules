@@ -55,6 +55,15 @@ steam)
     echo "center=on"
   fi
   ;;
+"steam_app_0")
+  eval "$consequences"
+  if [ "$(xprop -id $wid WM_NAME | rg  '鸣潮')"  ]; then
+    echo "state=floating"
+	echo "border=off"
+    echo "locked=on"
+    echo "rectangle=2560x1440+0+0"
+  fi
+  ;;
 esac
 
 # echo -e "One group: \n \
