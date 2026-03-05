@@ -97,6 +97,11 @@ super + 0
 super + shift + 0
 	bspc node -d $TOFWEOD_TMUX_DESKTOP --follow
 
+super + minus
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_MAIL_DESKTOP thunderbird
+super + shift + minus 
+	bspc node -d $TOFWEOD_MAIL_DESKTOP --follow
+
 
 # toggle bar
 

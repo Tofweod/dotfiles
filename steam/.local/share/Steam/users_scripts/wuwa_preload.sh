@@ -23,8 +23,11 @@ change_to_steam_channelId() {
 
   notify-send "Changed ChannelId into 205"
   tmp=$(mktemp)
-  jq '.KR_ChannelId = "205"' "$FILENAME" >"$tmp" &&
-    mv "$tmp" "$FILENAME"
+  jq '.KR_ChannelId = "205"' "$FILENAME" >"$tmp"
+  if grep -q $'\r' "$FILENAME"; then
+    sed -i 's/$/\r/' "$tmp"
+  fi
+  mv "$tmp" "$FILENAME"
 }
 
 restore_to_default_channelId() {

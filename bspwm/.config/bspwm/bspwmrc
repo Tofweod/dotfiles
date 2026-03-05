@@ -37,6 +37,7 @@ bspc rule -a "cavautil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITE
 bspc rule -a "QQ" state=floating center=on
 bspc rule -a "OSD Lyrics" manage=off
 bspc rule -a "copyq" state=floating center=on
+bspc rule -a 'org.mozilla.Thunderbird' desktop=$TOFWEOD_MAIL_DESKTOP
 bspc config external_rules_command $HOME/.config/bspwm/external_rules
 
 # autostart
