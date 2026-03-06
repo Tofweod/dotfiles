@@ -13,3 +13,7 @@ pywal2chromium
 
 # telegram
 # walogram
+
+
+# yazi
+cp $HOME/.cache/wal/yazi-flavor.toml $HOME/.config/yazi/flavors/wal.yazi/flavor.toml

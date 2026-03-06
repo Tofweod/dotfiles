@@ -1,7 +1,3 @@
-# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
-# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
-
 [mgr]
 
 keymap = [
@@ -61,7 +57,7 @@ keymap = [
 	{ on = "_",         run = "link --relative",             desc = "Symlink the relative path of yanked files" },
 	{ on = "<C-->",     run = "hardlink",                    desc = "Hardlink yanked files" },
 	{ on = "u",         run = "unyank",                      desc = "Cancel the yank status" },
-	{ on = "D",         run = '''shell --confirm 'trash-put "$@"'''' ,                      desc = "Trash selected files" },
+	{ on = "D",         run = "remove" ,                      desc = "Trash selected files" },
 	{ on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
 	{ on = "r",         run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
 	{ on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
@@ -328,15 +324,11 @@ desc = "Goto git root"
 [[mgr.prepend_keymap]]
 on   = "l"
 run  = "plugin smart-enter"
-# For upcoming Yazi 0.4 (nightly version):
-# run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[mgr.prepend_keymap]]
 on  = "y"
-run = [ '''
-	shell 'echo "$@" | xclip -i -selection clipboard' --confirm
-''', "yank" ]
+run = [ "shell -- echo %s | xclip -i -selection clipboard -t text/uri-list", "yank" ]
 
 [[mgr.prepend_keymap]]
 on  = "u"
@@ -344,25 +336,33 @@ run = [ '''
 	shell 'echo "$@" | xclip -selection clipboard /dev/null' --confirm
 ''', "unyank" ]
 
-
 [[mgr.prepend_keymap]]
 on   = "T"
-run  = "plugin max-preview"
+run  = "plugin toggle-pane max-preview"
 # For upcoming Yazi 0.4 (nightly version):
 # run  = "plugin max-preview"
 desc = "Maximize or restore preview"
 
 [[mgr.prepend_keymap]]
-on  = "K"
-run = "plugin parent-arrow --args=-1"
-
-[[mgr.prepend_keymap]]
-on  = "J"
-run = "plugin parent-arrow --args=1"
-
-[[mgr.prepend_keymap]]
 on   = ['z','t']
-run  = "plugin hide-preview"
+run  = "plugin toggle-pane min-preview"
 # For upcoming Yazi 0.4 (nightly version):
 # run  = "plugin hide-preview"
 desc = "Hide or show preview"
+
+
+[[mgr.prepend_keymap]]
+on = ["R","b"]
+run = "plugin recycle-bin"
+desc = "Open Recycle Bin menu"
+
+[[mgr.prepend_keymap]]
+on = [ "c", "s" ]
+run  = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
+
+[[mgr.prepend_keymap]]
+on = "F"
+run = "plugin fazif faziffd"
+desc = "Find files/directories with fd and fzf"

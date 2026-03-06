@@ -1,0 +1,143 @@
+[mgr]
+cwd = { fg = "#807b82" } 
+
+find_keyword  = { fg = "#807b82", bold = true, italic = true, underline = true }
+find_position = { fg = "#3d4d5d", bg = "reset", bold = true, italic = true }
+
+marker_copied   = { fg = "#807b82", bg = "#807b82" }
+marker_cut      = { fg = "#3d4d5d", bg = "#3d4d5d" }
+marker_marked   = { fg = "#b59b95", bg = "#b59b95" }
+marker_selected = { fg = "#c5c5c5", bg = "#c5c5c5" }
+
+count_copied   = { fg = "#19191a", bg = "#445e70" }
+count_cut      = { fg = "#19191a", bg = "#3d4d5d" }
+count_selected = { fg = "#19191a", bg = "#807b82" }
+
+border_symbol = "│"
+border_style  = { fg = "#889cb3" }
+
+[tabs]
+active   = { fg = "#19191a", bg = "#b59b95", bold = true }
+inactive = { fg = "#b59b95", bg = "#19191a" }
+
+
+[mode]
+normal_main = { fg = "#19191a", bg = "#b59b95", bold = true }
+normal_alt  = { fg = "#b59b95", bg = "#19191a" }
+
+select_main = { fg = "#19191a", bg = "#807b82", bold = true }
+select_alt  = { fg = "#807b82", bg = "#19191a" }
+
+unset_main = { fg = "#19191a", bg = "#889cb3", bold = true }
+unset_alt  = { fg = "#889cb3", bg = "#19191a" }
+
+
+[status]
+perm_sep   = { fg = "#889cb3" }
+perm_type  = { fg = "#b59b95" }
+perm_read  = { fg = "#807b82" }
+perm_write = { fg = "#3d4d5d" }
+perm_exec  = { fg = "#445e70" }
+
+progress_label  = { fg = "#c5c5c5", bold = true }
+progress_normal = { fg = "#445e70", bg = "#19191a" }
+progress_error  = { fg = "#807b82", bg = "#3d4d5d" }
+
+
+[pick]
+border   = { fg = "#b59b95" }
+active   = { fg = "#3d4d5d", bold = true }
+inactive = {}
+
+
+[input]
+border   = { fg = "#b59b95" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[cmp]
+border = { fg = "#b59b95" }
+
+
+[tasks]
+border  = { fg = "#b59b95" }
+title   = {}
+hovered = { fg = "#3d4d5d", bold = true }
+
+
+[which]
+mask            = { bg = "#19191a" }
+cand            = { fg = "#807b82" }
+rest            = { fg = "#889cb3" }
+desc            = { fg = "#3d4d5d" }
+separator       = "  "
+separator_style = { fg = "#889cb3" }
+
+
+[help]
+on      = { fg = "#807b82" }
+run     = { fg = "#3d4d5d" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#19191a", bg = "#c5c5c5" }
+
+
+[spot]
+border   = { fg = "#b59b95" }
+title    = { fg = "#b59b95" }
+tbl_col  = { fg = "#807b82" }
+tbl_cell = { fg = "#3d4d5d", bg = "#19191a" }
+
+
+[notify]
+title_info  = { fg = "#445e70" }
+title_warn  = { fg = "#807b82" }
+title_error = { fg = "#3d4d5d" }
+
+
+
+
+
+[icon]
+dirs = [
+	{ name = ".config", text = "", fg = "#3d4d5d" },
+	{ name = ".git", text = "", fg = "#807b82" },
+	{ name = ".github", text = "", fg = "#b59b95" },
+	{ name = ".npm", text = "", fg = "#b59b95" },
+	{ name = "Desktop", text = "", fg = "#807b82" },
+	{ name = "Development", text = "", fg = "#807b82" },
+	{ name = "Documents", text = "", fg = "#807b82" },
+	{ name = "Downloads", text = "", fg = "#807b82" },
+	{ name = "Library", text = "", fg = "#807b82" },
+	{ name = "Movies", text = "", fg = "#807b82" },
+	{ name = "Music", text = "", fg = "#807b82" },
+	{ name = "Pictures", text = "", fg = "#807b82" },
+	{ name = "Public", text = "", fg = "#807b82" },
+	{ name = "Videos", text = "", fg = "#807b82" },
+]
+conds = [
+	{ if = "orphan", text = "", fg = "#c5c5c5" },
+	{ if = "link", text = "", fg = "#889cb3" },
+	{ if = "block", text = "", fg = "#889cb3" },
+	{ if = "char", text = "", fg = "#889cb3" },
+	{ if = "fifo", text = "", fg = "#889cb3" },
+	{ if = "sock", text = "", fg = "#889cb3" },
+	{ if = "sticky", text = "", fg = "#889cb3" },
+	{ if = "dummy", text = "", fg = "#3d4d5d" },
+
+	{ if = "dir & hovered", text = "", fg = "#b59b95" },
+	{ if = "dir", text = "", fg = "#b59b95" },
+	{ if = "exec", text = "", fg = "#445e70" },
+	{ if = "!dir", text = "", fg = "#c5c5c5" },
+]
+
+[filetype]
+rules = [
+	{ mime = "image/*", fg = "#807b82" },
+	{ mime = "{audio,video}/*", fg = "#807b82" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#3d4d5d" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#445e70" },
+	{ mime = "vfs/{absent,stale}", fg = "#889cb3" },
+	{ url = "*", fg = "#c5c5c5" },
+	{ url = "*/", fg = "#b59b95" },
+]
