@@ -61,7 +61,7 @@ steam)
     echo "state=floating"
 	echo "border=off"
     echo "locked=on"
-    echo "rectangle=2560x1440+0+0"
+    # echo "rectangle=2560x1440+0+0"
   fi
   ;;
 esac

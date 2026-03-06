@@ -1,27 +1,27 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "a53d544"
-hash = "c3405e4e5973e3a9929344aced162c6f"
+rev = "1962818"
+hash = "6fa6a05a81c98dd000fbca3cca6e9682"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "a53d544"
-hash = "20dc1361fc474934c6bf321110eb8e12"
+rev = "1962818"
+hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "a53d544"
-hash = "2bcf0c353c61b92662b372a69ff97057"
+rev = "1962818"
+hash = "99aa06d3014798d86001c324468d497f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:hide-preview"
-rev = "a53d544"
-hash = "4c1c7c820f65eacf5aa66e9cb34b4b91"
+rev = "1962818"
+hash = "99aa06d3014798d86001c324468d497f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "4b027c7"
-hash = "f3853bbdd1da2fad09d059ab5464abfd"
+rev = "1962818"
+hash = "4c0260feb50ea2437380690ffc241da7"
 
 [flavor]
 deps = []

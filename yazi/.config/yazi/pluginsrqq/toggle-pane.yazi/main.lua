@@ -1,4 +1,4 @@
---- @since 25.5.31
+--- @since 25.2.26
 --- @sync entry
 
 local function entry(st, job)
@@ -39,7 +39,13 @@ local function entry(st, job)
 		Tab.layout, st.old = st.old, nil
 		st.parent, st.current, st.preview = nil, nil, nil
 	end
-	ya.emit("app:resize", {})
+
+	-- TODO: remove this in the future
+	if ya.emit then
+		ya.emit("app:resize", {})
+	else
+		ya.app_emit("resize", {})
+	end
 end
 
 return { entry = entry }
