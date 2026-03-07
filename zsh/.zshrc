@@ -133,6 +133,8 @@ alias md5='get_md5'
 
 alias ncdu='ncdu -e -2 -t $(nproc) --delete-command trash-put'
 
+alias jb='j -'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

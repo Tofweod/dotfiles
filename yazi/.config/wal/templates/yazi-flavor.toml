@@ -1,0 +1,143 @@
+[mgr]
+cwd = {{ fg = "{color3}" }} 
+
+find_keyword  = {{ fg = "{color3}", bold = true, italic = true, underline = true }}
+find_position = {{ fg = "{color1}", bg = "reset", bold = true, italic = true }}
+
+marker_copied   = {{ fg = "{color3}", bg = "{color3}" }}
+marker_cut      = {{ fg = "{color1}", bg = "{color1}" }}
+marker_marked   = {{ fg = "{color5}", bg = "{color5}" }}
+marker_selected = {{ fg = "{color7}", bg = "{color7}" }}
+
+count_copied   = {{ fg = "{background}", bg = "{color2}" }}
+count_cut      = {{ fg = "{background}", bg = "{color1}" }}
+count_selected = {{ fg = "{background}", bg = "{color3}" }}
+
+border_symbol = "│"
+border_style  = {{ fg = "{color4}" }}
+
+[tabs]
+active   = {{ fg = "{background}", bg = "{color5}", bold = true }}
+inactive = {{ fg = "{color5}", bg = "{color0}" }}
+
+
+[mode]
+normal_main = {{ fg = "{background}", bg = "{color5}", bold = true }}
+normal_alt  = {{ fg = "{color5}", bg = "{color0}" }}
+
+select_main = {{ fg = "{background}", bg = "{color3}", bold = true }}
+select_alt  = {{ fg = "{color3}", bg = "{color0}" }}
+
+unset_main = {{ fg = "{background}", bg = "{color4}", bold = true }}
+unset_alt  = {{ fg = "{color4}", bg = "{color0}" }}
+
+
+[status]
+perm_sep   = {{ fg = "{color4}" }}
+perm_type  = {{ fg = "{color5}" }}
+perm_read  = {{ fg = "{color3}" }}
+perm_write = {{ fg = "{color1}" }}
+perm_exec  = {{ fg = "{color2}" }}
+
+progress_label  = {{ fg = "{foreground}", bold = true }}
+progress_normal = {{ fg = "{color2}", bg = "{color0}" }}
+progress_error  = {{ fg = "{color3}", bg = "{color1}" }}
+
+
+[pick]
+border   = {{ fg = "{color5}" }}
+active   = {{ fg = "{color1}", bold = true }}
+inactive = {{}}
+
+
+[input]
+border   = {{ fg = "{color5}" }}
+title    = {{}}
+value    = {{}}
+selected = {{ reversed = true }}
+
+[cmp]
+border = {{ fg = "{color5}" }}
+
+
+[tasks]
+border  = {{ fg = "{color5}" }}
+title   = {{}}
+hovered = {{ fg = "{color1}", bold = true }}
+
+
+[which]
+mask            = {{ bg = "{color0}" }}
+cand            = {{ fg = "{color3}" }}
+rest            = {{ fg = "{color4}" }}
+desc            = {{ fg = "{color1}" }}
+separator       = "  "
+separator_style = {{ fg = "{color4}" }}
+
+
+[help]
+on      = {{ fg = "{color3}" }}
+run     = {{ fg = "{color1}" }}
+hovered = {{ reversed = true, bold = true }}
+footer  = {{ fg = "{color0}", bg = "{foreground}" }}
+
+
+[spot]
+border   = {{ fg = "{color5}" }}
+title    = {{ fg = "{color5}" }}
+tbl_col  = {{ fg = "{color3}" }}
+tbl_cell = {{ fg = "{color1}", bg = "{color0}" }}
+
+
+[notify]
+title_info  = {{ fg = "{color2}" }}
+title_warn  = {{ fg = "{color3}" }}
+title_error = {{ fg = "{color1}" }}
+
+
+
+
+
+[icon]
+dirs = [
+	{{ name = ".config", text = "", fg = "{color1}" }},
+	{{ name = ".git", text = "", fg = "{color3}" }},
+	{{ name = ".github", text = "", fg = "{color5}" }},
+	{{ name = ".npm", text = "", fg = "{color5}" }},
+	{{ name = "Desktop", text = "", fg = "{color3}" }},
+	{{ name = "Development", text = "", fg = "{color3}" }},
+	{{ name = "Documents", text = "", fg = "{color3}" }},
+	{{ name = "Downloads", text = "", fg = "{color3}" }},
+	{{ name = "Library", text = "", fg = "{color3}" }},
+	{{ name = "Movies", text = "", fg = "{color3}" }},
+	{{ name = "Music", text = "", fg = "{color3}" }},
+	{{ name = "Pictures", text = "", fg = "{color3}" }},
+	{{ name = "Public", text = "", fg = "{color3}" }},
+	{{ name = "Videos", text = "", fg = "{color3}" }},
+]
+conds = [
+	{{ if = "orphan", text = "", fg = "{foreground}" }},
+	{{ if = "link", text = "", fg = "{color4}" }},
+	{{ if = "block", text = "", fg = "{color4}" }},
+	{{ if = "char", text = "", fg = "{color4}" }},
+	{{ if = "fifo", text = "", fg = "{color4}" }},
+	{{ if = "sock", text = "", fg = "{color4}" }},
+	{{ if = "sticky", text = "", fg = "{color4}" }},
+	{{ if = "dummy", text = "", fg = "{color1}" }},
+
+	{{ if = "dir & hovered", text = "", fg = "{color5}" }},
+	{{ if = "dir", text = "", fg = "{color5}" }},
+	{{ if = "exec", text = "", fg = "{color2}" }},
+	{{ if = "!dir", text = "", fg = "{foreground}" }},
+]
+
+[filetype]
+rules = [
+	{{ mime = "image/*", fg = "{color3}" }},
+	{{ mime = "{{audio,video}}/*", fg = "{color3}" }},
+	{{ mime = "application/{{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}}", fg = "{color1}" }},
+	{{ mime = "application/{{pdf,doc,rtf}}", fg = "{color2}" }},
+	{{ mime = "vfs/{{absent,stale}}", fg = "{color4}" }},
+	{{ url = "*", fg = "{foreground}" }},
+	{{ url = "*/", fg = "{color5}" }},
+]

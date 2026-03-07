@@ -5,4 +5,4 @@ echo $paper
 nitrogen --restore 2>/dev/null
 
 # apply to wal
-wal -qnst --backend haishoku -i "$paper" && walupdate
+wal -qn --backend haishoku -i "$paper" -o "walupdate"
