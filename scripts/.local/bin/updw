@@ -9,7 +9,7 @@ if [[ -f $HOME/.cache/city ]]; then
     notify-send -u low -r 21 "$msg"
     echo $msg
   else
-    wttr_temp=$(curl "wttr.in/$city?format=1")
+    wttr_temp=$(curl -s "wttr.in/$city?format=1")
 
     # check if curl returns a temperature
     if [[ $wttr_temp == *°C* ]]; then

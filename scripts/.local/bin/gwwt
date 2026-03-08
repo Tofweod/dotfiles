@@ -1,5 +1,6 @@
-#! /bin/sh
+#!/bin/sh
 
 city=$(cat $HOME/.cache/city)
 
-echo $(curl -s "wttr.in/$city?format=1")
+wttr_temp=$(curl -s "wttr.in/$city?m&format=1")
+echo $wttr_temp
