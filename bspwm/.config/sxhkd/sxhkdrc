@@ -87,9 +87,9 @@ super + c
 super + shift + c
 	bspc node -d $TOFWEOD_BROWSER_DESKTOP --follow
 
-super + m
+super + p
   $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_MUSIC_PLAYER_DESKTOP /opt/SPlayer/SPlayer
-super + shift + m
+super + shift + p
 	bspc node -d $TOFWEOD_MUSIC_PLAYER_DESKTOP --follow
 
 super + 0
@@ -97,9 +97,9 @@ super + 0
 super + shift + 0
 	bspc node -d $TOFWEOD_TMUX_DESKTOP --follow
 
-super + minus
+super + m
   $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_MAIL_DESKTOP thunderbird
-super + shift + minus 
+super + shift + m 
 	bspc node -d $TOFWEOD_MAIL_DESKTOP --follow
 
 

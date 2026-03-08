@@ -5,8 +5,6 @@ class=$2
 instance=$3
 consequences=$4
 
-echo "wid=$wid class=$class instance=$instance consequences=$consequences" >> /tmp/bspwm-extra.log
-
 if [ "$instance" = fontforge ]; then
   title=$(xtitle "$wid")
   case "$title" in
@@ -64,6 +62,12 @@ steam_app_*)
 	echo "border=off"
     echo "locked=on"
     # echo "rectangle=2560x1440+0+0"
+  fi
+  ;;
+SPlayer)
+  eval "$consequences"
+  if [ "$(xprop -id $wid WM_NAME | cut -d= -f2 | rg '桌面歌词')" ]; then
+    echo "manage=off"
   fi
   ;;
 esac
