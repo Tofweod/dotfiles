@@ -55,8 +55,10 @@ steam)
     echo "center=on"
   fi
   ;;
-"steam_app_0")
+steam_app_*)
   eval "$consequences"
+  echo "desktop=$TOFWEOD_GAME_DESKTOP"
+  echo "state=fullscreen"
   if [ "$(xprop -id $wid WM_NAME | rg  '鸣潮')"  ]; then
     echo "state=floating"
 	echo "border=off"

@@ -171,6 +171,11 @@ super + {1-9}
 super + shift + {1-9}
 	bspc node -d '{1-9}' --follow
 
+super + g
+  bspc desktop -f $TOFWEOD_GAME_DESKTOP
+super + shift + g
+  bspc node -d $TOFWEOD_GAME_DESKTOP --follow
+
 #
 # preselect
 #
