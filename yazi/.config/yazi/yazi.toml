@@ -83,6 +83,8 @@ rules = [
 	{ mime = "image/*", use = [ "image" ] },
 	# Media
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+  # Ini
+  { mime = "application/*ini", use = [ "edit" ] },
 	# Archive
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
 	# JSON

@@ -53,16 +53,20 @@ steam)
     echo "center=on"
   fi
   ;;
+steam_app_0)
+  eval "$consequences"
+  echo "desktop=$TOFWEOD_GAME_DESKTOP"
+  if [ "$(xprop -id $wid WM_NAME | rg  '鸣潮')"  ]; then
+    echo "state=floating"
+	  echo "border=off"
+    echo "locked=on"
+    # echo "rectangle=2560x1440+0+0"
+  fi
+  ;;
 steam_app_*)
   eval "$consequences"
   echo "desktop=$TOFWEOD_GAME_DESKTOP"
   echo "state=fullscreen"
-  if [ "$(xprop -id $wid WM_NAME | rg  '鸣潮')"  ]; then
-    echo "state=floating"
-	echo "border=off"
-    echo "locked=on"
-    # echo "rectangle=2560x1440+0+0"
-  fi
   ;;
 SPlayer)
   eval "$consequences"
