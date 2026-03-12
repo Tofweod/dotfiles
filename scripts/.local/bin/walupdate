@@ -2,6 +2,10 @@
 
 # update change to relavant apps
 
+# btop
+cp $HOME/.cache/wal/btop.theme $HOME/.config/btop/themes/wal.theme
+pkill -x btop >/dev/null
+
 # bspwm
 bspc wm -r
 
@@ -16,8 +20,3 @@ pywal2chromium
 
 # yazi
 cp $HOME/.cache/wal/yazi-flavor.toml $HOME/.config/yazi/flavors/wal.yazi/flavor.toml
-
-# btop
-cp $HOME/.cache/wal/btop.theme $HOME/.config/btop/themes/wal.theme
-# reload current btop
-pkill -x btop >/dev/null && alacritty -o "font.size=16" -t statusutil --class statusutil -e btop &
