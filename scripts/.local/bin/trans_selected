@@ -1,0 +1,35 @@
+#!/bin/bash
+
+HOST=127.0.0.1
+PORT=11434
+
+timeout=10000
+
+MODEL="translategemma:4b"
+
+if ! pgrep -f "ollama serve" >/dev/null; then
+  notify-send "ollama serve not start yet."
+  exit 1
+fi
+
+if ! ollama ps | sed -n '2,$p' | rg "$MODEL"; then
+  ollama run $MODEL && notify-send "started $MODEL"
+fi
+
+TEXT=$(xclip -selection primary -t UTF8_STRING -o)
+if [ -z "$TEXT" ]; then
+  notify-send "have not select text yet."
+  exit 1
+fi
+
+prompt="You are a professional English (en) to Chinese (zh-Hans) translator. Your goal is to accurately convey the meaning and nuances of the original English text while adhering to Chinese grammar, vocabulary, and cultural sensitivities.
+Produce only the Chinese translation, without any additional explanations or commentary. Please translate the following English text into Chinese:\n\n$TEXT"
+
+json=$(jq -n --arg model "$MODEL" --arg msg "$prompt" \
+  '{model: $model, messages: [{role: "user", content: $msg}]}')
+
+response=$(curl -s -X POST http://$HOST:$PORT/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d "$json" | jq -r '.choices[0].message.content')
+
+dunstify "translate result is" "$response" -t $timeout

@@ -35,6 +35,9 @@ super + u
 alt + l
   lock
 
+ctrl + alt + t
+  $HOME/.local/bin/trans_selected
+
 # turn on powermenu
 super + ctrl + Escape
   $HOME/.config/polybar/colorblocks/scripts/powermenu.sh
