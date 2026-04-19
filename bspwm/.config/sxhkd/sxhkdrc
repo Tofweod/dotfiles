@@ -35,7 +35,8 @@ super + u
 alt + l
   lock
 
-ctrl + alt + t
+# translate selected text by ollama
+alt + e
   $HOME/.local/bin/trans_selected
 
 # turn on powermenu

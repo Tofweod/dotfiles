@@ -12,7 +12,7 @@ rofi_command="rofi -no-config -theme $dir/powermenu.rasi"
 
 # Options
 shutdown="󰐥 Shutdown"
-reboot="󰜉 Restart"
+reboot="󰜉 Reboot"
 lock="󰌾 Lock"
 suspend="󰒲 Sleep"
 logout="󰍃 Logout"

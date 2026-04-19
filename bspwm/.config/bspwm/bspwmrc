@@ -38,10 +38,12 @@ bspc rule -a "QQ" state=floating center=on
 bspc rule -a "OSD Lyrics" manage=off
 bspc rule -a "copyq" state=floating center=on
 bspc rule -a 'org.mozilla.Thunderbird' desktop=$TOFWEOD_MAIL_DESKTOP
+bspc rule -a 'steam' desktop=1
+bspc rule -a 'SPlayer' desktop=$TOFWEOD_MUSIC_PLAYER_DESKTOP
 bspc config external_rules_command $HOME/.config/bspwm/external_rules
 
 # autostart
-(pgrep -x cava >/dev/null || alacritty -o "font.size=32" -t cava --class cavautil -e cava &) &&
+(pgrep -x cava >/dev/null || alacritty -o "font.size=8" -t cava --class cavautil -e cava &) &&
   (pgrep -x btop >/dev/null || alacritty -o "font.size=16" -t statusutil --class statusutil -e btop &)
 pgrep -x xfce4-power-manager >/dev/null || xfce4-power-manager &
 pgrep -x xautolock >/dev/null || xautolock -time 30 -locker "lock" &
