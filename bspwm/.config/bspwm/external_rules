@@ -53,7 +53,7 @@ steam)
     echo "center=on"
   fi
   ;;
-steam_app_0)
+steam_app_4009635487)
   eval "$consequences"
   echo "desktop=$TOFWEOD_GAME_DESKTOP"
   if [ "$(xprop -id $wid WM_NAME | rg  '鸣潮')"  ]; then
