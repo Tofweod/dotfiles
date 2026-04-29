@@ -14,6 +14,8 @@ fi
 
 export TERM=xterm-256color
 
+export HF_ENDPOINT='https://hf-mirror.com'
+
 export LANG=en_US.UTF-8
 
 export BOOST_ROOT=/usr/local/boost_1_84_0/

@@ -5,16 +5,39 @@ PORT=11434
 
 timeout=10000
 
-MODEL="translategemma:4b"
+MODEL="translategemma-4b-it.Q8_0.gguf"
 
-if ! pgrep -f "ollama serve" >/dev/null; then
-  notify-send "ollama serve not start yet."
-  exit 1
-fi
+model_file() {
+  rootpath="$HOME/.cache/huggingface/hub/models--mradermacher--translategemma-4b-it-GGUF"
+  hash="$(cat $rootpath/refs/main)"
+  echo "$rootpath/snapshots/$hash/$MODEL"
+}
 
-if ! ollama ps | sed -n '2,$p' | rg "$MODEL"; then
-  ollama run $MODEL && notify-send "started $MODEL"
-fi
+start_server() {
+  modelpath=$(model_file)
+  llama-server --port $PORT \
+    -m "$modelpath" \
+    --no-jinja \
+    --chat-template chatml \
+    -t 8 \
+    -ngl auto \
+    -c 4096 \
+    --temp 0.1 >/dev/null 2>&1 &
+}
+
+is_server_running() {
+  lsof -i :"$PORT" >/dev/null 2>&1
+}
+
+start_model_ifneed() {
+  if ! is_server_running; then
+    dunstify "start translate server..."
+    start_server
+    sleep 3
+  fi
+}
+
+start_model_ifneed
 
 TEXT=$(xclip -selection primary -t UTF8_STRING -o)
 if [ -z "$TEXT" ]; then
