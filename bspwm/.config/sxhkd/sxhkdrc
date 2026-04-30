@@ -63,10 +63,6 @@ super + shift + ctrl + q
 super + shift + q
   $HOME/.config/sxhkd/scripts/close_or_hidden.sh
 
-# alternate between the tiled and monocle layout
-super +shift + space
-	bspc desktop -l next
-
 # send the newest marked node to the newest preselected node
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
@@ -126,7 +122,7 @@ super + d
 super + shift + d
   $HOME/.config/sxhkd/scripts/unhide_cur_desktop_window.sh
 
-# select window, used in monocle mode or when there are floating winodws
+# select window
 super + w 
   $HOME/.config/sxhkd/scripts/select_cur_desktop_window.sh
 
@@ -151,6 +147,9 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
+#toggle layout for current desktop
+super + shift + space
+  bsp-layout next --layouts  tall,grid,wide,even,rtall,rgrid,rwide
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }n
