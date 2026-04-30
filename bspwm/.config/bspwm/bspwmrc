@@ -40,12 +40,6 @@ bspc rule -a 'steam' desktop=1
 bspc rule -a 'SPlayer' desktop=$TOFWEOD_MUSIC_PLAYER_DESKTOP
 bspc config external_rules_command $HOME/.config/bspwm/external_rules
 
-# primary desktops
-read -ra desktops <<< "$TOFWEOD_PRIMARY_DESKTOPS"
-for d in "${desktops[@]}"; do
-  bsp-layout set tall $d
-done
-
 # monitor desktop
 bsp-layout set rgrid $TOFWEOD_MONITOR_DESKTOP
 

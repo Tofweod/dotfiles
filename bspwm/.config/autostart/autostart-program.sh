@@ -47,3 +47,8 @@ pgrep -x copyq >/dev/null || copyq &
 pgrep -x birdtray >/dev/null || birdtray &
 
 start_monitor
+
+read -ra desktops <<< "$TOFWEOD_PRIMARY_DESKTOPS"
+for d in "${desktops[@]}"; do
+  bsp-layout set tall $d
+done
