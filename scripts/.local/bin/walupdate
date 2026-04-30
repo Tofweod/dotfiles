@@ -6,6 +6,9 @@
 cp $HOME/.cache/wal/btop.theme $HOME/.config/btop/themes/wal.theme
 pkill -x btop >/dev/null
 
+# cava
+pkill -x cava >/dev/null
+
 # bspwm
 bspc wm -r
 
