@@ -130,10 +130,9 @@ super + w
 super + ctrl + w
   $HOME/.config/sxhkd/scripts/all_windows.sh
 
-# set the window state
-super + {space,shift + t,f,z}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
+# alternate between the tiled and monocle layout
+super +shift + o
+	bspc desktop -l next
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -147,9 +146,8 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-#toggle layout for current desktop
-super + shift + space
-  bsp-layout next --layouts  tall,grid,wide,even,rtall,rgrid,rwide
+super + {f,z,space, shift + space}
+  bspc node --state {floating,fullscreen,tiled,pseudo_tiled}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }n

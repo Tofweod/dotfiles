@@ -39,16 +39,11 @@ start_monitor() {
 pgrep -x xfce4-power-man >/dev/null || xfce4-power-manager &
 pgrep -x xautolock >/dev/null || xautolock -time 30 -locker "lock" &
 pgrep -x fcitx5 >/dev/null || fcitx5 &
-pgrep -x redshift >/dev/null || redshift &
 pgrep -x dunst >/dev/null || dunst &
 pgrep -x picom >/dev/null || picom --animations &
 pgrep -x polybar >/dev/null || $HOME/.config/bspwm/polybar/launch.sh &
 pgrep -x copyq >/dev/null || copyq &
 pgrep -x birdtray >/dev/null || birdtray &
+protonplus update all >/dev/null &
 
 start_monitor
-
-read -ra desktops <<< "$TOFWEOD_PRIMARY_DESKTOPS"
-for d in "${desktops[@]}"; do
-  bsp-layout set tall $d
-done

@@ -29,6 +29,7 @@ bspc config pointer_follows_monitor true
 bspc config -m ${SECOND_MONITER} top_padding 0
 
 bspc rule -a "floatingTerminal" state=floating
+bspc rule -a "zenity" state=floating
 bspc rule -a "scratchpad" state=floating sticky=true
 # bspc rule -a "statusutil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
 # bspc rule -a "cavautil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled

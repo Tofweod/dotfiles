@@ -1,0 +1,21 @@
+#!/bin/sh
+
+PATH_ROOT="$HOME/.cache/huggingface/hub/models--unsloth--gemma-4-E4B-it-GGUF"
+
+MODEL="gemma-4-E4B-it-Q4_K_M.gguf"
+MMPROJ="mmproj-BF16.gguf"
+
+hash="$(cat $PATH_ROOT/refs/main)"
+MODEL_ROOT="$PATH_ROOT/snapshots/$hash"
+
+echo "$MODEL_ROOT/$MODEL"
+echo "$MODEL_ROOT/$MMPROJ"
+
+llama-server -m "$MODEL_ROOT/$MODEL" \
+  -mm "$MODEL_ROOT/$MMPROJ" \
+  -t 10 \
+  -ngl all \
+  -c 16384 \
+  -ctk q8_0 \
+  -ctv q8_0 \
+  -rea on
