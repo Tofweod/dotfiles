@@ -127,11 +127,21 @@ get_md5() {
     echo "No arguments..."
     return 2
   fi
-  md5=$(echo $1 | md5sum | awk '{print $1}')
+  md5=$(echo -n $1 | md5sum | awk '{print $1}')
   echo $md5
 }
 
+get_sha256() {
+  if [[ -z "$1" ]];then
+    echo "No arguments..."
+    return 2
+  fi
+  s256=$(echo -n $1 | sha256sum | awk '{print $1}')
+  echo $s256
+}
+
 alias md5='get_md5'
+alias s256='get_sha256'
 
 alias ncdu='ncdu -e -2 -t $(nproc) --delete-command trash-put'
 
