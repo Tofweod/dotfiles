@@ -7,6 +7,7 @@ bindkey -v
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/tofweod/.zshrc'
 
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"

@@ -24,6 +24,7 @@ search_path=(
   "$HOME/.local/bin"
   "$HOME/dotfiles/bspwm/"
   "$HOME/.config/alacritty.toml"
+  "$HOME/.config/kitty/kitty.conf"
   "$HOME/.config/paru/paru.conf"
 )
 

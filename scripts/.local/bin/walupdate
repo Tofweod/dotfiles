@@ -16,7 +16,7 @@ bspc wm -r
 pywal2alacritty
 
 # brave, need to manually restart
-pywal2chromium
+#pywal2chromium
 
 # telegram
 # walogram
