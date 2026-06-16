@@ -15,6 +15,9 @@ bspc wm -r
 # alacritty
 pywal2alacritty
 
+# kitty
+kitty-reload
+
 # brave, need to manually restart
 #pywal2chromium
 

@@ -17,7 +17,7 @@ start_monitor() {
   bspc desktop -f $TOFWEOD_MONITOR_DESKTOP
 
   if not pgrep -x btop >/dev/null; then
-    alacritty -o "font.size=14" -t statusutil --class statusutil -e btop &
+    alacritty -o "font.size=11" -t statusutil --class statusutil -e btop &
     wait_for_class "statusutil"
   fi
 

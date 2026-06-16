@@ -25,7 +25,7 @@ super + ctrl + n
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty -1
 
 # program launcher
 super + u
