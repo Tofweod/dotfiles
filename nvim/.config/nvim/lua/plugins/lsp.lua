@@ -92,6 +92,6 @@ return {
     --   single_file_support = true,
     -- })
     --
-    vim.lsp.enable({ "cmake", "pyright", "lua_ls", "bashls", "autotools_ls", "ts_ls" })
+    vim.lsp.enable({ "clangd","cmake", "pyright", "lua_ls", "bashls", "autotools_ls", "ts_ls" })
   end,
 }

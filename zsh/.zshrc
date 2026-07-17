@@ -57,7 +57,7 @@ alias l='ls -l'
 
 alias la='ls -a'
 
-alias todo='rg TODO .'
+alias todo='rg TODO '
 
 
 # ranger settings

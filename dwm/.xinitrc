@@ -37,6 +37,7 @@ export TOFWEOD_MONITOR_DESKTOP=13
 # exec dwm
 # bspwm
 export DESKTOP_SESSION=bspwm
+export XDG_SESSION_TYPE=x11
 xsetroot -cursor_name left_ptr
 exec sxhkd &
 exec bspwm
