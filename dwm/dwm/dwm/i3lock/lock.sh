@@ -15,13 +15,13 @@ HELLO="                  The sense of the world must lie outside the world.
                         there were,it would be of no value."
 
 scrot $SCREEN
-magick $SCREEN -blur 5x5 - | magick - $CHARACTER -geometry +5+2310 -composite $LOCKOUT
+magick $SCREEN -blur 5x5 - | magick - $CHARACTER -geometry +5+2810 -composite $LOCKOUT
 
 i3lock \
   -i $LOCKOUT \
   --greeter-text="$HELLO" \
   --greeter-font='Monaco Nerd Font' \
-  --greeter-pos="2700:2400" \
+  --greeter-pos="2700:2900" \
   --greeter-size=35 \
   --greeter-color='#5F9EA0' \
   --insidever-color=$CLEAR \

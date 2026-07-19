@@ -31,6 +31,7 @@ bspc config -m ${SECOND_MONITER} top_padding 0
 bspc rule -a "floatingTerminal" state=floating
 bspc rule -a "zenity" state=floating
 bspc rule -a "scratchpad" state=floating sticky=true
+bspc rule -a "Localsend" monitor=${MASTER_MONITER}
 # bspc rule -a "statusutil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
 # bspc rule -a "cavautil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
 bspc rule -a "QQ" state=floating center=on
@@ -40,9 +41,6 @@ bspc rule -a 'org.mozilla.Thunderbird' desktop=$TOFWEOD_MAIL_DESKTOP
 bspc rule -a 'steam' desktop=1
 bspc rule -a 'SPlayer' desktop=$TOFWEOD_MUSIC_PLAYER_DESKTOP
 bspc config external_rules_command $HOME/.config/bspwm/external_rules
-
-# monitor desktop
-bsp-layout set rgrid $TOFWEOD_MONITOR_DESKTOP
 
 for file in ~/.config/autostart/*.sh; do
   "$file" # execute

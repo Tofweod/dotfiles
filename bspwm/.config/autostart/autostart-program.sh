@@ -16,20 +16,19 @@ start_monitor() {
   current=$(bspc query -D -d focused --names)
   bspc desktop -f $TOFWEOD_MONITOR_DESKTOP
 
-  if not pgrep -x btop >/dev/null; then
-    alacritty -o "font.size=11" -t statusutil --class statusutil -e btop &
-    wait_for_class "statusutil"
-  fi
-
-  if not pgrep -x cava >/dev/null; then
-    alacritty -o "font.size=0.5" -t cava --class cavautil -e cava \
-      -p $HOME/.config/cava/sidebar-config &
-    wait_for_class "cavautil"
-  fi
-
   if not tmux has-session -t terminal-tag 2>/dev/null; then
     alacritty -t sideterminal --class sideterminal -e tmux new -A -s terminal-tag &
     wait_for_class "sideterminal"
+  fi
+
+  if not pgrep -x cava >/dev/null; then
+    alacritty -o "font.size=1" -t cava --class cavautil -e cava-tmux &
+    wait_for_class "cavautil"
+  fi
+
+  if not pgrep -x btop >/dev/null; then
+    alacritty -o "font.size=10" -t statusutil --class statusutil -e btop &
+    wait_for_class "statusutil"
   fi
 
   sleep 1.5
