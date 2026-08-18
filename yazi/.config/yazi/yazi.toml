@@ -76,6 +76,8 @@ rules = [
 	{ url = "*.c", use = [ "vim" ] },
 	# Folder
 	{ url = "*/", use = [ "open", "reveal" ] },
+  # html
+	{ mime = "text/html", use = [ "open", "edit" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
   # Epub and PDF

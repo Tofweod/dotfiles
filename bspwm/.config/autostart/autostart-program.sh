@@ -22,7 +22,8 @@ start_monitor() {
   fi
 
   if not pgrep -x cava >/dev/null; then
-    alacritty -o "font.size=1" -t cava --class cavautil -e cava-tmux &
+    alacritty -o "font.size=1" -t cava --class cavautil -e \
+      $HOME/.local/bin/cava -p $HOME/.config/cava/sidebar-config &
     wait_for_class "cavautil"
   fi
 

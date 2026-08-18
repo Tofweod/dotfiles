@@ -1,4 +1,6 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
+export XCURSOR_THEME="ZMD2K"   
+export XCURSOR_SIZE=24
 
 # nvidia drivers settings from offical,dont change
 xrandr --setprovideroutputsource modesetting NVIDIA-0
@@ -16,7 +18,7 @@ xrandr --dpi 96
 
 xset s off
 xset s expose
-xset m 0 0
+xinput set-prop 8 289 0, 1, 0 
 
 #nitrogen
 cwp

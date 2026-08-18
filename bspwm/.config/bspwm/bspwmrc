@@ -2,7 +2,7 @@
 
 . "$HOME/.cache/wal/colors.sh"
 
-MASTER_MONITER="DP-2"
+MASTER_MONITER="DP-0"
 SECOND_MONITER="HDMI-0"
 
 pgrep -x sxhkd >/dev/null || sxhkd &
@@ -14,7 +14,7 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
 bspc config top_padding 50
-bspc config border_width 3
+bspc config border_width 4
 bspc config normal_border_color "$color1"
 bspc config active_border_color "$color2"
 bspc config focused_border_color "$color15"
@@ -31,7 +31,7 @@ bspc config -m ${SECOND_MONITER} top_padding 0
 bspc rule -a "floatingTerminal" state=floating
 bspc rule -a "zenity" state=floating
 bspc rule -a "scratchpad" state=floating sticky=true
-bspc rule -a "Localsend" monitor=${MASTER_MONITER}
+bspc rule -a "localsend" monitor=${MASTER_MONITER}
 # bspc rule -a "statusutil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
 # bspc rule -a "cavautil" desktop=$TOFWEOD_MONITOR_DESKTOP monitor=${SECOND_MONITER} state=titled
 bspc rule -a "QQ" state=floating center=on

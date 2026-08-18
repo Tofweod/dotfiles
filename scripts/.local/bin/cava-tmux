@@ -1,3 +1,0 @@
-#!/bin/bash
-
-tmux -f ~/.config/cava/sidebar-tmux.conf new-session -d -s cava-split 'cava -p ~/.config/cava/sidebar-config-left' \; split-window -v 'cava -p ~/.config/cava/sidebar-config-right' \; attach
