@@ -2,7 +2,7 @@
 
 UUID="D0A300C67B0ACC90"
 MOUNT_POINT="/mnt/wind"
-FS_TYPE="ntfs"
+FS_TYPE="ntfs3"
 
 if [ ! -d "$MOUNT_POINT" ]; then
   echo "挂载点 $MOUNT_POINT 不存在，正在创建..."
@@ -10,7 +10,7 @@ if [ ! -d "$MOUNT_POINT" ]; then
 fi
 
 echo "正在挂载 Windows 分区..."
-sudo mount -t $FS_TYPE -o uid=$(id -u),gid=$(id -g) UUID=$UUID "$MOUNT_POINT"
+sudo mount -t $FS_TYPE -o uid=$(id -u),gid=$(id -g),rw,exec,prealloc,iocharset=utf8 UUID=$UUID "$MOUNT_POINT"
 
 if [ $? -ne 0 ]; then
   exit 1
