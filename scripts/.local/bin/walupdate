@@ -9,6 +9,9 @@ pkill -x btop >/dev/null
 # cava
 pkill -x cava >/dev/null
 
+# sptlrx
+pkill -x sptlrx >/dev/null
+
 # bspwm
 bspc wm -r
 

@@ -68,7 +68,7 @@ steam_app_*)
   echo "desktop=$TOFWEOD_GAME_DESKTOP"
   echo "state=fullscreen"
   ;;
-sptlrx)
+widget)
   eval "$consequences"
   echo "state=floating"
   echo "sticky=on"
