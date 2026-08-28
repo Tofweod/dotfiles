@@ -68,11 +68,13 @@ steam_app_*)
   echo "desktop=$TOFWEOD_GAME_DESKTOP"
   echo "state=fullscreen"
   ;;
-SPlayer)
+sptlrx)
   eval "$consequences"
-  if [ "$(xprop -id $wid WM_NAME | cut -d= -f2 | rg '桌面歌词')" ]; then
-    echo "manage=off"
-  fi
+  echo "state=floating"
+  echo "sticky=on"
+  echo "focus=off"
+  echo "border=off"
+  echo "rectangle=600x250+1930+80"
   ;;
 esac
 

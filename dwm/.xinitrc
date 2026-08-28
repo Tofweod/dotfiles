@@ -35,6 +35,8 @@ export TOFWEOD_GAME_DESKTOP=12
 
 export TOFWEOD_MONITOR_DESKTOP=13
 
+export TOFWEOD_PLAYER=Feishin
+
 # dwm
 # exec dwm
 # bspwm

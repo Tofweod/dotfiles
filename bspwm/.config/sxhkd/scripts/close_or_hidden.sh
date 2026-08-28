@@ -21,6 +21,9 @@ case "$class" in
 org.mozilla.Thunderbird | thunderbird)
   should_hide=true
   ;;
+feishin)
+  should_hide=true
+  ;;
 esac
 
 if $should_hide; then

@@ -95,7 +95,7 @@ super + shift + c
 	bspc node -d $TOFWEOD_BROWSER_DESKTOP --follow
 
 super + p
-  $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_MUSIC_PLAYER_DESKTOP /opt/SPlayer/SPlayer
+  $HOME/.config/sxhkd/scripts/jump_or_run.sh $TOFWEOD_MUSIC_PLAYER_DESKTOP feishin
 super + shift + p
 	bspc node -d $TOFWEOD_MUSIC_PLAYER_DESKTOP --follow
 
@@ -109,6 +109,19 @@ super + m
 super + shift + m 
 	bspc node -d $TOFWEOD_MAIL_DESKTOP --follow
 
+# media
+# next track
+ctrl + alt + d
+  playerctl -p $TOFWEOD_PLAYER next
+# previous track
+ctrl + alt + a
+  playerctl -p $TOFWEOD_PLAYER previous
+# play-pause toggle
+ctrl + alt + p
+  playerctl -p $TOFWEOD_PLAYER play-pause
+# toggle desktop lyrics
+ctrl + alt + l
+  $HOME/.config/sxhkd/scripts/desktop_lyrics_toggle.sh
 
 # toggle bar
 super + b
