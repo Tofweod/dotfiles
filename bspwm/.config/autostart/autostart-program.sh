@@ -44,6 +44,7 @@ pgrep -x picom >/dev/null || picom --animations -b &
 pgrep -x polybar >/dev/null || $HOME/.config/bspwm/polybar/launch.sh &
 pgrep -x copyq >/dev/null || copyq &
 pgrep -x birdtray >/dev/null || birdtray &
+pgrep -x keepassxc >/dev/null || keepassxc &
 protonplus update all >/dev/null &
 
 start_monitor

@@ -13,6 +13,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export AWT_TOOLKIT=sun.awt.X11.XToolkit
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 export TERM=xterm-256color
 
 export HF_ENDPOINT='https://hf-mirror.com'
